@@ -154,6 +154,7 @@ export const createReview = (bookUser, authorUser, reviewUser, ratingStars, name
       datePost: date,
       hourPost: hour,
       likes: [],
+      comments: [],
       imageUrl: image
     })
     .then(() => {
@@ -235,3 +236,10 @@ export const like = (postID, userID) => {
 export const deletePost = (postId) => {
   return database.collection("reviews").doc(postId).delete()
 }
+
+
+export const editReview = (textEdited, reviewId) =>
+  database
+    .collection("reviews")
+    .doc(reviewId)
+    .update({ review: textEdited });

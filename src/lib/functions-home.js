@@ -118,11 +118,18 @@ export const loadPosts = () => {
               
             </div>`
 
-          if (user != doc.id) {
+          if (userId == doc.data().userId) {
             reviewTemplate += `
               <div class="optionsedition" data-option>
-              <button class="edit-delete" id="edit-post">Editar</button>
-                    <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
+                  <button class="edit-delete" id="edit-post" data-item="edit">Editar</button>
+                    <div class="confirm-delete">
+                        <div class="confirm-modal">
+                          <h1 class="h1-confirm-delete">Você quer editar este review?</h1>
+                            <button class="confirm-buttons" id="yes-edit">Editar</button>
+                              <button class="confirm-buttons" id="no-edit">Cancelar</button>
+                        </div>
+                    </div>
+                  <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
                        <div class="confirm-delete">
                         <div class="confirm-modal">
                           <h1 class="h1-confirm-delete">Você tem certeza que quer excluir esse post?</h1>
@@ -130,7 +137,7 @@ export const loadPosts = () => {
                               <button class="confirm-buttons" id="no-delete">Cancelar</button>
                         </div>
                     </div>
-                  </div>
+              </div>
                       `
           }
 
@@ -150,13 +157,29 @@ export const loadPosts = () => {
                       document.querySelector(".confirm-delete").style.display = "none"
                       post.remove()
                     })
-                    .catch(e => {
-                      console.log("erro")
+                    .catch((e) => {
+                      console.log("erro", e)
                     })
                 })
                 document.querySelector("#no-delete").addEventListener("click", () => {
                   document.querySelector(".confirm-delete").style.display = "none"
                 })
+              }
+              if (targetDataset == "edit"){
+                document.querySelector(".confirm-delete").style.display = "block"
+                allReviews.querySelector("#yes-edit").addEventListener("click", () => {
+                  console.log("caiu aqui")//chamar funcao para editar
+                    .then(() => {
+                      document.querySelector(".confirm-delete").style.display = "none" 
+                      console.log("caiu aqui 2")// post.update()     
+                    })
+                    .catch((error) => {
+                      console.log("erro", error)
+                    })
+                })
+                document.querySelector("#no-edit").addEventListener("click", () => {
+                  document.querySelector(".confirm-delete").style.display = "none"
+                })              
               }
             })
           }
