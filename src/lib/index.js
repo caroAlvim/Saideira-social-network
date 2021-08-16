@@ -242,15 +242,6 @@ export const saveReview = (userId, postId) => {
     })
 }
 
-// export const deleteSaveReview = () => {
-//   database.
-//   collection("saveReviews").doc().delete().then(() => {
-//     console.log("Document successfully deleted!");
-//   }).catch((error) => {
-//     console.error("Error removing document: ", error);
-//   });
-// }
-
 export const save = (postID, userID) => {
   let numberOfSaves
   const saveReviews = database.collection("reviews").doc(postID)
