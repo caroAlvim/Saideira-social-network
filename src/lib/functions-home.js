@@ -72,7 +72,7 @@ export const loadPosts = (functionFirebase) => {
 
           if (name != null && name != undefined) {
             userName = name
-            userName2 = userName.replace(/\s/g, '').toLowerCase();
+            userName2 = "@"+userName.replace(/\s/g, '').toLowerCase();
           } else {
             userName = "Usuário anônimo"
             userName2 = ""
@@ -375,6 +375,7 @@ export const loadPosts = (functionFirebase) => {
                 const userImage = com.userImg
                 const userName = com.userName
                 const text = com.value
+                const userIdComment = com.userId
                 const date = com.dateOfComment
                 const hour = com.hourOfComment
 

@@ -1,6 +1,7 @@
 import { currentUser, getReviews } from "../../lib/index.js"
 import { sidebar } from "../../components/sidebar/index.js"
 import { showReviewArea, publishReview, profileImage, loadPosts } from "../../lib/functions-home.js"
+import {navbar} from "../../components/navbar/index.js"
 
 
 export default () => {
@@ -83,57 +84,47 @@ export default () => {
     </div>
 
   </div>
-  <navbar  class="home-navbar" id="nav">
-      <button class="menu-mobile-btn" id="home-navbar"><img src="./img/home-navbar.png" class="menu-img"></button> 
-      <button class="menu-mobile-btn" id="add-review-navbar"><img src="./img/add-navbar.png" class="menu-img"></button>   
-      <button class="menu-mobile-btn" ><img src="./img/profile-navbar.png" class="menu-img"></button> 
-      <button class="menu-mobile-btn" id="open-sidebar"><img src="./img/menu-navbar.png" class="menu-img" ></button>  
-    </navbar/>
+ 
     
   `
   sectionElement.innerHTML = createFeedTemplate
 
   sectionElement.appendChild(sidebar())
-
-  let photo = sectionElement.querySelector(".file-img1")
-  let file = sectionElement.querySelector(".file-input")
-  let textearea = sectionElement.querySelector("#text")
-
-  photo.addEventListener("click", () => {
-    file.click()
-  })
-
-  file.addEventListener("change", (e) => {
-    textearea.style.margin = "8.5rem 0rem 0rem"
-    photo.style.margin = "2rem 0rem"
-    photo.style.height = "190%"
-    photo.style.width = "140%"
-    if (file.files.legth <= 0) {
-
-      return;
-    }
-
-    let reader = new FileReader()
-    reader.onload = () => {
-      photo.src = reader.result
-
-    }
-    reader.readAsDataURL(file.files[0])
-  })
-
-
+  sectionElement.append(navbar())
+  
+    let photo = sectionElement.querySelector(".file-img1")
+    let file = sectionElement.querySelector(".file-input")
+    let textearea = sectionElement.querySelector("#text")
+  
+    photo.addEventListener("click", () =>{
+      file.click()
+    })
+  
+    file.addEventListener("change", (e) => {
+      textearea.style.margin = "8.5rem 0rem 0rem" 
+      photo.style.margin = "2rem 0rem"
+      photo.style.height = "190%"
+      photo.style.width = "140%"
+      if(file.files.legth <= 0){
+           
+        return;
+      }
+       
+      let reader =  new FileReader()
+      reader.onload = () => {
+        photo.src = reader.result
+        
+      }
+      reader.readAsDataURL(file.files[0])
+    })
+  
+    
   const buttonAddReview = sectionElement.querySelector("#add-review")
 
   buttonAddReview.addEventListener("click", () => {
     showReviewArea()
   })
 
-  const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
-  buttonAddReviewNavbar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.scrollTo(0, 0)
-    showReviewArea()
-  })
 
   const cancelReview = sectionElement.querySelector(".cancel-btn")
   cancelReview.addEventListener("click", () => {
@@ -145,22 +136,30 @@ export default () => {
 
   })
 
+  const sidebarComponent = sectionElement.querySelector("#sidebar")
+
   const openSidebar = sectionElement.querySelector("#open-sidebar")
   openSidebar.addEventListener("click", (e) => {
     e.preventDefault()
-    const sidebar = sectionElement.querySelector("#sidebar")
-    sidebar.style.display = "block"
-    sidebar.classList.remove("sidebar-desktop")
-
+    sidebarComponent.style.display = "block"
+    sidebarComponent.classList.remove("sidebar-desktop")
+    
   })
 
-  const buttonHomeNavbar = sectionElement.querySelector("#home-navbar")
-  buttonHomeNavbar.addEventListener("click", (e) => {
+const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
+  buttonAddReviewNavbar.addEventListener("click", (e) => {
     e.preventDefault()
     window.scrollTo(0, 0)
-
+    showReviewArea()
   })
 
+  const buttonAddReviewSidebar = sectionElement.querySelector("#add-review-sidebar")
+  buttonAddReviewSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    sidebarComponent.style.display = "none"
+    window.scrollTo(0, 0)
+    showReviewArea()
+  })
 
 
 
@@ -168,9 +167,13 @@ export default () => {
   //const logoutBtn = sectionElement.querySelector("#logout-btn")
 
   createReviewBtn.addEventListener("click", publishReview)
+  const deleteComment = sectionElement.querySelectorAll("[data-delete-comment")
+  console.log(deleteComment)
 
 
   loadPosts(getReviews())
+
+  
 
   return sectionElement
 }

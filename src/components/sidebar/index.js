@@ -34,8 +34,8 @@ export const sidebar = () => {
 
   if (userNameFirebase != null && userNameFirebase != undefined) {
     userName = userNameFirebase
-    userName2 = userName.replace(/\s/g, '').toLowerCase();
-
+    userName2 = "@"+userName.replace(/\s/g, '').toLowerCase();
+    
   } else {
     userName = "Usuário anônimo"
     userName2 = ""
@@ -59,7 +59,7 @@ export const sidebar = () => {
       </section>
       <section class="sidebar-profile">
         <div class="profile-line">
-          <p class="sidebar-text">Perfil</p>
+          <p class="sidebar-text sidebar-btn" id="profile-sidebar">Perfil</p>
           <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
         </div>
         <div class="sidebar-line review-line">
@@ -68,10 +68,10 @@ export const sidebar = () => {
         </div>
       </section>
       <section class="sidebar-tools sidebar-add-review">
-        <button href="" class="sidebar-btn sidebar-btn-mobile">
+        <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
           <div class="sidebar-div-links">
-            <img src="../../img/add.png" alt="">
-            <p class="sidebar-text id="sidebar-review" >Adicionar resenha</p>
+            <img class="sidebar-review-image" src="../../img/add.png" alt="">
+            <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
           </div>
         </button>
       </section>
@@ -80,7 +80,7 @@ export const sidebar = () => {
         <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
           <div class="sidebar-div-links">
             <img src="../../img/save.png" alt="" class="save-sidebar">
-            <p class="sidebar-text id="sidebar-review" >Salvos</p>
+            <p class="sidebar-text" id="save-sidebar-text" >Salvos</p>
           </div>
         </button>
       </section>
@@ -120,7 +120,17 @@ export const sidebar = () => {
   const logoutBtn = asideElement.querySelector("#logout-btn-sidebar")
   const editProfileLink = asideElement.querySelector("#edit-profile-link")
   const savedBtnSidebar = asideElement.querySelector("#saved-btn-sidebar")
+  const profileSidebar = asideElement.querySelector("#profile-sidebar")
+  
+  profileSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/perfil")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
 
+  })
 
   editProfileLink.addEventListener("click", (e) => {
     e.preventDefault()
@@ -164,12 +174,12 @@ export const sidebar = () => {
   })
 
 
-  const buttonAddReviewSidebar = asideElement.querySelector(".sidebar-btn")
-  buttonAddReviewSidebar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.scrollTo(0, 0)
-    showReviewArea()
-  })
+  // const buttonAddReviewSidebar = asideElement.querySelector("#add-review-sidebar")
+  // buttonAddReviewSidebar.addEventListener("click", (e) => {
+  //   e.preventDefault()
+  //   window.scrollTo(0, 0)
+  //   showReviewArea()
+  // })
 
   // const showSideBar = asideElement.querySelector(".sidebar-container") 
   // showSideBar.addEventListener('mouseover', () => {
