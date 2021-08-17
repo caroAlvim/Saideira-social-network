@@ -58,11 +58,22 @@ export const sidebar = () => {
         </div>
         
       </section>
+    
       <section class="sidebar-profile">
         <div class="sidebar-line review-line">
           <p class="sidebar-text">Número de resenhas</p>
           <div class="num"><p class="num-text">3</p></div>
         </div>
+
+        <section class="sidebar-tools sidebar-add-review">
+        <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
+          <div class="sidebar-div-links">
+            <img class="sidebar-review-image" src="../../img/add.png" alt="">
+            <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
+          </div>
+        </button>
+      </section>
+
         <div class="profile-line sidebar-btn">
         <img src="./img/profile-navbar.png" class="menu-img-side-bar"/>
         <p class="sidebar-text" id="profile-sidebar">Perfil</p>
@@ -77,15 +88,6 @@ export const sidebar = () => {
           </div>
         </button>
       </section>
-      
-      <section class="sidebar-tools sidebar-add-review">
-      <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
-        <div class="sidebar-div-links">
-          <img class="sidebar-review-image" src="../../img/add.png" alt="">
-          <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
-        </div>
-      </button>
-    </section>
 
       <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
         <button class="sidebar-btn" id="logout-btn-sidebar"> 
