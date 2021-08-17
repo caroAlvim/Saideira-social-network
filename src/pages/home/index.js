@@ -1,4 +1,4 @@
-import { currentUser, getReviews} from "../../lib/index.js"
+import { currentUser, getReviews } from "../../lib/index.js"
 import { sidebar } from "../../components/sidebar/index.js"
 import { showReviewArea, publishReview, profileImage, loadPosts } from "../../lib/functions-home.js"
 import {navbar} from "../../components/navbar/index.js"
@@ -6,24 +6,23 @@ import {navbar} from "../../components/navbar/index.js"
 
 export default () => {
 
-  
+
   const sectionElement = document.createElement("section")
   sectionElement.setAttribute("class", "home-content")
 
   const user = currentUser()
   const userId = user.uid
-  
+
   const profileImg = profileImage()
 
-  let userName 
+  let userName
   let userName2
   const userNameFirebase = user.displayName
-  console.log(userNameFirebase)
 
   if (userNameFirebase != null && userNameFirebase != undefined) {
     userName = userNameFirebase
     userName2 = userName.replace(/\s/g, '').toLowerCase();
-  
+
   } else {
     userName = "Usuário anônimo"
     userName2 = ""
@@ -134,7 +133,7 @@ export default () => {
     sectionElement.querySelector(".button-make-review").style.display = "block";
     sectionElement.querySelector(".make-review").style.background = "linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)";
     sectionElement.querySelector(".p-make-review").style.display = "block"
-  
+
   })
 
   const sidebarComponent = sectionElement.querySelector("#sidebar")
@@ -164,17 +163,17 @@ const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
 
 
 
-
-
-  
-
-   const createReviewBtn = sectionElement.querySelector("[data-publish-btn]")
+  const createReviewBtn = sectionElement.querySelector("[data-publish-btn]")
   //const logoutBtn = sectionElement.querySelector("#logout-btn")
 
-  createReviewBtn.addEventListener ("click", publishReview)
+  createReviewBtn.addEventListener("click", publishReview)
+  const deleteComment = sectionElement.querySelectorAll("[data-delete-comment")
+  console.log(deleteComment)
+
+
+  loadPosts(getReviews())
+
   
-  
-  loadPosts(getReviews())  
 
   return sectionElement
 }

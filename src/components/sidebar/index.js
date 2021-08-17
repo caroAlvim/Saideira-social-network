@@ -28,10 +28,9 @@ export const sidebar = () => {
     profileImg = "./img/default-img.png"
   }
 
-  let userName 
+  let userName
   let userName2
   const userNameFirebase = user.displayName
-  console.log(userNameFirebase)
 
   if (userNameFirebase != null && userNameFirebase != undefined) {
     userName = userNameFirebase
@@ -42,7 +41,7 @@ export const sidebar = () => {
     userName2 = ""
   }
 
- 
+
 
 
 
@@ -107,13 +106,13 @@ export const sidebar = () => {
   //   </a>
   // </section>
 
-  
-//   <div class="sidebar-line">
-//   <p class="sidebar-text">Número de curtidas</p>
-//   <div class="num"><p class="num-text">9</p></div>
-// </div>
 
-// </section>
+  //   <div class="sidebar-line">
+  //   <p class="sidebar-text">Número de curtidas</p>
+  //   <div class="num"><p class="num-text">9</p></div>
+  // </div>
+
+  // </section>
 
 
   asideElement.innerHTML = sidebarTemplate
