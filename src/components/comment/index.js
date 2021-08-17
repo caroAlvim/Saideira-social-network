@@ -1,4 +1,3 @@
-
 export const comment = (userImage, name, text, completeDate, hour) => {
 
   const sectionElement = document.createElement("section")

@@ -132,7 +132,6 @@ export const loadPosts = (functionFirebase) => {
               <button  class="comment-btn" ><img class="comment" src="./img/comment-btn.png"  data-item="comment"/></button>
                 <div class="save" id="save-${postId}"><img class="icon-save"src="img/save-navbar.png"/></div>
                 <span class="num-saves">${reviewSaves.length}</span>
-
                 <div class="optionsedition" id="edition-${postId}" data-option style="display:none">
                 <div class="container-edit-btns">
                   <button class="edit-delete" id="edit-post">Editar</button>
@@ -161,7 +160,6 @@ export const loadPosts = (functionFirebase) => {
                     <button class="send-comment" data-item="send-comment">Publicar</button>
                     <div>
                 </div>
-
               </div>
               
             </div>`
