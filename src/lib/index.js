@@ -265,3 +265,9 @@ export const getSavedReviews = () => {
   return database
     .collection('reviews').where("saves", "array-contains", firebase.auth().currentUser.uid).get()
 }
+
+export const getProfileReviews = (userId) => {
+  
+  return database
+    .collection('reviews').where("userId", "==", userId).get()
+}

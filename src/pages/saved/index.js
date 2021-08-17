@@ -1,6 +1,8 @@
 import { currentUser, getSavedReviews} from "../../lib/index.js"
 import { sidebar } from "../../components/sidebar/index.js"
-import {profileImage, loadPosts } from "../../lib/functions-home.js"
+import {profileImage, loadPosts, showReviewArea } from "../../lib/functions-home.js"
+import { navbar } from "../../components/navbar/index.js"
+import home from "../home/index.js"
 
 
 export default () => {
@@ -8,28 +10,11 @@ export default () => {
   const sectionElement = document.createElement("section")
   sectionElement.setAttribute("class", "home-content")
 
-  // const user = currentUser()
-  // const userId = user.uid
-  
-  // const profileImg = profileImage()
 
-  // let userName 
-  // let userName2
-  // const userNameFirebase = user.displayName
-  // console.log(userNameFirebase)
-
-  // if (userNameFirebase != null && userNameFirebase != undefined) {
-  //   userName = userNameFirebase
-  //   userName2 = userName.replace(/\s/g, '').toLowerCase();
-  //   console.log("definido")
-  // } else {
-  //   userName = "Usuário anônimo"
-  //   userName2 = ""
-  // }
   const savedTemplate = `
   <div class="home-container">
    
-    <header>
+    <header >
       <p class="header-home">Bookish</p>
       <img class="favicon-home" src="img/favicon.png">
     </header>
@@ -43,19 +28,84 @@ export default () => {
     <div data-all-reviews class= "all-reviews">
     
     </div>
-
-    <navbar  class="home-navbar" id="nav">
-        <button class="menu-mobile-btn" id="home-navbar"><img src="./img/home-navbar.png" class="menu-img"></button> 
-        <button class="menu-mobile-btn" id="add-review-navbar"><img src="./img/add-navbar.png" class="menu-img"></button>   
-        <button class="menu-mobile-btn" ><img src="./img/profile-navbar.png" class="menu-img"></button> 
-        <button class="menu-mobile-btn" id="open-sidebar"><img src="./img/menu-navbar.png" class="menu-img" ></button>  
-      </navbar/>
-      
+    
   `
   sectionElement.innerHTML = savedTemplate
 
   sectionElement.appendChild(sidebar())
-  
+  sectionElement.appendChild(navbar())
+
+  sectionElement.querySelector(".save-sidebar").src="../../img/home.png"
+  sectionElement.querySelector(".save-sidebar").style.width="2.5rem"
+  sectionElement.querySelector("#save-sidebar-text").innerText="Home"
+
+  const homeBtnSidebar = sectionElement.querySelector("#saved-btn-sidebar")
+  homeBtnSidebar.addEventListener("click", (e) => {
+      e.preventDefault()
+      window.history.pushState(null, null, "/home")
+      const popStateEvent = new PopStateEvent("popstate", {
+        state: {}
+      })
+      dispatchEvent(popStateEvent)
+     
+    })
+
+  const openSidebar = sectionElement.querySelector("#open-sidebar")
+  openSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    const sidebar = sectionElement.querySelector("#sidebar")
+    sidebar.style.display = "block"
+    sidebar.classList.remove("sidebar-desktop")
+    
+  })
+
+
+
+  const buttonHomeNavbar = sectionElement.querySelector("#home-navbar")
+  buttonHomeNavbar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/home")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+   
+  })
+
+  const buttonProfileNavbar = sectionElement.querySelector("#profile-navbar")
+  buttonProfileNavbar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/perfil")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+   
+  })
+
+  const buttonAddReviewSidebar = sectionElement.querySelector("#add-review-sidebar")
+  buttonAddReviewSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    sectionElement.innerHTML=""
+    sectionElement.append(home())
+    window.scrollTo(0,0)
+    showReviewArea()
+    window.history.pushState(null, null, "/home")
+    
+    
+  })
+
+  const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
+  buttonAddReviewNavbar.addEventListener("click", (e) => {
+    e.preventDefault()
+    sectionElement.innerHTML=""
+    sectionElement.append(home())
+    window.scrollTo(0,0)
+    showReviewArea()
+    window.history.pushState(null, null, "/home")
+    
+  })
+ 
 
   loadPosts(getSavedReviews())
  
