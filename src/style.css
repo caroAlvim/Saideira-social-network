@@ -4,7 +4,6 @@
     --text-color: rgb(70, 60, 75);
     --dark-purple: #894796;
     --default-blue: #515fad;
-
 }
 
 * {
@@ -17,7 +16,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 90vw;
     font-size: 1.6rem;
 }
 
@@ -452,7 +451,6 @@ a:hover {
     color: white;
     display: flex;
     justify-content: center;
-    overflow: scroll;
 
 }
 
@@ -507,22 +505,23 @@ a:hover {
 }
 
 .sidebar-user-img {
-    width: 12rem;
-    height: 12rem;
+    width: 11rem;
+    height: 11rem;
     border-radius: 100%;
     object-fit: cover;
-    border: double 3px transparent;
+    border: double 0.3rem transparent;
     border-radius: 50%;
     background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5755b9 0%, #3180a5 53.12%, #65a4b8 100%);
+        linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
     align-self: center;
-
 }
 
+
+
 .user-information {
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -532,17 +531,17 @@ a:hover {
 
 .sidebar-user-name {
     align-self: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .sidebar-user {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: rgb(200, 231, 255);
 }
 
 .sidebar-profile {
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-top: solid 1px white;
     display: flex;
     flex-direction: column;
@@ -552,11 +551,17 @@ a:hover {
 .profile-line {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: center;
+    width: 100;
     align-items: center;
-    margin-bottom: 2.5rem;
+    text-align: center;
+    margin: 1.5rem 0rem 0.5rem;
+    padding: 0rem 0rem 0rem 0rem;
+    border-top: 1px white solid;
+}
 
+.sidebar-add-review {
+    border-bottom: 1px solid white;
 }
 
 .sidebar-line {
@@ -564,12 +569,14 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding: 0.6rem 0rem 1.5rem;
 }
 
 #edit-profile-link {
     color: rgb(200, 231, 255);
     font-size: 1.4rem;
+    text-align: center;
+    margin: 0.5rem 0rem 0rem 0rem;
 }
 
 #edit-profile-link:hover {
@@ -672,10 +679,11 @@ a:hover {
     display: flex;
     justify-content: center;
     width: 80vw;
+    min-height: 100vh;
 }
 
 .home-container {
-    background-color: #ffffff;
+
     align-items: unset;
     justify-content: unset;
     width: 80%;
@@ -703,7 +711,7 @@ header {
 }
 
 .timeline {
-    margin: 0.5rem 0rem;
+    margin: 0rem 0rem;
 }
 
 .favicon-home {
@@ -716,7 +724,8 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0px 0px 0.5rem;
+    padding: 0.5rem 0rem;
+    background-color: white;
 }
 
 .photo-profile-feed {
@@ -771,12 +780,13 @@ header {
 }
 
 .posts-reviews {
-    margin: 1rem;
-    padding: 1rem;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+    margin: 2rem 0;
+    padding: 2rem 1rem;
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: 1px 1px 10px #888888;
 }
 
 .data-post {
@@ -844,12 +854,12 @@ header {
     height: 7rem;
     object-fit: cover;
     align-self: center;
-    border: double 2.5px transparent;
+    border: 2px solid rgb(89, 136, 189);
     border-radius: 50%;
-    background-image: linear-gradient(white, white),
+    /* background-image: linear-gradient(white, white),
         linear-gradient(360deg, #5755b9 0%, #3180a5 53.12%, #65a4b8 100%);
     background-origin: border-box;
-    background-clip: content-box, border-box;
+    background-clip: content-box, border-box; */
 
 }
 
@@ -1098,12 +1108,9 @@ header {
     align-self: center;
     margin-right: 0.5rem;
     object-fit: cover;
-    border: double 2px transparent;
+    border: 2px solid rgb(89, 136, 189);
     border-radius: 50%;
-    background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5755b9 0%, #3180a5 53.12%, #65a4b8 100%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
+
 
 }
 
@@ -1148,6 +1155,24 @@ header {
 
 .comment-text-form {
     align-items: center;
+}
+
+.options-edition-comment {
+    width: 92.5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.delete-post-comment {
+    /* display: none;  */
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--default-blue);
+    font-size: 1.2rem;
+    margin: 1.5rem 0rem 0rem 0rem;
+    padding: 0rem;
 }
 
 
@@ -1379,20 +1404,89 @@ header {
 
 }
 
-.options-edition-comment {
-    width: 92.5%;
+.profile-content {
+    background-color: #f0f0f0;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+
 }
 
-#delete-post-comment {
-    display: inline-block;
+.profile-container {
+    width: 70%;
+}
+
+.photo-profile-div {
+    width: 100%;
+    height: 17rem;
+    padding-top: 10rem;
+    margin-top: -2rem;
+    /* background:linear-gradient(180deg, #415792 0%, #4c65ac 25%, #5d9cb9 70%, #60aaca 90%);  */
+    background-image: url(img/book.jpg);
+    /* background-image: url(img/books.jpg);  */
+    background-size: cover;
+    background-position: right;
+
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.head-profile {
+    text-align: center;
+}
+
+.photo-profile {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    align-self: center;
+    border: double 0.3rem transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(white, white),
+        linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    align-self: center;
+}
+
+.user-name-profile {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+
+}
+
+.btn-home-profile {
+
     cursor: pointer;
-    border: none;
     background-color: transparent;
-    color: var(--default-blue);
-    font-size: 1.2rem;
-    margin: 1.5rem 0rem 0rem 0rem;
-    padding: 0rem;
+    border: none;
+    margin-right: 2rem;
+}
+
+.icon-home {
+    width: 2.5rem;
+}
+
+.btn-home-profile:hover {
+    filter: brightness(130%);
+    transition: 1s;
+}
+
+.home-profile-text {
+    color: #3A81C2;
+
+
+}
+
+.menu-img-side-bar {
+    cursor: pointer;
+    filter: brightness(450%);
+    width: 3rem;
+    height: 3rem;
+    margin: 0rem 0.5rem 0rem 0rem;
 }

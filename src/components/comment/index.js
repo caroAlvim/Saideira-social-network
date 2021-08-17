@@ -35,7 +35,7 @@ export const comment = (userImage, name, text, completeDate, hour) => {
       </div>
       <p class="comment-content">${text}</p>
     <div class="options-edition-comment">
-      <button class="edit-delete-comment" id="delete-post-comment" data-item="delete-comment">Excluir</button>
+      <button class="edit-delete-comment delete-post-comment" data-item="delete-comment">Excluir</button>
       <div class="confirm-delete-comment">
         <div class="confirm-modal-comment">
           <h1 class="h1-confirm-delete-comment">Você tem certeza que quer excluir esse comentário?</h1>
@@ -47,7 +47,9 @@ export const comment = (userImage, name, text, completeDate, hour) => {
     </div>
 `
 
+ 
   sectionElement.innerHTML = commentTemplate
+  
 
   return sectionElement
 

@@ -34,7 +34,7 @@ export const sidebar = () => {
 
   if (userNameFirebase != null && userNameFirebase != undefined) {
     userName = userNameFirebase
-    userName2 = userName.replace(/\s/g, '').toLowerCase();
+    userName2 = "@" + userName.replace(/\s/g, '').toLowerCase();
 
   } else {
     userName = "Usuário anônimo"
@@ -51,40 +51,43 @@ export const sidebar = () => {
       <section class="user-data">
       
         <img src="${profileImg}"   class="sidebar-user-img"/>
+        <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
         <div class="user-information">
           <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
           <p class="sidebar-user sidebar-text">${userName2}</p>
         </div>
         
       </section>
+    
       <section class="sidebar-profile">
-        <div class="profile-line">
-          <p class="sidebar-text">Perfil</p>
-          <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
-        </div>
         <div class="sidebar-line review-line">
           <p class="sidebar-text">Número de resenhas</p>
           <div class="num"><p class="num-text">3</p></div>
         </div>
-      </section>
-      <section class="sidebar-tools sidebar-add-review">
-        <button href="" class="sidebar-btn sidebar-btn-mobile">
+
+        <section class="sidebar-tools sidebar-add-review">
+        <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
           <div class="sidebar-div-links">
-            <img src="../../img/add.png" alt="">
-            <p class="sidebar-text id="sidebar-review" >Adicionar resenha</p>
+            <img class="sidebar-review-image" src="../../img/add.png" alt="">
+            <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
           </div>
         </button>
+      </section>
+
+        <div class="profile-line sidebar-btn">
+        <img src="./img/profile-navbar.png" class="menu-img-side-bar"/>
+        <p class="sidebar-text" id="profile-sidebar">Perfil</p>
+        </div>
       </section>
 
       <section class="sidebar-tools sidebar-saved">
         <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
           <div class="sidebar-div-links">
             <img src="../../img/save.png" alt="" class="save-sidebar">
-            <p class="sidebar-text id="sidebar-review" >Salvos</p>
+            <p class="sidebar-text" id="save-sidebar-text" >Salvos</p>
           </div>
         </button>
       </section>
-
 
       <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
         <button class="sidebar-btn" id="logout-btn-sidebar"> 
@@ -120,7 +123,28 @@ export const sidebar = () => {
   const logoutBtn = asideElement.querySelector("#logout-btn-sidebar")
   const editProfileLink = asideElement.querySelector("#edit-profile-link")
   const savedBtnSidebar = asideElement.querySelector("#saved-btn-sidebar")
+  const profileSidebar = asideElement.querySelector("#profile-sidebar")
+  const profileSideBar = asideElement.querySelector(".menu-img-side-bar")
 
+  profileSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/perfil")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+
+  })
+
+  profileSideBar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/perfil")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+
+  })
 
   editProfileLink.addEventListener("click", (e) => {
     e.preventDefault()
@@ -164,12 +188,12 @@ export const sidebar = () => {
   })
 
 
-  const buttonAddReviewSidebar = asideElement.querySelector(".sidebar-btn")
-  buttonAddReviewSidebar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.scrollTo(0, 0)
-    showReviewArea()
-  })
+  // const buttonAddReviewSidebar = asideElement.querySelector("#add-review-sidebar")
+  // buttonAddReviewSidebar.addEventListener("click", (e) => {
+  //   e.preventDefault()
+  //   window.scrollTo(0, 0)
+  //   showReviewArea()
+  // })
 
   // const showSideBar = asideElement.querySelector(".sidebar-container") 
   // showSideBar.addEventListener('mouseover', () => {

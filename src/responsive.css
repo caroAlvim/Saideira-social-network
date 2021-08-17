@@ -168,7 +168,7 @@
 
     }
 
-    .home-container {
+    .home-container, .profile-container {
         margin-bottom: 6rem;
     }
 
@@ -183,6 +183,11 @@
 
     }
 
+    #save-navbar-img{
+        width:2.5rem;
+    }
+
+
     .close-mobile-sidebar {
         display: block;
     }
@@ -193,7 +198,7 @@
 
     .sidebar {
         display: none;
-        z-index: 2;
+        z-index: 200;
     }
 
     .sidebar-container {
@@ -205,14 +210,15 @@
         background: linear-gradient(359.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%);
         padding: 3rem;
     }
+
+    .profile-container{
+        width:80%;
+    }
 }
 
 @media (max-width: 1024px) and (min-width:496px) {
 
-    #sidebar {
-        z-index: 2;
-    }
-
+   
 
 
     .mobile-menu {
@@ -339,8 +345,9 @@
         width: 50%;
     }
 
-
-
+    .profile-container{
+        width:90%;
+    }
 }
 
 /* menu home modal */
@@ -444,7 +451,7 @@
         font-size: 12px;
     }
 
-    .home-container {
+    .home-container, .profile-container {
         width: 100%;
         box-sizing: border-box;
     }
