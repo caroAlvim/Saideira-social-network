@@ -73,7 +73,7 @@ export const loadPosts = (functionFirebase) => {
 
           if (name != null && name != undefined) {
             userName = name
-            userName2 = "@"+userName.replace(/\s/g, '').toLowerCase();
+            userName2 = "@" + userName.replace(/\s/g, '').toLowerCase();
           } else {
             userName = "Usuário anônimo"
             userName2 = ""
@@ -343,7 +343,7 @@ export const loadPosts = (functionFirebase) => {
               }
 
             }
-            if (targetDataset == "edit"){
+            if (targetDataset == "edit") {
               openReviewEdit(postId)
             }
           })
@@ -456,39 +456,39 @@ export const publishReview = (e) => {
 
   } else {
     createReview(bookName, authorName, valueReview, starsEvaluation, userNameFirebase, null, completeDate, hour)
-    .then(() => {
-      loadPosts(getReviews())
-    })
-}
+      .then(() => {
+        loadPosts(getReviews())
+      })
+  }
 }
 
 export const likePost = (target, postId) => {
-const user = currentUser()
-const userId = user.uid
+  const user = currentUser()
+  const userId = user.uid
 
 
-target.classList.toggle('active');
+  target.classList.toggle('active');
 
-const numLikesDiv = target.nextSibling.nextSibling
-let updatedNumLikes
-getPost(postId)
-  .then((review) => {
-    const likesArray = review.data().likes
-    if (likesArray.indexOf(userId) === -1) {
-      updatedNumLikes = likesArray.length + 1
-    } else {
-      updatedNumLikes = likesArray.length - 1
-    }
-    numLikesDiv.innerText = updatedNumLikes
-    like(postId, userId)
+  const numLikesDiv = target.nextSibling.nextSibling
+  let updatedNumLikes
+  getPost(postId)
+    .then((review) => {
+      const likesArray = review.data().likes
+      if (likesArray.indexOf(userId) === -1) {
+        updatedNumLikes = likesArray.length + 1
+      } else {
+        updatedNumLikes = likesArray.length - 1
+      }
+      numLikesDiv.innerText = updatedNumLikes
+      like(postId, userId)
 
-  })
-  .catch(() => {
-    alert("Falha ao curtir o post! Tente novamente.")
+    })
+    .catch(() => {
+      alert("Falha ao curtir o post! Tente novamente.")
 
-  })
+    })
 
-  
+
 }
 
 export const openReviewEdit = (reviewId) => {
@@ -504,7 +504,7 @@ export const openReviewEdit = (reviewId) => {
     //   if(imgData == null){
     //     document.querySelector(".container-file-img1").style.display = "none"
     //   }
-      console.log("review escolhido:", reviewId)
+    console.log("review escolhido:", reviewId)
 
     const contentEdit = `               
                     <div >
@@ -515,10 +515,8 @@ export const openReviewEdit = (reviewId) => {
                             <textarea class="review-input-edit" data-book-edit type="text" id="book-name-edit" required>${post.data().book}</textarea>
                             <label class="review-label" for="book-author-edit">Autor</label>
                             <textarea class="review-input-edit" data-author-edit type="text" id="book-author-edit" required>${post.data().author}</textarea>
-
                             <textarea class="post-input-edit" id="review" cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
                           </div>
-
                          <label class="review-rating">Avalie</label>
                          <div class="stars-edit" >
                           <input type="radio" id="star-empty" name="stars" value="${post.data().rating}" checked/>
@@ -534,38 +532,38 @@ export const openReviewEdit = (reviewId) => {
                           <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/>  
                         </div>
                         <div class="align-btn">
-                          <button class="confirm-buttons" id="yes-edit" data-edit-send >Enviar</button>
-                          <button class="confirm-buttons" id="no-edit">Cancelar</button>
+                          <button class="confirm-buttons-edit" id="yes-edit" data-edit-send >Editar</button>
+                          <button class="confirm-buttons-edit" id="no-edit">Cancelar</button>
                         </div>
                     </div>`
 
 
     modalEdit.innerHTML = contentEdit
-    
+
     const sendEdit = document.querySelector("[data-edit-send]")
 
-    sendEdit.addEventListener("click", () =>{
+    sendEdit.addEventListener("click", () => {
 
       const bookNameEdited = document.querySelector("[data-book-edit]").value
       const authorNameEdited = document.querySelector("[data-author-edit]").value
       const starsEvaluationEdited = document.querySelector("[data-stars-form]:checked").value
       const reviewUserNew = document.querySelector("[data-review-edit]").value
       //const imageEdited = funcao de uploadimage
-      
+
 
       editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
-        document.querySelector(".confirm-edit").style.display = "none"      
-      }).then(()=>{
-        loadPosts(getReviews())
-        
-      }) 
-           
-    })
-      document.querySelector("#no-edit").addEventListener("click", () => {
         document.querySelector(".confirm-edit").style.display = "none"
-        console.log("cancelou")
+      }).then(() => {
+        loadPosts(getReviews())
+
       })
-      
+
+    })
+    document.querySelector("#no-edit").addEventListener("click", () => {
+      document.querySelector(".confirm-edit").style.display = "none"
+      console.log("cancelou")
+    })
+
   })
-  
+
 }

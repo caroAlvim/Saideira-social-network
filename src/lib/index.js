@@ -240,10 +240,11 @@ export const editReview = (authorEdited, bookEdited, textEdited, starsRatingEdit
   return database
     .collection("reviews")
     .doc(reviewId)
-    .update({ author: authorEdited,
+    .update({
+      author: authorEdited,
       book: bookEdited,
       review: textEdited,
-      rating: starsRatingEdited 
+      rating: starsRatingEdited
     }).then(() => {
       console.log("Document successfully updated!");
     })
