@@ -350,9 +350,10 @@ a:hover {
 .review-input {
     border: none;
     border-radius: 10px;
-    padding: 1.2rem;
+    padding: 1rem;
     font-size: 1.2rem;
     outline: none;
+    font-size: 13px;
 }
 
 .review-label {
@@ -371,7 +372,7 @@ a:hover {
     border: none;
 }
 
-.review-available {
+.review-rating {
     font-size: 1.9rem;
     color: #ffffff;
     text-align: center;
@@ -1258,8 +1259,11 @@ header {
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    font-size: 1.3rem;
-    margin: 0.5rem 6.5rem;
+    font-size: 1.7rem;
+    /*margin: 0.5rem 6.5rem;*/
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
     color: var(--dark-purple);
 }
 
@@ -1283,6 +1287,104 @@ header {
 .saved {
     animation: animateHeart 1s;
     filter: brightness(100%) contrast(0%);
+}
+
+/* modal de edit*/
+.confirm-edit {
+    width: 100vw;
+    height: 100vh;
+    padding: 5rem;
+    background: #2e1c5762;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    display: none
+}
+
+.h1-confirm-edit {
+    color: #ffffff;
+    font-size: 2rem;
+    padding: 1rem 0rem;
+    align-items: center;
+    text-align: center;
+}
+
+.confirm-modal-edit {
+    width: 100%;
+    background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
+    border-radius: 20px;
+    padding: 2rem;
+    display: grid;
+    justify-content: center;
+    position: relative;
+    min-width: 300px;
+}
+.content-text{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    position: relative;
+    min-width: 250px;
+}
+
+@keyframes confirm-modal-edit{
+    from {
+        opacity: 0;
+        transform: translate3d(0,-60px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.review-input-edit {
+    border-radius: 10px;
+    padding: 1rem 1rem 0rem;
+    font-size: 13px;
+}
+
+
+.post-input-edit {
+    margin: 2rem 0rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.7rem;
+    
+}
+
+.align-btn {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 1rem;
+   align-items: center;
+}
+
+.stars-edit input[type=radio] {
+    display: none;
+}
+
+.stars-edit label.stars {
+    cursor: pointer;
+    font-size: 5rem;
+    color: #e7e7e7;
+}
+
+.stars-edit label.stars:before {
+    content: '★';
+    color: #FC0;
+}
+
+.stars-edit input[type=radio]:checked~label.stars:before {
+    color: #e6f5ff;
+}
+
+.stars-edit {
+    border-bottom: 1px solid #fafafa;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .saved-items {
