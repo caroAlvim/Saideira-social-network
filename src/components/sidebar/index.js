@@ -2,10 +2,7 @@ import {
   currentUser,
   logout
 } from "../../lib/index.js"
-import {
-  showReviewArea
-} from "../../lib/functions-home.js"
-import saved from "../../pages/saved/index.js"
+
 
 
 export const sidebar = () => {
