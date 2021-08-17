@@ -5,7 +5,10 @@ import {
   getReviews,
   getPost,
   like,
-  deletePost
+  deletePost,
+  saveReview,
+  save,
+  editReview
 } from "./index.js"
 
 
@@ -34,7 +37,6 @@ export const profileImage = () => {
 }
 
 
-
 export const loadPosts = () => {
   const user = currentUser()
   const userId = user.uid
@@ -60,7 +62,7 @@ export const loadPosts = () => {
           const rating = doc.data().rating
           const reviewContent = doc.data().review
           const reviewLikes = doc.data().likes
-
+          const reviewSaves = doc.data().saves
 
 
 
@@ -114,27 +116,28 @@ export const loadPosts = () => {
               <div class="likes-container">
                 <div class="like" id="like-${postId}">&#10084;</div>
                 <span class="num-likes">${reviewLikes.length}</span>
+                <div class="save" id="save-${postId}"><img class="icon-save"src="img/save-navbar.png"/></div>
+                <span class="num-saves">${reviewSaves.length}</span>
               </div>
               
             </div>`
 
+          
+
           if (userId == doc.data().userId) {
+
             reviewTemplate += `
               <div class="optionsedition" data-option>
                   <button class="edit-delete" id="edit-post" data-item="edit">Editar</button>
-                    <div class="confirm-delete">
-                        <div class="confirm-modal">
-                          <h1 class="h1-confirm-delete">Você quer editar este review?</h1>
-                            <button class="confirm-buttons" id="yes-edit">Editar</button>
-                              <button class="confirm-buttons" id="no-edit">Cancelar</button>
-                        </div>
-                    </div>
+                    <section data-open-edit class="confirm-edit">
+                    </section>
+                    
                   <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
                        <div class="confirm-delete">
                         <div class="confirm-modal">
                           <h1 class="h1-confirm-delete">Você tem certeza que quer excluir esse post?</h1>
-                            <button class="confirm-buttons" id="yes-delete">Confirmar</button>
-                              <button class="confirm-buttons" id="no-delete">Cancelar</button>
+                            <button type="submit" class="confirm-buttons" id="yes-delete">Confirmar</button>
+                            <button class="confirm-buttons" id="no-delete">Cancelar</button>
                         </div>
                     </div>
               </div>
@@ -143,56 +146,68 @@ export const loadPosts = () => {
 
           allReviews.innerHTML += reviewTemplate
 
-          const postSelected = allReviews.querySelectorAll("[data-post]")
-          for (let post of postSelected) {
-            post.addEventListener("click", (e) => {
-              const postId = post.getAttribute("id")
-              const target = e.target
-              const targetDataset = target.dataset.item
-              if (targetDataset == "delete") {
-                document.querySelector(".confirm-delete").style.display = "block"
-                allReviews.querySelector("#yes-delete").addEventListener("click", () => {
-                  deletePost(postId)
-                    .then(() => {
-                      document.querySelector(".confirm-delete").style.display = "none"
-                      post.remove()
-                    })
-                    .catch((e) => {
-                      console.log("erro", e)
-                    })
-                })
-                document.querySelector("#no-delete").addEventListener("click", () => {
-                  document.querySelector(".confirm-delete").style.display = "none"
-                })
-              }
-              if (targetDataset == "edit"){
-                document.querySelector(".confirm-delete").style.display = "block"
-                allReviews.querySelector("#yes-edit").addEventListener("click", () => {
-                  console.log("caiu aqui")//chamar funcao para editar
-                    .then(() => {
-                      document.querySelector(".confirm-delete").style.display = "none" 
-                      console.log("caiu aqui 2")// post.update()     
-                    })
-                    .catch((error) => {
-                      console.log("erro", error)
-                    })
-                })
-                document.querySelector("#no-edit").addEventListener("click", () => {
-                  document.querySelector(".confirm-delete").style.display = "none"
-                })              
-              }
-            })
-          }
 
           if (bookImageUrl != null) {
-            document.querySelector(`#photo-${doc.id}`).innerHTML = `<img class="photo-book-review-post" src=${bookImageUrl}></img>`
+            document.querySelector(`#photo-${postId}`).innerHTML = `<img class="photo-book-review-post" src=${bookImageUrl}></img>`
           }
 
-          const heart = allReviews.querySelector(`#like-${doc.id}`)
-          if (reviewLikes.indexOf(userId) != -1) {
-            heart.classList.add("active");
-          }
         })
+
+        const postSelected = allReviews.querySelectorAll("[data-post]")
+        for (let post of postSelected) {
+          post.addEventListener("click", (e) => {
+            const postId = post.getAttribute("id")
+            const target = e.target
+            const targetDataset = target.dataset.item
+            if (targetDataset == "delete") {
+              document.querySelector(".confirm-delete").style.display = "block"
+              allReviews.querySelector("#yes-delete").addEventListener("click", () => {
+                deletePost(postId)
+                  .then(() => {
+                    document.querySelector(".confirm-delete").style.display = "none"
+                    post.remove()
+                  })
+                  .catch(e => {
+                    console.log("erro", e)
+                  })
+              })
+              document.querySelector("#no-delete").addEventListener("click", () => {
+                document.querySelector(".confirm-delete").style.display = "none"
+              })
+            }
+            if (targetDataset == "edit"){
+              openReviewEdit(postId)
+            }
+          })
+        }
+
+        const saveDivList = allReviews.querySelectorAll(".save");
+
+        for (let div of saveDivList) {
+          div.addEventListener("click", () => {
+            div.classList.toggle('saved');
+            const idSave = div.getAttribute("id")
+            const idReviewSaved = idSave.slice(5)
+            const numSavesDiv = div.nextSibling.nextSibling
+            let updatedNumSaves
+            getPost(idReviewSaved).then((review) => {
+              const saveArray = review.data().saves
+              if (saveArray.indexOf(userId) === -1) {
+                updatedNumSaves = saveArray.length + 1
+                saveReview(userId, idReviewSaved)
+              } else {
+                updatedNumSaves = saveArray.length - 1
+              }
+              numSavesDiv.innerText = updatedNumSaves
+              save(idReviewSaved, userId)
+
+            })
+              .catch((error) => {
+                console.log("Error getting documents: ", error)
+              })
+
+          })
+        }
 
         const likeDivList = allReviews.querySelectorAll(".like");
 
@@ -219,13 +234,13 @@ export const loadPosts = () => {
                 like(idReviewLiked, userId)
 
               })
+              .catch((error) => {
+                console.log("Error getting documents: ", error)
+              })
 
           })
         }
 
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error)
       })
 
   }
@@ -289,9 +304,85 @@ export const publishReview = (e) => {
     //.then(()=>{
     loadPosts()
     //})
+
   }
+}
+
+export const openReviewEdit = (reviewId) => {
+
+  getPost(reviewId).then(post => {
+
+    const modalEdit = document.querySelector("[data-open-edit]")
+    const showEdit = document.createElement('div')
+    showEdit.classList.add("confirm-modal-edit")
+    document.querySelector(".confirm-edit").style.display = "block"
+
+    // const imgData = post.data().imageUrl
+    //   if(imgData == null){
+    //     document.querySelector(".container-file-img1").style.display = "none"
+    //   }
+      console.log("review escolhido:", reviewId)
+
+    const contentEdit = `               
+                    <div >
+                        <div class="confirm-modal-edit" id=${reviewId}>
+                          <div class= "content-text">
+                            <h1 class="h1-confirm-edit">Editar</h1>
+                            <label class="review-label" for="book-name-edit">Livro:</label>
+                            <textarea class="review-input-edit" data-book-edit type="text" id="book-name-edit" required>${post.data().book}</textarea>
+                            <label class="review-label" for="book-author-edit">Autor</label>
+                            <textarea class="review-input-edit" data-author-edit type="text" id="book-author-edit" required>${post.data().author}</textarea>
+
+                            <textarea class="post-input-edit" id="review" cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
+                          </div>
+
+                         <label class="review-rating">Avalie</label>
+                         <div class="stars-edit" >
+                          <input type="radio" id="star-empty" name="stars" value="${post.data().rating}" checked/>
+                          <label for="str-1" class="stars"></label>
+                          <input type="radio" id="str-1" data-stars-form name="stars" value="★"/>
+                          <label for="str-2" class="stars"></label>
+                          <input type="radio" id="str-2" data-stars-form name="stars" value="★★"/>
+                          <label for="str-3" class="stars"></label>
+                          <input type="radio" id="str-3" data-stars-form name="stars" value="★★★"/>
+                          <label for="str-4" class="stars"></label>
+                          <input type="radio" id="str-4" data-stars-form name="stars" value="★★★★"/>
+                          <label for="str-5" class="stars"></label>
+                          <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/>  
+                        </div>
+                        <div class="align-btn">
+                          <button class="confirm-buttons" id="yes-edit" data-edit-send >Enviar</button>
+                          <button class="confirm-buttons" id="no-edit">Cancelar</button>
+                        </div>
+                    </div>`
 
 
+    modalEdit.innerHTML = contentEdit
+    
+    const sendEdit = document.querySelector("[data-edit-send]")
 
+    sendEdit.addEventListener("click", () =>{
 
+      const bookNameEdited = document.querySelector("[data-book-edit]").value
+      const authorNameEdited = document.querySelector("[data-author-edit]").value
+      const starsEvaluationEdited = document.querySelector("[data-stars-form]:checked").value
+      const reviewUserNew = document.querySelector("[data-review-edit]").value
+      //const imageEdited = funcao de uploadimage
+      
+
+      editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
+        document.querySelector(".confirm-edit").style.display = "none"      
+      }).then(()=>{
+        loadPosts()
+        
+      }) 
+           
+    })
+      document.querySelector("#no-edit").addEventListener("click", () => {
+        document.querySelector(".confirm-edit").style.display = "none"
+        console.log("cancelou")
+      })
+      
+  })
+  
 }

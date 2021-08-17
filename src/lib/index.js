@@ -155,6 +155,7 @@ export const createReview = (bookUser, authorUser, reviewUser, ratingStars, name
       hourPost: hour,
       likes: [],
       comments: [],
+      saves: [],
       imageUrl: image
     })
     .then(() => {
@@ -185,10 +186,10 @@ export const getPost = (postID) => {
 //   })
 // }
 
-export const updateRewiews = () => {
+export const updateReviews = (idReview) => {
   return database
     .collection("reviews").onSnapshot(snapshot => {
-      snapshot.docChanges().forEach(post => {
+      snapshot.docChanges(idReview).forEach(post => {
         if (post.type == "added") {
           console.log("added")
           //getReviews(post.doc.data(), post.doc.id);
@@ -238,8 +239,56 @@ export const deletePost = (postId) => {
 }
 
 
-export const editReview = (textEdited, reviewId) =>
-  database
+export const editReview = (authorEdited, bookEdited, textEdited, starsRatingEdited, reviewId) => {
+  return database
     .collection("reviews")
     .doc(reviewId)
-    .update({ review: textEdited });
+    .update({ author: authorEdited,
+      book: bookEdited,
+      review: textEdited,
+      rating: starsRatingEdited 
+    }).then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      console.log("Error updating documents: ", error);
+    });
+}
+
+export const saveReview = (userId, postId) => {
+  return database
+    .collection("saveReviews").add({
+      userId: userId,
+      postId: postId
+    })
+}
+
+// export const deleteSaveReview = () => {
+//   database.
+//   collection("saveReviews").doc().delete().then(() => {
+//     console.log("Document successfully deleted!");
+//   }).catch((error) => {
+//     console.error("Error removing document: ", error);
+//   });
+// }
+
+export const save = (postID, userID) => {
+  let numberOfSaves
+  const saveReviews = database.collection("reviews").doc(postID)
+  saveReviews.get()
+    .then((review) => {
+      const savesArray = review.data().saves
+      if (savesArray.indexOf(userID) === -1) {
+        saveReviews.update({
+          saves: firebase.firestore.FieldValue.arrayUnion(userID)
+        })
+        numberOfSaves = (savesArray.length) + 1
+      } else {
+        saveReviews.update({
+          saves: firebase.firestore.FieldValue.arrayRemove(userID)
+        })
+        numberOfSaves = (savesArray.length) - 1
+      }
+    })
+    .catch((error) => { })
+}

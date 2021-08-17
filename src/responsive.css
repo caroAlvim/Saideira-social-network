@@ -23,6 +23,18 @@
     .form {
         width: 60%
     }
+
+    .confirm-modal-edit {
+        width: 100%;
+        background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
+        border-radius: 20px;
+        display: grid;
+        justify-content: center;
+        position: relative;
+        min-width: 50%;
+        max-width: 60%;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -239,6 +251,61 @@
         margin: 1rem 2rem 5.5rem 0rem;
     }
 
+   /* modal de edit*/
+   .confirm-edit {
+        width: 100vw;
+        height: 100vh;
+        padding: 6rem;
+        background: #2e1c5762;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        z-index: 3;
+        display: none   
+    }
+
+    .h1-confirm-edit {
+        color: #ffffff;
+        font-size: 2rem;
+        padding: 1rem 0rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .confirm-modal-edit {
+        width: 100%;
+        background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
+        border-radius: 20px;
+        display: grid;
+        justify-content: center;
+        position: relative;
+        min-width: 375px;
+        max-width: 60px;
+        margin: 0 auto;
+    }
+    .content-text{
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        position: relative;
+        min-width: 250px;
+    }
+
+    .review-input-edit {
+        border-radius: 10px;
+        padding: 1rem 1rem 0rem;
+        font-size: 14px;
+        width: 35rem;
+    }
+
+        
+    .align-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem;
+        align-items: center;
+    }
 }
 
 @media (max-width:768px) {
@@ -434,18 +501,9 @@
     }
 
     .review-area {
-        height: 150vh;
+        height: 100vh;
     }
 
-    /* .photo-book-review-post{
-            margin: 6rem 0rem 0rem 67vw;
-            width: 5rem;
-            height: 7rem;
-        }
-        .stars-show{
-            margin: 11rem 67.2vw;
-            font-size: 1.1rem;
-        } */
     .estrelas {
         padding: 1rem 0rem 0rem 0rem;
         font-size: 2rem;

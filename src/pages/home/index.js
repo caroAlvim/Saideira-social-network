@@ -44,9 +44,9 @@ export default () => {
      <form class="review-area" action="">
      
       <label class="review-label" for="book-name">Livro:</label>
-      <input class="review-input" data-book-input type="text" placeholder="" required/>
+      <input class="review-input" id="book-name" data-book-input type="text" placeholder="" required/>
       <label class="review-label" for="book-author">Autor</label>
-      <input class="review-input" data-author-input type="text" placeholder="" required/>
+      <input class="review-input" id="book-author" data-author-input type="text" placeholder="" required/>
       <label class="review-label1" for="book-edition">Anexe a imagem da capa do livro</label>
       <div class="container-file-img1">
             <img src="./img/imagebooks.png" class="file-img1">
@@ -54,7 +54,7 @@ export default () => {
       <input type="file" class="file-input" id="input-profile-img" accept="image/*">
       <textarea class="post-input" id="text" cols="30" rows="5" data-post-input required placeholder ="Escreva sua review..."></textarea>
       
-      <label class="review-available">Avalie</label>
+      <label class="review-rating">Avalie</label>
       <div class="estrelas" >
       <input type="radio" id="cm_star-empty" name="stars" value="" checked/>
       <label for="star-1" class="stars"></label>
@@ -69,8 +69,8 @@ export default () => {
       <input type="radio" id="star-5" data-stars-form name="stars" value="★★★★★"/>
     </div>
         <div class="buttons">
-        <button class="publish-btn" data-publish-btn id="button-review">Publicar</button>
-        <button class="cancel-btn" id="button-review">Cancelar</button>
+        <button class="button-review" data-publish-btn id="button-review">Publicar</button>
+        <button class="button-review" data-cancel-btn id="button-review-cancel">Cancelar</button>
         </div>
      </form>   
     </div>
@@ -139,7 +139,7 @@ export default () => {
 
 
 
-  const cancelReview = sectionElement.querySelector(".cancel-btn")
+  const cancelReview = sectionElement.querySelector("[data-cancel-btn]")
   cancelReview.addEventListener("click", () => {
     sectionElement.querySelector(".review-area").style.display = "none"
     sectionElement.querySelector(".welcome").style.display = "flex"
