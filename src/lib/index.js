@@ -279,7 +279,7 @@ export const getSavedReviews = () => {
 }
 
 export const getProfileReviews = (userId) => {
-  
+
   return database
     .collection('reviews').where("userId", "==", userId).get()
 }
