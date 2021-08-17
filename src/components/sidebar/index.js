@@ -31,8 +31,8 @@ export const sidebar = () => {
 
   if (userNameFirebase != null && userNameFirebase != undefined) {
     userName = userNameFirebase
-    userName2 = "@"+userName.replace(/\s/g, '').toLowerCase();
-    
+    userName2 = "@" + userName.replace(/\s/g, '').toLowerCase();
+
   } else {
     userName = "Usuário anônimo"
     userName2 = ""
@@ -48,29 +48,33 @@ export const sidebar = () => {
       <section class="user-data">
       
         <img src="${profileImg}"   class="sidebar-user-img"/>
+        <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
         <div class="user-information">
           <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
           <p class="sidebar-user sidebar-text">${userName2}</p>
         </div>
         
       </section>
+    
       <section class="sidebar-profile">
-        <div class="profile-line">
-          <p class="sidebar-text sidebar-btn" id="profile-sidebar">Perfil</p>
-          <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
-        </div>
         <div class="sidebar-line review-line">
           <p class="sidebar-text">Número de resenhas</p>
           <div class="num"><p class="num-text">3</p></div>
         </div>
-      </section>
-      <section class="sidebar-tools sidebar-add-review">
+
+        <section class="sidebar-tools sidebar-add-review">
         <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
           <div class="sidebar-div-links">
             <img class="sidebar-review-image" src="../../img/add.png" alt="">
             <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
           </div>
         </button>
+      </section>
+
+        <div class="profile-line sidebar-btn">
+        <img src="./img/profile-navbar.png" class="menu-img-side-bar"/>
+        <p class="sidebar-text" id="profile-sidebar">Perfil</p>
+        </div>
       </section>
 
       <section class="sidebar-tools sidebar-saved">
@@ -81,7 +85,6 @@ export const sidebar = () => {
           </div>
         </button>
       </section>
-
 
       <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
         <button class="sidebar-btn" id="logout-btn-sidebar"> 
@@ -118,8 +121,19 @@ export const sidebar = () => {
   const editProfileLink = asideElement.querySelector("#edit-profile-link")
   const savedBtnSidebar = asideElement.querySelector("#saved-btn-sidebar")
   const profileSidebar = asideElement.querySelector("#profile-sidebar")
-  
+  const profileSideBar = asideElement.querySelector(".menu-img-side-bar")
+
   profileSidebar.addEventListener("click", (e) => {
+    e.preventDefault()
+    window.history.pushState(null, null, "/perfil")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+
+  })
+
+  profileSideBar.addEventListener("click", (e) => {
     e.preventDefault()
     window.history.pushState(null, null, "/perfil")
     const popStateEvent = new PopStateEvent("popstate", {
