@@ -128,7 +128,7 @@ export const loadPosts = (functionFirebase) => {
                   <p class="content-review">${reviewContent}</p> </br>
               </div>
               <div class="likes-container">
-              <button class="like" id="like-${postId}" data-item="like">&#10084;</button>
+              <button class="like"><img class="like-img"data-item="like" id="like-${postId}" src="./img/heart.png"></button>
               <span class="num-likes">${reviewLikes.length}</span>
               <button  class="comment-btn" ><img class="comment" src="./img/comment-btn.png"  data-item="comment"/></button>
                 <div class="save" id="save-${postId}"><img class="icon-save"src="img/save-navbar.png"/></div>
@@ -265,6 +265,7 @@ export const loadPosts = (functionFirebase) => {
           post.addEventListener("click", (e) => {
             const postId = post.getAttribute("id")
             const target = e.target
+            console.log(target)
             const targetDataset = target.dataset.item
             if (targetDataset == "like") {
               likePost(target, postId)
@@ -465,7 +466,8 @@ export const likePost = (target, postId) => {
 
   target.classList.toggle('active');
 
-  const numLikesDiv = target.nextSibling.nextSibling
+  const numLikesDiv = target.parentNode.nextSibling.nextSibling
+  console.log(numLikesDiv)
   let updatedNumLikes
   getPost(postId)
     .then((review) => {

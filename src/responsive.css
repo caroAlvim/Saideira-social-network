@@ -516,6 +516,10 @@
     .stars-edit {
         border: none;
     }
+
+    .username-post {
+        display: none;
+    }
 }
 
 
