@@ -128,7 +128,7 @@ export const loadPosts = (functionFirebase) => {
                   <p class="content-review">${reviewContent}</p> </br>
               </div>
               <div class="likes-container">
-              <button class="like" id="like-${postId}" data-item="like">&#10084;</button>
+              <button class="like" id="like-${postId}" data-item="like">❤</button>
               <span class="num-likes">${reviewLikes.length}</span>
               <button  class="comment-btn" ><img class="comment" src="./img/comment-btn.png"  data-item="comment"/></button>
                 <div class="save" id="save-${postId}"><img class="icon-save"src="img/save-navbar.png"/></div>
