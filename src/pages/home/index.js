@@ -157,8 +157,10 @@ export default () => {
   const buttonAddReviewSidebar = sectionElement.querySelector("#add-review-sidebar")
   buttonAddReviewSidebar.addEventListener("click", (e) => {
     e.preventDefault()
+    sidebarComponent.style.display = "none"
     window.scrollTo(0, 0)
     showReviewArea()
+    sectionElement.appendChild(sidebar())
   })
 
 
