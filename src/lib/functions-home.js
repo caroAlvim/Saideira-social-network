@@ -393,7 +393,6 @@ export const loadPosts = (functionFirebase) => {
             })
         }
 
-
       })
       .catch((error) => {
         console.log("Error getting documents: ", error)
