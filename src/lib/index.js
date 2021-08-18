@@ -294,11 +294,11 @@ export const save = (postID, userID) => {
 export const getSavedReviews = () => {
 
   return database
-    .collection('reviews').where("saves", "array-contains", firebase.auth().currentUser.uid).get()
+    .collection('reviews').where("saves", "array-contains", firebase.auth().currentUser.uid).orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get()
 }
 
 export const getProfileReviews = (userId) => {
 
   return database
-    .collection('reviews').where("userId", "==", userId).get()
+    .collection('reviews').where("userId", "==", userId).orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get()
 }

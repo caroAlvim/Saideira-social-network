@@ -1163,14 +1163,14 @@ header {
 }
 
 .options-edition-comment {
+    display: none; 
     width: 92.5%;
-    display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .delete-post-comment {
-    /* display: none;  */
+    display: inline-block;
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -1222,7 +1222,7 @@ header {
 .confirm-delete-comment {
     width: 100%;
     height: 100%;
-    padding: 250px 0px;
+    /* padding: 250px 0px; */
     background: #2e1c5762;
     position: fixed;
     top: 0%;
@@ -1242,16 +1242,16 @@ header {
 
 .confirm-modal,
 .confirm-modal-comment {
-    width: 250px;
-    height: 150px;
+    width: 25rem;
+    height: 15rem;
     background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
     border-radius: 20px;
     padding: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -75px;
-    margin-left: -125px;
+    transform: translate(-50%, -50%)
+    
 }
 
 .confirm-buttons,
@@ -1266,7 +1266,7 @@ header {
     cursor: pointer;
     color: var(--dark-purple);
     font-size: 1.3rem;
-    margin: 0.5rem 4.5rem;
+    margin: 0.5rem auto;
     display: flex;
     justify-content: center;
     color: var(--dark-purple);

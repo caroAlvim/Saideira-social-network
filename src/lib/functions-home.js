@@ -136,7 +136,7 @@ export const loadPosts = (functionFirebase) => {
                 <div class="optionsedition" id="edition-${postId}" data-option style="display:none">
                 <div class="container-edit-btns">
                   <button class="edit-delete" id="edit-post" data-item="edit">Editar</button>
-                    <section data-open-edit class="confirm-edit">
+                    <section data-open-edit class="confirm-edit" id="editing-${postId}">
                     </section>
                   <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
                 </div>
@@ -259,6 +259,7 @@ export const loadPosts = (functionFirebase) => {
 
         const postDivList = allReviews.querySelectorAll("[data-post]")
         const root = document.querySelector("#root")
+        
 
         for (let post of postDivList) {
           post.addEventListener("click", (e) => {
@@ -288,19 +289,19 @@ export const loadPosts = (functionFirebase) => {
 
             if (targetDataset == "delete-comment") {
               const commentsDiv = target.parentNode.parentNode.parentNode
+              console.log(commentsDiv)
               const commentValue = commentsDiv.children[1].children[1].innerText
+              console.log(commentValue)
               const divDelete = target.parentNode.children[1]
+              console.log(divDelete)
               const divYes = target.parentNode.children[1].children[0].children[1]
               const divNo = target.parentNode.children[1].children[0].children[2]
               const userPhoto = currentUser().photoURL
               const userName = currentUser().displayName
-              const date = new Date()
-              const completeDate = date.toLocaleDateString()
-              const hour = date.toLocaleTimeString("pt-BR", {
-                timeStyle: "short",
-                hour12: false,
-                numberingSystem: "latn"
-              });
+              const completeDate = target.parentNode.parentNode.children[0].children[1].innerText
+              console.log(completeDate)
+              const hour = target.parentNode.parentNode.children[0].children[2].innerText
+              console.log(hour)
               divDelete.style.display = "block"
               divYes.addEventListener("click", () => {
                 deleteComment(postId, commentValue, userId, userPhoto, userName, completeDate, hour)
@@ -333,7 +334,7 @@ export const loadPosts = (functionFirebase) => {
                 sendComment(postId, commentValue, completeDate, hour)
                   .then(() => {
                     const divAppend = commentsDiv.children[1]
-                    commentsDiv.insertBefore(comment(userPhoto, userName, commentValue, completeDate, hour), divAppend)
+                    commentsDiv.insertBefore(comment(userId, userPhoto, userName, commentValue, completeDate, hour), divAppend)
                   })
 
                   .catch((error) => {
@@ -383,7 +384,7 @@ export const loadPosts = (functionFirebase) => {
                 const date = com.dateOfComment
                 const hour = com.hourOfComment
 
-                divComments.append(comment(userImage, userName, text, date, hour))
+                divComments.append(comment(userIdComment,userImage, userName, text, date, hour))
               }
             })
             .catch(() => {
@@ -495,10 +496,10 @@ export const openReviewEdit = (reviewId) => {
 
   getPost(reviewId).then(post => {
 
-    const modalEdit = document.querySelector("[data-open-edit]")
+    const modalEdit = document.querySelector(`#editing-${reviewId}`)
     const showEdit = document.createElement('div')
     showEdit.classList.add("confirm-modal-edit")
-    document.querySelector(".confirm-edit").style.display = "block"
+    modalEdit.style.display = "block"
 
     // const imgData = post.data().imageUrl
     //   if(imgData == null){
@@ -552,7 +553,7 @@ export const openReviewEdit = (reviewId) => {
 
 
       editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
-        document.querySelector(".confirm-edit").style.display = "none"
+        modalEdit.style.display = "none"
       }).then(() => {
         loadPosts(getReviews())
 
@@ -560,7 +561,7 @@ export const openReviewEdit = (reviewId) => {
 
     })
     document.querySelector("#no-edit").addEventListener("click", () => {
-      document.querySelector(".confirm-edit").style.display = "none"
+      modalEdit.style.display = "none"
       console.log("cancelou")
     })
 

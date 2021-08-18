@@ -1,6 +1,3 @@
-import home from "../../pages/home/index.js"
-
-
 export const navbar = () =>{
 
 
