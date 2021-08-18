@@ -456,7 +456,7 @@
     }
 
 
-    
+
 
     .sidebar-container {
         padding: 0 7rem;
@@ -521,7 +521,7 @@
 
 @media(max-width: 320px) {
 
-  
+
 
     .sidebar-user-img {
         width: 10rem;
@@ -545,7 +545,8 @@
 
 
     .username-post {
-        display: none;
+        font-size: 1rem;
+        margin: 0rem 0rem 1rem 0.3rem;
     }
 
     .btn-home-profile {
@@ -569,7 +570,18 @@
 
 }
 
+@media(max-width: 400px) {
+    .username-post {
+        font-size: 1rem;
+        margin: 0rem 0rem 1rem 0.3rem;
+    }
+}
+
 @media(max-width: 280px) {
+
+    .username-post {
+        display: none;
+    }
 
     #sidebar {
         z-index: 2;
