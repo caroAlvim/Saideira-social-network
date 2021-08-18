@@ -1,5 +1,8 @@
-export const comment = (userImage, name, text, completeDate, hour) => {
+import { currentUser } from "../../lib/index.js"
 
+export const comment = (userId, userImage, name, text, completeDate, hour) => {
+  
+  
   const sectionElement = document.createElement("section")
   sectionElement.classList.add('comment-post')
 
@@ -34,7 +37,7 @@ export const comment = (userImage, name, text, completeDate, hour) => {
         <p class="comment-date">${hour}</p>
       </div>
       <p class="comment-content">${text}</p>
-    <div class="options-edition-comment">
+    <div class="options-edition-comment" data-comment-edit>
       <button class="edit-delete-comment delete-post-comment" data-item="delete-comment">Excluir</button>
       <div class="confirm-delete-comment">
         <div class="confirm-modal-comment">
@@ -47,8 +50,13 @@ export const comment = (userImage, name, text, completeDate, hour) => {
     </div>
 `
 
- 
+  
   sectionElement.innerHTML = commentTemplate
+  const deleteCommentBtn = sectionElement.querySelector("[data-comment-edit]")
+    
+  if(userId==currentUser().uid){
+    deleteCommentBtn.style.display="flex"
+  }
   
 
   return sectionElement

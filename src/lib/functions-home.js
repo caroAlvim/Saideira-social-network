@@ -9,7 +9,8 @@ import {
   saveReview,
   sendComment,
   deleteComment,
-  save
+  save,
+  editReview
 } from "./index.js"
 
 import { comment } from "../components/comment/index.js";
@@ -72,7 +73,7 @@ export const loadPosts = (functionFirebase) => {
 
           if (name != null && name != undefined) {
             userName = name
-            userName2 = "@"+userName.replace(/\s/g, '').toLowerCase();
+            userName2 = "@" + userName.replace(/\s/g, '').toLowerCase();
           } else {
             userName = "Usuário anônimo"
             userName2 = ""
@@ -134,7 +135,9 @@ export const loadPosts = (functionFirebase) => {
                 <span class="num-saves">${reviewSaves.length}</span>
                 <div class="optionsedition" id="edition-${postId}" data-option style="display:none">
                 <div class="container-edit-btns">
-                  <button class="edit-delete" id="edit-post">Editar</button>
+                  <button class="edit-delete" id="edit-post" data-item="edit">Editar</button>
+                    <section data-open-edit class="confirm-edit" id="editing-${postId}">
+                    </section>
                   <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
                 </div>
                   <div class="confirm-delete">
@@ -210,6 +213,7 @@ export const loadPosts = (functionFirebase) => {
             })
           }
 
+
           if (bookImageUrl != null) {
             document.querySelector(`#photo-${doc.id}`).innerHTML = `<img class="photo-book-review-post" src=${bookImageUrl}></img>`
           }
@@ -255,6 +259,7 @@ export const loadPosts = (functionFirebase) => {
 
         const postDivList = allReviews.querySelectorAll("[data-post]")
         const root = document.querySelector("#root")
+        
 
         for (let post of postDivList) {
           post.addEventListener("click", (e) => {
@@ -284,19 +289,19 @@ export const loadPosts = (functionFirebase) => {
 
             if (targetDataset == "delete-comment") {
               const commentsDiv = target.parentNode.parentNode.parentNode
+              console.log(commentsDiv)
               const commentValue = commentsDiv.children[1].children[1].innerText
+              console.log(commentValue)
               const divDelete = target.parentNode.children[1]
+              console.log(divDelete)
               const divYes = target.parentNode.children[1].children[0].children[1]
               const divNo = target.parentNode.children[1].children[0].children[2]
               const userPhoto = currentUser().photoURL
               const userName = currentUser().displayName
-              const date = new Date()
-              const completeDate = date.toLocaleDateString()
-              const hour = date.toLocaleTimeString("pt-BR", {
-                timeStyle: "short",
-                hour12: false,
-                numberingSystem: "latn"
-              });
+              const completeDate = target.parentNode.parentNode.children[0].children[1].innerText
+              console.log(completeDate)
+              const hour = target.parentNode.parentNode.children[0].children[2].innerText
+              console.log(hour)
               divDelete.style.display = "block"
               divYes.addEventListener("click", () => {
                 deleteComment(postId, commentValue, userId, userPhoto, userName, completeDate, hour)
@@ -305,7 +310,7 @@ export const loadPosts = (functionFirebase) => {
                     commentsDiv.remove()
                   })
                   .catch(e => {
-                    console.log("erro")
+                    console.log("erro", e)
                   })
               })
               divNo.addEventListener("click", () => {
@@ -329,7 +334,7 @@ export const loadPosts = (functionFirebase) => {
                 sendComment(postId, commentValue, completeDate, hour)
                   .then(() => {
                     const divAppend = commentsDiv.children[1]
-                    commentsDiv.insertBefore(comment(userPhoto, userName, commentValue, completeDate, hour), divAppend)
+                    commentsDiv.insertBefore(comment(userId, userPhoto, userName, commentValue, completeDate, hour), divAppend)
                   })
 
                   .catch((error) => {
@@ -338,9 +343,9 @@ export const loadPosts = (functionFirebase) => {
 
               }
 
-
-
-
+            }
+            if (targetDataset == "edit") {
+              openReviewEdit(postId)
             }
           })
         }
@@ -379,7 +384,7 @@ export const loadPosts = (functionFirebase) => {
                 const date = com.dateOfComment
                 const hour = com.hourOfComment
 
-                divComments.append(comment(userImage, userName, text, date, hour))
+                divComments.append(comment(userIdComment,userImage, userName, text, date, hour))
               }
             })
             .catch(() => {
@@ -387,10 +392,6 @@ export const loadPosts = (functionFirebase) => {
 
             })
         }
-
-
-
-
 
 
       })
@@ -488,5 +489,83 @@ export const likePost = (target, postId) => {
       alert("Falha ao curtir o post! Tente novamente.")
 
     })
+
+
+}
+
+export const openReviewEdit = (reviewId) => {
+
+  getPost(reviewId).then(post => {
+
+    const modalEdit = document.querySelector(`#editing-${reviewId}`)
+    const showEdit = document.createElement('div')
+    showEdit.classList.add("confirm-modal-edit")
+    modalEdit.style.display = "block"
+
+    // const imgData = post.data().imageUrl
+    //   if(imgData == null){
+    //     document.querySelector(".container-file-img1").style.display = "none"
+    //   }
+    console.log("review escolhido:", reviewId)
+
+    const contentEdit = `               
+                    <div >
+                        <div class="confirm-modal-edit" id=${reviewId}>
+                          <div class= "content-text">
+                            <h1 class="h1-confirm-edit">Editar</h1>
+                            <label class="review-label" for="book-name-edit">Livro:</label>
+                            <textarea class="review-input-edit" data-book-edit type="text" id="book-name-edit" required>${post.data().book}</textarea>
+                            <label class="review-label" for="book-author-edit">Autor</label>
+                            <textarea class="review-input-edit" data-author-edit type="text" id="book-author-edit" required>${post.data().author}</textarea>
+                            <textarea class="post-input-edit" id="review" cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
+                          </div>
+                         <label class="review-rating">Avalie</label>
+                         <div class="stars-edit" >
+                          <input type="radio" id="star-empty" name="stars" value="${post.data().rating}" checked/>
+                          <label for="str-1" class="stars"></label>
+                          <input type="radio" id="str-1" data-stars-form name="stars" value="★"/>
+                          <label for="str-2" class="stars"></label>
+                          <input type="radio" id="str-2" data-stars-form name="stars" value="★★"/>
+                          <label for="str-3" class="stars"></label>
+                          <input type="radio" id="str-3" data-stars-form name="stars" value="★★★"/>
+                          <label for="str-4" class="stars"></label>
+                          <input type="radio" id="str-4" data-stars-form name="stars" value="★★★★"/>
+                          <label for="str-5" class="stars"></label>
+                          <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/>  
+                        </div>
+                        <div class="align-btn">
+                          <button class="confirm-buttons-edit" id="yes-edit" data-edit-send >Editar</button>
+                          <button class="confirm-buttons-edit" id="no-edit">Cancelar</button>
+                        </div>
+                    </div>`
+
+
+    modalEdit.innerHTML = contentEdit
+
+    const sendEdit = document.querySelector("[data-edit-send]")
+
+    sendEdit.addEventListener("click", () => {
+
+      const bookNameEdited = document.querySelector("[data-book-edit]").value
+      const authorNameEdited = document.querySelector("[data-author-edit]").value
+      const starsEvaluationEdited = document.querySelector("[data-stars-form]:checked").value
+      const reviewUserNew = document.querySelector("[data-review-edit]").value
+      //const imageEdited = funcao de uploadimage
+
+
+      editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
+        modalEdit.style.display = "none"
+      }).then(() => {
+        loadPosts(getReviews())
+
+      })
+
+    })
+    document.querySelector("#no-edit").addEventListener("click", () => {
+      modalEdit.style.display = "none"
+      console.log("cancelou")
+    })
+
+  })
 
 }

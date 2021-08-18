@@ -161,7 +161,7 @@ export const getPost = (postID) => {
 export const updateRewiews = () => {
   return database
     .collection("reviews").onSnapshot(snapshot => {
-      snapshot.docChanges().forEach(post => {
+      snapshot.docChanges(idReview).forEach(post => {
         if (post.type == "added") {
           console.log("added")
           //getReviews(post.doc.data(), post.doc.id);
@@ -234,6 +234,25 @@ export const deleteComment = (postID, value, userId, userImg, userName, date, ho
 export const deletePost = (postId) => {
   return database.collection("reviews").doc(postId).delete()
 }
+
+
+export const editReview = (authorEdited, bookEdited, textEdited, starsRatingEdited, reviewId) => {
+  return database
+    .collection("reviews")
+    .doc(reviewId)
+    .update({
+      author: authorEdited,
+      book: bookEdited,
+      review: textEdited,
+      rating: starsRatingEdited
+    }).then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      console.log("Error updating documents: ", error);
+    });
+}
+
 export const saveReview = (userId, postId) => {
   return database
     .collection("saveReviews").add({
@@ -275,11 +294,11 @@ export const save = (postID, userID) => {
 export const getSavedReviews = () => {
 
   return database
-    .collection('reviews').where("saves", "array-contains", firebase.auth().currentUser.uid).get()
+    .collection('reviews').where("saves", "array-contains", firebase.auth().currentUser.uid).orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get()
 }
 
 export const getProfileReviews = (userId) => {
 
   return database
-    .collection('reviews').where("userId", "==", userId).get()
+    .collection('reviews').where("userId", "==", userId).orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get()
 }

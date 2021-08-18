@@ -16,8 +16,13 @@
 }
 
 body {
-    width: 90vw;
+    width: 100vw;
     font-size: 1.6rem;
+    background-color: #f0f0f0;
+}
+
+#root {
+    width: 100vw;
 }
 
 #sign-up,
@@ -350,9 +355,10 @@ a:hover {
 .review-input {
     border: none;
     border-radius: 10px;
-    padding: 1.2rem;
+    padding: 1rem;
     font-size: 1.2rem;
     outline: none;
+    font-size: 13px;
 }
 
 .review-label {
@@ -371,7 +377,7 @@ a:hover {
     border: none;
 }
 
-.review-available {
+.review-rating {
     font-size: 1.9rem;
     color: #ffffff;
     text-align: center;
@@ -1157,14 +1163,14 @@ header {
 }
 
 .options-edition-comment {
+    display: none; 
     width: 92.5%;
-    display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .delete-post-comment {
-    /* display: none;  */
+    display: inline-block;
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -1216,7 +1222,7 @@ header {
 .confirm-delete-comment {
     width: 100%;
     height: 100%;
-    padding: 250px 0px;
+    /* padding: 250px 0px; */
     background: #2e1c5762;
     position: fixed;
     top: 0%;
@@ -1236,16 +1242,16 @@ header {
 
 .confirm-modal,
 .confirm-modal-comment {
-    width: 250px;
-    height: 150px;
+    width: 25rem;
+    height: 15rem;
     background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
     border-radius: 20px;
     padding: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -75px;
-    margin-left: -125px;
+    transform: translate(-50%, -50%)
+    
 }
 
 .confirm-buttons,
@@ -1258,8 +1264,11 @@ header {
     border-radius: 50px;
     border: none;
     cursor: pointer;
+    color: var(--dark-purple);
     font-size: 1.3rem;
-    margin: 0.5rem 6.5rem;
+    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
     color: var(--dark-purple);
 }
 
@@ -1387,4 +1396,130 @@ header {
     width: 3rem;
     height: 3rem;
     margin: 0rem 0.5rem 0rem 0rem;
+}
+
+/* modal de edit*/
+.confirm-edit {
+    width: 100vw;
+    height: 100vh;
+    padding: 5rem;
+    background: #2e1c5762;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    display: none
+}
+
+.h1-confirm-edit {
+    color: #ffffff;
+    font-size: 2rem;
+    padding: 1rem 0rem;
+    align-items: center;
+    text-align: center;
+}
+
+.confirm-modal-edit {
+    width: 60vw;
+    padding: 0.5rem 2rem 0rem 2rem;
+    background: #2e1c5762;
+    position: fixed;
+    top: 5%;
+    left: 20%;
+    z-index: 3;
+    background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
+    border-radius: 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.content-text {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    min-width: 100px;
+}
+
+@keyframes confirm-modal-edit {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.review-input-edit {
+    border-radius: 10px;
+    padding: 0.5rem 1rem 0rem;
+    font-size: 1.5rem;
+    outline: none;
+    height: 3rem;
+}
+
+
+.post-input-edit {
+    outline: none;
+    margin: 2rem 0rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.align-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    align-items: center;
+}
+
+.stars-edit input[type=radio] {
+    display: none;
+}
+
+.stars-edit label.stars {
+    cursor: pointer;
+    font-size: 3rem;
+    color: #e7e7e7;
+}
+
+.stars-edit label.stars:before {
+    content: '★';
+    color: #FC0;
+}
+
+.stars-edit input[type=radio]:checked~label.stars:before {
+    color: #e6f5ff;
+}
+
+.stars-edit {
+    border-bottom: 1px solid #fafafa;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-buttons-edit {
+    align-items: center;
+    text-align: center;
+    background-color: #d5e2ff;
+    padding: 0.5rem 1rem;
+    width: 11rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    color: var(--dark-purple);
+    font-size: 1.3rem;
+    margin: 0.5rem 4.5rem;
+    display: flex;
+    justify-content: center;
+    color: var(--dark-purple);
+}
+
+.confirm-buttons-edit:hover {
+    filter: invert(77%) sepia(58%) saturate(1717%) hue-rotate(203deg) brightness(100%) contrast(88%);
+    transition: 1s
 }
