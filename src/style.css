@@ -1163,7 +1163,7 @@ header {
 }
 
 .options-edition-comment {
-    display: none; 
+    display: none;
     width: 92.5%;
     justify-content: flex-start;
     align-items: center;
@@ -1251,7 +1251,6 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)
-    
 }
 
 .confirm-buttons,

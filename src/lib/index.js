@@ -163,14 +163,11 @@ export const updateRewiews = () => {
     .collection("reviews").onSnapshot(snapshot => {
       snapshot.docChanges(idReview).forEach(post => {
         if (post.type == "added") {
-          console.log("added")
           //getReviews(post.doc.data(), post.doc.id);
         }
         if (post.type == "modified") {
-          console.log("modified");
         }
         if (post.type == "removed") {
-          console.log("removed")
         }
       })
     })
@@ -182,7 +179,6 @@ export const like = (postID, userID) => {
   review.get()
     .then((rev) => {
       const likesArray = rev.data().likes
-      console.log(likesArray)
       if (likesArray.indexOf(userID) === -1) {
         review.update({
           likes: firebase.firestore.FieldValue.arrayUnion(userID)
@@ -246,7 +242,8 @@ export const editReview = (authorEdited, bookEdited, textEdited, starsRatingEdit
       review: textEdited,
       rating: starsRatingEdited
     }).then(() => {
-      console.log("Document successfully updated!");
+
+
     })
     .catch((error) => {
       console.log("Error updating documents: ", error);

@@ -168,8 +168,6 @@ export default () => {
 
   createReviewBtn.addEventListener("click", publishReview)
   const deleteComment = sectionElement.querySelectorAll("[data-delete-comment")
-  console.log(deleteComment)
-
 
   loadPosts(getReviews())
 

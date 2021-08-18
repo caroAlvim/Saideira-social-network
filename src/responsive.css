@@ -232,11 +232,6 @@
         display: none;
     }
 
-    .confirm-buttons,
-    .confirm-buttons-comment {
-        margin: 0.5rem 6.5rem
-    }
-
     .confirm-modal-edit {
         top: 10%;
         width: 90vw;
@@ -502,11 +497,6 @@
         transform: translate(-50%, -50%)
     } */
 
-    .confirm-buttons,
-    .confirm-buttons-comment {
-        margin: 0.5rem 7rem
-    }
-
     .content-text {
         display: grid;
         justify-content: center;
@@ -566,10 +556,6 @@
         display: none;
     }
 
-    .confirm-modal {
-        padding: 2.5rem;
-    }
-
     .confirm-modal-edit {
         top: 15%;
         width: 90vw;
@@ -627,14 +613,6 @@
         margin: 0rem;
     }
 
-    .confirm-modal {
-        padding: 2.5rem;
-    }
-
-    .confirm-buttons {
-        margin: 3rem 0.9rem;
-    }
-
     .confirm-modal-edit {
         top: 15%;
         width: 90vw;
@@ -647,5 +625,13 @@
 
     .align-btn {
         flex-direction: column;
+    }
+
+    .comment-headline {
+        flex-direction: column;
+        text-align: start;
+        justify-items: start;
+        justify-content: start;
+        align-items: flex-start;
     }
 }

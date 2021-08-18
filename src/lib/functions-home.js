@@ -259,7 +259,7 @@ export const loadPosts = (functionFirebase) => {
 
         const postDivList = allReviews.querySelectorAll("[data-post]")
         const root = document.querySelector("#root")
-        
+
 
         for (let post of postDivList) {
           post.addEventListener("click", (e) => {
@@ -289,19 +289,14 @@ export const loadPosts = (functionFirebase) => {
 
             if (targetDataset == "delete-comment") {
               const commentsDiv = target.parentNode.parentNode.parentNode
-              console.log(commentsDiv)
               const commentValue = commentsDiv.children[1].children[1].innerText
-              console.log(commentValue)
               const divDelete = target.parentNode.children[1]
-              console.log(divDelete)
               const divYes = target.parentNode.children[1].children[0].children[1]
               const divNo = target.parentNode.children[1].children[0].children[2]
               const userPhoto = currentUser().photoURL
               const userName = currentUser().displayName
               const completeDate = target.parentNode.parentNode.children[0].children[1].innerText
-              console.log(completeDate)
               const hour = target.parentNode.parentNode.children[0].children[2].innerText
-              console.log(hour)
               divDelete.style.display = "block"
               divYes.addEventListener("click", () => {
                 deleteComment(postId, commentValue, userId, userPhoto, userName, completeDate, hour)
@@ -384,7 +379,7 @@ export const loadPosts = (functionFirebase) => {
                 const date = com.dateOfComment
                 const hour = com.hourOfComment
 
-                divComments.append(comment(userIdComment,userImage, userName, text, date, hour))
+                divComments.append(comment(userIdComment, userImage, userName, text, date, hour))
               }
             })
             .catch(() => {
@@ -505,7 +500,6 @@ export const openReviewEdit = (reviewId) => {
     //   if(imgData == null){
     //     document.querySelector(".container-file-img1").style.display = "none"
     //   }
-    console.log("review escolhido:", reviewId)
 
     const contentEdit = `               
                     <div >
@@ -562,7 +556,6 @@ export const openReviewEdit = (reviewId) => {
     })
     document.querySelector("#no-edit").addEventListener("click", () => {
       modalEdit.style.display = "none"
-      console.log("cancelou")
     })
 
   })
