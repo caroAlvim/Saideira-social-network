@@ -35,6 +35,9 @@ export default () => {
         </form>
       </fieldset>
     </div>
+    <div class="load">
+  <div class="loading"></div>
+  </div>
   `
 
   sectionElement.innerHTML = createProfileTemplate
@@ -110,12 +113,15 @@ export default () => {
         updateUserName(userName)
 
         setTimeout(() => {
-          window.history.pushState(null, null, "/home")
-          const popStateEvent = new PopStateEvent("popstate", {
-            state: {}
-          })
-          dispatchEvent(popStateEvent)
-        }, 1000)
+          const load = sectionElement.querySelector(".load")
+          load.style.display = "block"
+        }, 2000)
+        window.history.pushState(null, null, "/home")
+        const popStateEvent = new PopStateEvent("popstate", {
+          state: {}
+        })
+        dispatchEvent(popStateEvent)
+
 
 
       } else {

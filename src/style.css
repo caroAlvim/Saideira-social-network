@@ -1571,3 +1571,34 @@ footer .a-3:hover {
     color: rgb(180, 226, 199);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.load {
+    transition: 1s;
+    width: 100vw;
+    height: 100vh;
+    background: #00000069;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    transform: scale(1);
+    display: none;
+}
+
+.loading {
+    animation: is-rotating 1s infinite;
+    border: 1rem solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #2b2883;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 35%;
+    left: 43%;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}

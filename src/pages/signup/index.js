@@ -25,6 +25,9 @@ export default () => {
       </fieldset>
     </div>
  
+    <div class="load">
+  <div class="loading"></div>
+  </div>
   `
   sectionElement.innerHTML = signUpTemplate
 
@@ -39,6 +42,10 @@ export default () => {
     let text
     createUser(registerEmail, registerPassword)
       .then(() => {
+        setTimeout(() => {
+          const load = sectionElement.querySelector(".load")
+          load.style.display = "block"
+        }, 2000)
         window.history.pushState({}, "", "/editar-perfil")
         const popStateEvent = new PopStateEvent("popstate", { state: {} })
         dispatchEvent(popStateEvent)

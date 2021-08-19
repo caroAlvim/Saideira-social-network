@@ -27,6 +27,10 @@ export default () => {
     </fieldset>
   </div>
 
+  <div class="load">
+  <div class="loading"></div>
+  </div>
+
   <footer class="footer">
       <p class="p-footer">copyright@2021 | feito por
         <a class="a-1"href="https://github.com/caroAlvim" target="blank">Carolina Alvim</a>,
@@ -68,10 +72,13 @@ export default () => {
     loginPage(email, password)
       .then(() => {
         setTimeout(() => {
-          window.history.pushState(null, null, "/home")
-          const popStateEvent = new PopStateEvent("popstate", { state: {} })
-          dispatchEvent(popStateEvent)
-        }, 1000)
+          const load = sectionElement.querySelector(".load")
+          load.style.display = "block"
+        }, 2000)
+        window.history.pushState(null, null, "/home")
+        const popStateEvent = new PopStateEvent("popstate", { state: {} })
+        dispatchEvent(popStateEvent)
+
       })
       .catch((error) => {
         const errorCode = error.code
