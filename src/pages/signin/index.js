@@ -26,11 +26,6 @@ export default () => {
       </form>
     </fieldset>
   </div>
-
-  <div class="load">
-  <div class="loading"></div>
-  </div>
-
   <footer class="footer">
       <p class="p-footer">copyright@2021 | feito por
         <a class="a-1"href="https://github.com/caroAlvim" target="blank">Carolina Alvim</a>,
@@ -45,7 +40,6 @@ export default () => {
   `;
 
   sectionElement.innerHTML = signInTemplate
-
   const enterLogin = sectionElement.querySelector("#enter")
   const loginWithGoogle = sectionElement.querySelector("#gmail-btn")
 

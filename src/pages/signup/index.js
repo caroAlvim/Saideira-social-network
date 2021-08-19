@@ -23,14 +23,10 @@ export default () => {
           <button type="submit" id="register-btn" class="btn">Cadastrar</button>
         </form>
       </fieldset>
+
     </div>
- 
-    <div class="load">
-  <div class="loading"></div>
-  </div>
   `
   sectionElement.innerHTML = signUpTemplate
-
   const registerBtn = sectionElement.querySelector("#register-btn")
   registerBtn.addEventListener("click", (e) => {
     e.preventDefault()
@@ -43,13 +39,13 @@ export default () => {
     createUser(registerEmail, registerPassword)
       .then(() => {
         setTimeout(() => {
-          const load = sectionElement.querySelector(".load")
-          load.style.display = "block"
-        }, 2000)
-        window.history.pushState({}, "", "/editar-perfil")
-        const popStateEvent = new PopStateEvent("popstate", { state: {} })
-        dispatchEvent(popStateEvent)
+          window.history.pushState({}, "", "/editar-perfil")
+          const popStateEvent = new PopStateEvent("popstate", { state: {} })
+          dispatchEvent(popStateEvent)
+        }, 1000)
+
       })
+
 
       .catch((error) => {
         const errorCode = error.code
@@ -73,7 +69,6 @@ export default () => {
             alert(error.message)
         }
       })
-
   })
 
   const backToLogin = sectionElement.querySelector(".back-to-login")

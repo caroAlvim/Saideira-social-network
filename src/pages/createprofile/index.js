@@ -36,7 +36,8 @@ export default () => {
       </fieldset>
     </div>
     <div class="load">
-  <div class="loading"></div>
+          <div class="loading"></div>
+        </div>
   </div>
   `
 
@@ -113,16 +114,12 @@ export default () => {
         updateUserName(userName)
 
         setTimeout(() => {
-          const load = sectionElement.querySelector(".load")
-          load.style.display = "block"
-        }, 2000)
-        window.history.pushState(null, null, "/home")
-        const popStateEvent = new PopStateEvent("popstate", {
-          state: {}
-        })
-        dispatchEvent(popStateEvent)
-
-
+          window.history.pushState(null, null, "/home")
+          const popStateEvent = new PopStateEvent("popstate", {
+            state: {}
+          })
+          dispatchEvent(popStateEvent)
+        }, 1000)
 
       } else {
         uploadImage("input-profile-img", "" + userId + "")
@@ -140,15 +137,20 @@ export default () => {
           })
           .then(() => {
             setTimeout(() => {
+
               window.history.pushState(null, null, "/home")
               const popStateEvent = new PopStateEvent("popstate", {
                 state: {}
               })
               dispatchEvent(popStateEvent)
-            }, 1000)
+            }
+              , 1000)
           })
       }
     }
+    sectionElement.innerHTML = `<div class="load">
+          <div class="loading"></div>
+        </div>`
   })
   return sectionElement
 }
