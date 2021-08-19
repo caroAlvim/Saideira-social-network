@@ -1,11 +1,11 @@
-import {createUser} from '../../lib/index.js'
+import { createUser } from '../../lib/index.js'
 import { errorInput, errorPassword } from '../../error.js'
 
-export default () => { 
+export default () => {
 
   const sectionElement = document.createElement("section")
-  sectionElement.setAttribute("id","sign-up")
-  sectionElement.setAttribute("class","form-page")
+  sectionElement.setAttribute("id", "sign-up")
+  sectionElement.setAttribute("class", "form-page")
 
   const signUpTemplate = `
     <div class="logo-container">
@@ -29,51 +29,51 @@ export default () => {
   sectionElement.innerHTML = signUpTemplate
 
   const registerBtn = sectionElement.querySelector("#register-btn")
-  registerBtn.addEventListener("click", (e) =>{
+  registerBtn.addEventListener("click", (e) => {
     e.preventDefault()
     const emailInput = sectionElement.querySelector("#register-email")
-    const passwordInput =  sectionElement.querySelector("#register-password")
+    const passwordInput = sectionElement.querySelector("#register-password")
 
     const registerEmail = emailInput.value
-    const registerPassword =  passwordInput.value
+    const registerPassword = passwordInput.value
     let text
     createUser(registerEmail, registerPassword)
-    .then(()=>{
-      window.history.pushState({}, "", "/editar-perfil")
-      const popStateEvent = new PopStateEvent("popstate", {state:{}})
-      dispatchEvent(popStateEvent)
-    })
-    
-    .catch((error)=>{
-      const errorCode = error.code
-      switch(errorCode){
-        case "auth/email-already-in-use":
-          text = "E-mail já cadastrado"
-          errorInput(text, emailInput)
-          break
-  
-        case "auth/invalid-email":
-          text = "Formato de e-mail inválido"
-          errorInput(text, emailInput)
-          break
-  
-        case "auth/weak-password":
-          text = " As senhas devem ter no mínimo 6 caracteres"
-          errorPassword(text, passwordInput)
-          break
-        
+      .then(() => {
+        window.history.pushState({}, "", "/editar-perfil")
+        const popStateEvent = new PopStateEvent("popstate", { state: {} })
+        dispatchEvent(popStateEvent)
+      })
+
+      .catch((error) => {
+        const errorCode = error.code
+        switch (errorCode) {
+          case "auth/email-already-in-use":
+            text = "E-mail já cadastrado"
+            errorInput(text, emailInput)
+            break
+
+          case "auth/invalid-email":
+            text = "Formato de e-mail inválido"
+            errorInput(text, emailInput)
+            break
+
+          case "auth/weak-password":
+            text = " As senhas devem ter no mínimo 6 caracteres"
+            errorPassword(text, passwordInput)
+            break
+
           default:
             alert(error.message)
-      }
-    })
-    
+        }
+      })
+
   })
 
   const backToLogin = sectionElement.querySelector(".back-to-login")
   backToLogin.addEventListener("click", () => {
     window.history.pushState(null, null, "/login")
-          const popStateEvent = new PopStateEvent("popstate", {state:{}})
-          dispatchEvent(popStateEvent)
+    const popStateEvent = new PopStateEvent("popstate", { state: {} })
+    dispatchEvent(popStateEvent)
   })
   return sectionElement
 }
