@@ -70,6 +70,14 @@
         left: 20%;
     }
 
+    .span-mood {
+        margin: 0rem 0vw 0rem 25vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 50vw;
+    }
+
 }
 
 @media (max-width: 1024px) {
@@ -202,7 +210,7 @@
         width: 2.5rem;
     }
 
-    #photo-navbar{
+    #photo-navbar {
         border-radius: 100%;
         object-fit: cover;
         width: 3.2rem;
@@ -253,6 +261,7 @@
     .align-btn {
         flex-direction: column;
     }
+
 }
 
 @media (max-width: 1024px) and (min-width:496px) {
@@ -298,6 +307,21 @@
         display: none;
     }
 
+    .span-mood1 {
+        margin: 0rem 10vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 70vw;
+    }
+
+    .span-mood {
+        margin: 0rem 0vw 0rem 25vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 58vw;
+    }
 }
 
 @media (max-width:768px) {
@@ -362,6 +386,16 @@
 
 }
 
+@media (max-width: 700px) {
+    .span-mood {
+        margin: 0rem 0vw 0rem 20vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 57vw;
+    }
+
+}
 
 @media (max-width: 576px) {
 
@@ -462,6 +496,14 @@
         left: 35%;
     }
 
+    .span-mood {
+        margin: 0rem 0vw 0rem 11vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 53vw;
+    }
+
 }
 
 @media(max-width: 496px) {
@@ -555,10 +597,27 @@
     .loading {
         left: 32%;
     }
+
+    .span-mood1 {
+        margin: 0rem 20vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 80vw;
+    }
+
+    .span-mood {
+        margin: 0rem 0vw 0rem 20vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 68vw;
+    }
+
 }
 
 
-@media(max-width: 320px) {
+@media(max-width: 340px) {
 
 
 
@@ -618,6 +677,14 @@
 
     .loading {
         left: 27%;
+    }
+
+    .span-mood {
+        margin: 0rem 0vw 0rem 0vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 60vw;
     }
 }
 
@@ -703,5 +770,21 @@
 
     .loading {
         left: 23%;
+    }
+
+    .span-mood1 {
+        margin: 0rem 20vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 80vw;
+    }
+
+    .span-mood {
+        margin: 0rem 8vw 0rem 0vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 58vw;
     }
 }
