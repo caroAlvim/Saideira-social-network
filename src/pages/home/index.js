@@ -38,8 +38,7 @@ export default () => {
     </header>
     <div class="timeline">
     <div class="welcome">
-    <img class="photo-profile-feed" src=${profileImg}>
-    <h1 class="h1-welcome">Olá, ${userName} :)</h1> 
+  
     </div>
     
     <div class="make-review">
@@ -88,7 +87,7 @@ export default () => {
   `
   sectionElement.innerHTML = createFeedTemplate
 
-  sectionElement.appendChild(sidebar())
+  sectionElement.append(sidebar())
   sectionElement.append(navbar())
 
   let photo = sectionElement.querySelector(".file-img1")
@@ -125,8 +124,6 @@ export default () => {
   })
 
 
-
-
   const cancelReview = sectionElement.querySelector("[data-cancel-btn]")
   cancelReview.addEventListener("click", () => {
     sectionElement.querySelector(".review-area").style.display = "none"
@@ -134,7 +131,12 @@ export default () => {
     sectionElement.querySelector(".button-make-review").style.display = "block";
     sectionElement.querySelector(".make-review").style.background = "linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)";
     sectionElement.querySelector(".p-make-review").style.display = "block"
-
+    window.history.pushState(null, null, "/home")
+    const popStateEvent = new PopStateEvent("popstate", {
+      state: {}
+    })
+    dispatchEvent(popStateEvent)
+    
   })
 
   const sidebarComponent = sectionElement.querySelector("#sidebar")
@@ -157,10 +159,12 @@ export default () => {
   const buttonAddReviewSidebar = sectionElement.querySelector("#add-review-sidebar")
   buttonAddReviewSidebar.addEventListener("click", (e) => {
     e.preventDefault()
-    sidebarComponent.style.display = "none"
+    sidebarComponent.style.display= "none" //pra fechar o sidebar no responsivo
     window.scrollTo(0, 0)
     showReviewArea()
-    sectionElement.appendChild(sidebar())
+    sidebarComponent.style.display= "flex"
+    sidebarComponent.style.zIndex= "-1"
+    
   })
 
 
