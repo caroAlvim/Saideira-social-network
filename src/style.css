@@ -1586,6 +1586,21 @@ footer .a-3:hover {
     transform: scale(1);
 }
 
+.load1 {
+    animation: fadeOut 5s;
+    animation-fill-mode: forwards;
+    transition: 1s;
+    width: 100vw;
+    height: 100vh;
+    background: #00000069;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    transform: scale(1);
+    display: none;
+}
+
 @keyframes fadeOut {
     100% {
         opacity: 0;
