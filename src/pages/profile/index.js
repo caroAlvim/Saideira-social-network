@@ -257,10 +257,5 @@ export default () => {
 
   loadPosts(getProfileReviews(currentUser().uid))
 
-
-
-
-
-
   return sectionElement
 }

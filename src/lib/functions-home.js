@@ -266,7 +266,6 @@ export const loadPosts = (functionFirebase) => {
           post.addEventListener("click", (e) => {
             const postId = post.getAttribute("id")
             const target = e.target
-            console.log(target)
             const targetDataset = target.dataset.item
             if (targetDataset == "like") {
               likePost(target, postId)
@@ -293,12 +292,14 @@ export const loadPosts = (functionFirebase) => {
               const commentsDiv = target.parentNode.parentNode.parentNode
               const commentValue = commentsDiv.children[1].children[1].innerText
               const divDelete = target.parentNode.children[1]
-              const divYes = target.parentNode.children[1].children[0].children[1]
-              const divNo = target.parentNode.children[1].children[0].children[2]
+              const divYes = divDelete.children[0].children[1]
+              const divNo = divDelete.children[0].children[2]
+              console.log(commentsDiv)
               const userPhoto = currentUser().photoURL
               const userName = currentUser().displayName
-              const completeDate = target.parentNode.parentNode.children[0].children[1].innerText
-              const hour = target.parentNode.parentNode.children[0].children[2].innerText
+              const completeDate = commentsDiv.children[1].children[0].children[1].children[0].innerText
+              const hour = commentsDiv.children[1].children[0].children[1].children[1].innerText
+              console.log(completeDate)
               divDelete.style.display = "block"
               divYes.addEventListener("click", () => {
                 deleteComment(postId, commentValue, userId, userPhoto, userName, completeDate, hour)

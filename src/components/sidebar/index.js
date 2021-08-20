@@ -1,5 +1,7 @@
 import {
   currentUser,
+  getReviews,
+  getProfileReviews,
   logout
 } from "../../lib/index.js"
 
@@ -38,9 +40,28 @@ export const sidebar = () => {
     userName2 = ""
   }
 
+  
 
+  // const numReviews = ()=>{
+  //   let i = 0
+  //   getReviews()
+  //   .then((snap) => {
+      
+  //     snap.forEach((doc) => {
+  //       console.log(currentUser().uid)
+  //       console.log(doc.data().userId)
+  //       if(currentUser().uid === doc.data().userId){
+  //         console.log("igual")
+  //         i += 1
+  //         console.log(i)
+  //       }
+  //     })
+  //   })
+  //   console.log(i)
+  //   return i
+  // }
 
-
+ 
 
   const sidebarTemplate = `
     <div class="sidebar-container">
@@ -59,7 +80,7 @@ export const sidebar = () => {
       <section class="sidebar-profile">
         <div class="sidebar-line review-line">
           <p class="sidebar-text">Número de resenhas</p>
-          <div class="num"><p class="num-text">3</p></div>
+          <div class="num"><p class="num-text" id="num-reviews"></p></div>
         </div>
 
         <section class="sidebar-tools sidebar-add-review">
@@ -100,22 +121,12 @@ export const sidebar = () => {
    
     </div>
 `
-  // <section class="sidebar-tools sidebar-book-list">
-  //   <a href="" class=>
-  //     <div class="sidebar-div -links">
-  //       <img src="../../img/list.png" alt="">
-  //       <p>Lista de livros</p>
-  //     </div>
-  //   </a>
-  // </section>
 
-
-  //   <div class="sidebar-line">
-  //   <p class="sidebar-text">Número de curtidas</p>
-  //   <div class="num"><p class="num-text">9</p></div>
-  // </div>
-
-  // </section>
+  getProfileReviews(currentUser().uid)
+  .then((snap) => {
+    let size = snap.size
+    asideElement.querySelector("#num-reviews").innerText = size
+  })
 
 
   asideElement.innerHTML = sidebarTemplate
@@ -186,26 +197,9 @@ export const sidebar = () => {
 
 
   })
+ 
 
 
-  // const buttonAddReviewSidebar = asideElement.querySelector("#add-review-sidebar")
-  // buttonAddReviewSidebar.addEventListener("click", (e) => {
-  //   e.preventDefault()
-  //   window.scrollTo(0, 0)
-  //   showReviewArea()
-  // })
-
-  // const showSideBar = asideElement.querySelector(".sidebar-container") 
-  // showSideBar.addEventListener('mouseover', () => {
-  //   document.querySelector(".sidebar-desktop").style.transition="1s"
-  //   document.querySelector(".sidebar-desktop").style.margin="0rem 0rem 0rem 80vw"
-  // })
-
-  // const hideSideBar = asideElement.querySelector(".sidebar-container") 
-  // hideSideBar.addEventListener('mouseout', () => {
-  //   document.querySelector(".sidebar-desktop").style.transition="1s"
-  //   document.querySelector(".sidebar-desktop").style.margin="0rem 0rem 0rem 113vw"
-  // })
   return asideElement
 
 }
