@@ -22,6 +22,7 @@
     .align-btn {
         flex-direction: row;
     }
+
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
@@ -41,6 +42,7 @@
     .confirm-buttons-comment {
         margin: 0.5rem 6.5rem
     }
+
 
 }
 
@@ -349,7 +351,9 @@
         padding: 2rem;
     }
 
-
+    .loading {
+        left: 40%;
+    }
 
 }
 
@@ -444,6 +448,15 @@
         border: none;
     }
 
+    .footer {
+        height: 2.5rem;
+        padding: 0.4rem 0rem 0rem 0rem;
+    }
+
+    .loading {
+        left: 35%;
+    }
+
 }
 
 @media(max-width: 496px) {
@@ -455,8 +468,8 @@
         width: 95%
     }
 
-    .logo-container{
-        margin-bottom:4rem;
+    .logo-container {
+        margin-bottom: 4rem;
 
     }
 
@@ -525,6 +538,18 @@
     .username-post {
         display: none;
     }
+
+    .p-footer {
+        font-size: 1.3rem;
+    }
+
+    footer a {
+        font-size: 1.3rem;
+    }
+
+    .loading {
+        left: 32%;
+    }
 }
 
 
@@ -577,14 +602,19 @@
         border: none;
     }
 
-}
+    .p-footer {
+        font-size: 1.1rem;
+    }
 
-@media(max-width: 400px) {
-    .username-post {
-        font-size: 1rem;
-        margin: 0rem 0rem 1rem 0.3rem;
+    footer a {
+        font-size: 1.1rem;
+    }
+
+    .loading {
+        left: 27%;
     }
 }
+
 
 @media(max-width: 280px) {
 
@@ -650,5 +680,22 @@
         justify-items: start;
         justify-content: start;
         align-items: flex-start;
+    }
+
+    .p-footer {
+        font-size: 1rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+
+    .footer {
+        height: 2rem;
+        padding: 0.3rem 0rem 0rem 0rem;
+    }
+
+    .loading {
+        left: 23%;
     }
 }

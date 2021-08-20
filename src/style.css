@@ -11,9 +11,10 @@
     padding: 0;
     font-family: Roboto;
     box-sizing: border-box;
-    color: var(--text-color);
     font-size: 10px;
+    color: var(--text-color);
 }
+
 
 body {
     width: 100vw;
@@ -983,13 +984,13 @@ header {
     font-size: 2.5rem;
     transition: all 0.3s;
     margin-right: 0.5rem;
-    border:none;
-    display:flex;
+    border: none;
+    display: flex;
     align-items: center;
 }
 
-.like img{
-    width:2.5rem;
+.like img {
+    width: 2.5rem;
 }
 
 .like:hover {
@@ -1541,4 +1542,102 @@ ol, ul{
 .error-stars-msg{
     display: flex;
     justify-content: space-around;
+
+}    
+.footer {
+    background-color: rgba(0, 0, 0, 0.534);
+    border-top: #ffffff 1px solid;
+    box-shadow: rgb(10, 7, 3) 1px 2px 55px;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 3rem;
+    padding: 0.4rem 0rem 0rem 0rem;
+}
+
+.p-footer {
+    font-size: 1.5rem;
+    color: white;
+}
+
+footer a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: rgb(212, 212, 212);
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-1:hover {
+    text-decoration: none;
+    color: rgb(214, 180, 241);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-2:hover {
+    text-decoration: none;
+    color: rgb(168, 193, 230);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-3:hover {
+    text-decoration: none;
+    color: rgb(180, 226, 199);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.load {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+    transition: 1s;
+    width: 100vw;
+    height: 100vh;
+    background: #00000069;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    transform: scale(1);
+}
+
+.load1 {
+    animation: fadeOut infinite;
+    transition: 1s;
+    width: 100vw;
+    height: 100vh;
+    background: #00000069;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    transform: scale(1);
+    display: none;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loading {
+    animation: is-rotating 1s infinite;
+    border: 1rem solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #2b2883;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 35%;
+    left: 43%;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
 }

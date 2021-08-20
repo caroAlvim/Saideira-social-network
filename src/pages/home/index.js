@@ -82,6 +82,10 @@ export default () => {
     <div data-all-reviews class= "all-reviews">
     
     </div>
+    <div class="load">
+    <div class="loading"></div>
+  </div>
+</div>
   </div>
  
     
