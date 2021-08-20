@@ -35,6 +35,14 @@ export default () => {
         </form>
       </fieldset>
     </div>
+    <div class="load1">
+          <div class="loading"></div>
+        </div>
+
+        <div class="load">
+          <div class="loading"></div>
+        </div>
+  </div>
   `
 
   sectionElement.innerHTML = createProfileTemplate
@@ -52,7 +60,6 @@ export default () => {
     })
     dispatchEvent(popStateEvent)
   })
-
 
   const user = currentUser()
   const name = currentUser().displayName
@@ -116,8 +123,7 @@ export default () => {
           })
           dispatchEvent(popStateEvent)
         }, 1000)
-
-
+        sectionElement.querySelector(".load1").style.display = "block"
       } else {
         uploadImage("input-profile-img", "" + userId + "")
           .then(snapshot => snapshot.ref.getDownloadURL())
@@ -134,15 +140,19 @@ export default () => {
           })
           .then(() => {
             setTimeout(() => {
+
               window.history.pushState(null, null, "/home")
               const popStateEvent = new PopStateEvent("popstate", {
                 state: {}
               })
               dispatchEvent(popStateEvent)
-            }, 1000)
+            }
+              , 1000)
           })
+        sectionElement.querySelector(".load1").style.display = "block"
       }
     }
+    sectionElement.querySelector(".load1").style.display = "block"
   })
   return sectionElement
 }
