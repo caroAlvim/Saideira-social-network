@@ -1,11 +1,11 @@
-import { currentUser, getProfileReviews} from "../../lib/index.js"
+import { currentUser, getProfileReviews } from "../../lib/index.js"
 import { sidebar } from "../../components/sidebar/index.js"
-import {loadPosts, profileImage, showReviewArea } from "../../lib/functions-home.js"
+import { loadPosts, profileImage, showReviewArea } from "../../lib/functions-home.js"
 import { navbar } from "../../components/navbar/index.js"
 import home from "../home/index.js"
 
 
-export default () =>{
+export default () => {
 
 
   const sectionElement = document.createElement("section")
@@ -13,14 +13,14 @@ export default () =>{
 
   const user = currentUser()
   const name = user.displayName
-  
-  let userName 
+
+  let userName
   if (name != null && name != undefined) {
     userName = name
-   
+
   } else {
     userName = "Usuário anônimo"
-   
+
   }
 
 
@@ -45,7 +45,9 @@ export default () =>{
     <div data-all-reviews class= "all-reviews"></div>
     
     </div>
-
+    <div class="load">
+    <div class="loading"></div>
+  </div>
     
   `
   sectionElement.innerHTML = profileTemplate
@@ -53,18 +55,18 @@ export default () =>{
   sectionElement.appendChild(navbar())
   sectionElement.appendChild(sidebar())
 
-  sectionElement.querySelector(".sidebar").style.display="none"
-  sectionElement.querySelector(".sidebar").style.zIndex="2"
+  sectionElement.querySelector(".sidebar").style.display = "none"
+  sectionElement.querySelector(".sidebar").style.zIndex = "2"
 
-   const buttonHome = sectionElement.querySelector(".btn-home-profile")
-    buttonHome.addEventListener("click", (e) => {
+  const buttonHome = sectionElement.querySelector(".btn-home-profile")
+  buttonHome.addEventListener("click", (e) => {
     e.preventDefault()
     window.history.pushState(null, null, "/home")
     const popStateEvent = new PopStateEvent("popstate", {
       state: {}
     })
     dispatchEvent(popStateEvent)
-   
+
   })
 
   const openSidebar = sectionElement.querySelector("#open-sidebar")
@@ -73,9 +75,9 @@ export default () =>{
     const sidebar = sectionElement.querySelector("#sidebar")
     sidebar.style.display = "block"
     sidebar.classList.remove("sidebar-desktop")
-    
+
   })
- 
+
 
   // //sectionElement.querySelector(".user-data").style.display="none" 
   // sectionElement.querySelector(".sidebar-profile").style.borderTop="none" 
@@ -90,7 +92,7 @@ export default () =>{
   //   const sidebar = sectionElement.querySelector("#sidebar")
   //   sidebar.style.display = "block"
   //   sidebar.classList.remove("sidebar-desktop")
-    
+
   // })
 
   // const buttonHomeNavbar = sectionElement.querySelector("#home-navbar")
@@ -101,44 +103,44 @@ export default () =>{
   //     state: {}
   //   })
   //   dispatchEvent(popStateEvent)
-   
+
   // })
 
   // const buttonProfileNavbar = sectionElement.querySelector("#profile-navbar")
   // buttonProfileNavbar.addEventListener("click", (e) => {
   //   e.preventDefault()
   //   window.scrollTo(0,0)
-   
+
   // })
 
   const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
   buttonAddReviewNavbar.addEventListener("click", (e) => {
     e.preventDefault()
-    sectionElement.innerHTML=""
+    sectionElement.innerHTML = ""
     sectionElement.appendChild(home())
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     showReviewArea()
     window.history.pushState(null, null, "/home")
-    
+
   })
 
   const buttonAddReviewSidebar = sectionElement.querySelector("#add-review-sidebar")
   buttonAddReviewSidebar.addEventListener("click", (e) => {
     e.preventDefault()
-    sectionElement.innerHTML=""
+    sectionElement.innerHTML = ""
     sectionElement.appendChild(home())
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     showReviewArea()
     window.history.pushState(null, null, "/home")
-    
+
   })
 
   loadPosts(getProfileReviews(currentUser().uid))
 
-  
 
 
- 
 
-return sectionElement
+
+
+  return sectionElement
 }

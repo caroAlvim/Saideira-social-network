@@ -322,7 +322,7 @@ export const loadPosts = (functionFirebase) => {
                 const userPhoto = currentUser().photoURL
                 const userName = currentUser().displayName
                 const date = new Date()
-                const completeDate = date.toLocaleDateString()
+                const completeDate = date.toLocaleDateString("en-GB")
                 const hour = date.toLocaleTimeString("pt-BR", {
                   timeStyle: "short",
                   hour12: false,
@@ -408,7 +408,7 @@ export const publishReview = (e) => {
   const userId = user.uid
   e.preventDefault()
   const date = new Date()
-  const completeDate = date.toLocaleDateString()
+  const completeDate = date.toLocaleDateString("en-GB")
   const hour = date.toLocaleTimeString("pt-BR", {
     timeStyle: "short",
     hour12: false,
@@ -498,25 +498,22 @@ export const openReviewEdit = (reviewId) => {
     showEdit.classList.add("confirm-modal-edit")
     modalEdit.style.display = "block"
 
-    // const imgData = post.data().imageUrl
-    //   if(imgData == null){
-    //     document.querySelector(".container-file-img1").style.display = "none"
-    //   }
-
     const contentEdit = `               
                     <div >
                         <div class="confirm-modal-edit" id=${reviewId}>
                           <div class= "content-text">
                             <h1 class="h1-confirm-edit">Editar</h1>
-                            <label class="review-label" for="book-name-edit">Livro:</label>
-                            <textarea class="review-input-edit" data-book-edit type="text" id="book-name-edit" required>${post.data().book}</textarea>
-                            <label class="review-label" for="book-author-edit">Autor</label>
-                            <textarea class="review-input-edit" data-author-edit type="text" id="book-author-edit" required>${post.data().author}</textarea>
+                            <label class="review-label" for="book-${reviewId}">Livro:</label>
+                            <textarea class="review-input-edit" data-type-book type="text" id="book-${reviewId}" required>${post.data().book}</textarea>
+                              <ul class="warning-error" data-book-error> </ul> 
+                            <label class="review-label" for="author-${reviewId}">Autor</label>
+                            <textarea class="review-input-edit" data-type-author type="text" id="author-${reviewId}" required>${post.data().author}</textarea>
+                              <ul class="warning-error" data-author-error> </ul> 
                             <textarea class="post-input-edit" id="review" cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
                           </div>
                          <label class="review-rating">Avalie</label>
                          <div class="stars-edit" >
-                          <input type="radio" id="star-empty" name="stars" value="${post.data().rating}" checked/>
+                          <input type="radio" id="star-empty" name="stars" value="${post.data().rating || ""}" checked/>
                           <label for="str-1" class="stars"></label>
                           <input type="radio" id="str-1" data-stars-form name="stars" value="★"/>
                           <label for="str-2" class="stars"></label>
@@ -526,11 +523,14 @@ export const openReviewEdit = (reviewId) => {
                           <label for="str-4" class="stars"></label>
                           <input type="radio" id="str-4" data-stars-form name="stars" value="★★★★"/>
                           <label for="str-5" class="stars"></label>
-                          <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/>  
-                        </div>
+                          <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/> 
+                        </div> 
+                        <div class="error-stars-msg">
+                          <ul class="warning-error" data-stars-error> </ul>
+                        </div> 
                         <div class="align-btn">
                           <button class="confirm-buttons-edit" id="yes-edit" data-edit-send >Editar</button>
-                          <button class="confirm-buttons-edit" id="no-edit">Cancelar</button>
+                          <button class="confirm-buttons-edit" id="no-edit" data-cancel-edit>Cancelar</button>
                         </div>
                     </div>`
 
@@ -538,28 +538,75 @@ export const openReviewEdit = (reviewId) => {
     modalEdit.innerHTML = contentEdit
 
     const sendEdit = document.querySelector("[data-edit-send]")
+    const cancelEdit = document.querySelector("[data-cancel-edit]")
 
     sendEdit.addEventListener("click", () => {
 
-      const bookNameEdited = document.querySelector("[data-book-edit]").value
-      const authorNameEdited = document.querySelector("[data-author-edit]").value
-      const starsEvaluationEdited = document.querySelector("[data-stars-form]:checked").value
+      const bookNameEdited = document.querySelector("[data-type-book]").value
+      const authorNameEdited = document.querySelector("[data-type-author]").value
+      const starsEvaluationElement = document.querySelector("[data-stars-form]:checked")
+      let starsEvaluationEdited = ""
+        if(starsEvaluationElement){
+          starsEvaluationEdited = starsEvaluationElement.value
+        }
+
       const reviewUserNew = document.querySelector("[data-review-edit]").value
       //const imageEdited = funcao de uploadimage
+       console.log(starsEvaluationEdited)
 
+      
 
-      editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
-        modalEdit.style.display = "none"
-      }).then(() => {
-        loadPosts(getReviews())
-
-      })
-
+      const verified = verifyInput(bookNameEdited, authorNameEdited, starsEvaluationEdited)
+      console.log(verified)
+        if(verified.status){
+          editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId).then(() => {
+            modalEdit.style.display = "none"
+          }).then(() => {
+            loadPosts(getReviews())
+  
+          })
+        }
+        //tratando erros
+        document.querySelector("[data-book-error]").innerHTML = verified.book
+        document.querySelector("[data-author-error]").innerHTML = verified.author
+        document.querySelector("[data-stars-error]").innerHTML = verified.stars
+    
     })
-    document.querySelector("#no-edit").addEventListener("click", () => {
+    cancelEdit.addEventListener("click", () => {
       modalEdit.style.display = "none"
     })
-
   })
 
+}
+
+export const verifyInput = (verifyBook, verifyAuthor, verifyStars) => {
+  console.log("caiu no verifyInput")
+  const bookLine = verifyBook.trim()
+  const authorLine = verifyAuthor.trim()
+  const starsValue = verifyStars.trim()
+  
+  let bookError = ""
+  let authorError = ""
+  let starsError =""
+
+  if(!bookLine){
+    bookError = `<li class="warning-msg"> Por favor, digite o nome do livro </li>`
+    
+  }
+  if(!authorLine){
+    authorError = `<li class="warning-msg"> Por favor, digite o nome do autor </li>`
+  }
+  if(!starsValue){
+    starsError = `<li class="warning-msg"> Por favor, faça a sua avaliação </li>`
+    
+  }
+  const verified = {
+    book: bookError, 
+    author: authorError,
+    stars: starsError,
+    status: (!bookError && !authorError && !starsError)
+  }
+
+  return verified 
+  
 }
