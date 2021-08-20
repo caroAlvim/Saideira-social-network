@@ -1587,8 +1587,7 @@ footer .a-3:hover {
 }
 
 .load1 {
-    animation: fadeOut infinitegi;
-    animation-fill-mode: forwards;
+    animation: fadeOut infinite;
     transition: 1s;
     width: 100vw;
     height: 100vh;
