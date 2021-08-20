@@ -57,7 +57,7 @@ export default () => {
             <img src="./img/imagebooks.png" class="file-img1">
           </div>
       <input type="file" class="file-input" id="input-profile-img" accept="image/*">
-      <textarea class="post-input" id="text" cols="30" rows="5" data-post-input required placeholder ="Escreva sua review..."></textarea>
+      <textarea class="post-input" id="text" cols="30" rows="5" data-post-input placeholder ="Escreva sua review..."></textarea>
       
       <label class="review-rating">Avalie</label>
       <div class="estrelas" >
@@ -172,8 +172,8 @@ export default () => {
   const createReviewBtn = sectionElement.querySelector("[data-publish-btn]")
   //const logoutBtn = sectionElement.querySelector("#logout-btn")
 
-  createReviewBtn.addEventListener("click", publishReview)
-  const deleteComment = sectionElement.querySelectorAll("[data-delete-comment")
+  createReviewBtn.addEventListener("click", publishReview)  
+  //const deleteComment = sectionElement.querySelectorAll("[data-delete-comment")
 
   loadPosts(getReviews())
 

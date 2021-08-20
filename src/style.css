@@ -1527,6 +1527,23 @@ header {
     transition: 1s
 }
 
+ol, ul{
+    list-style: none;
+}
+
+.warning-msg{
+    font-size: 14px;
+    color: orange;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.error-stars-msg{
+    display: flex;
+    justify-content: space-around;
+
+}    
 .footer {
     background-color: rgba(0, 0, 0, 0.534);
     border-top: #ffffff 1px solid;

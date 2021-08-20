@@ -55,45 +55,13 @@ export const signInGoogleAccount = () => {
     .signInWithPopup(provider)
 
 }
-/*
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    .then((result) => {
-    //@type {firebase.auth.OAuthCredential} 
-    var credential = result.credential;
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  })
-  .catch((error) => {
-    
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-*/
 
-export const signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-  /*
-  .then(() => {
-    // Sign-out successful.
-  }).catch((error) => {
-    swal.fire({
-      icon: "error",
-      title: error.message,
-    })// An error happened.
-  });
- */
-}
+
+// export const signOut = () => {
+//   firebase
+//     .auth()
+//     .signOut()
+// }
 
 export const uploadImage = (id, userid) => {
   const ref = storage.ref()
@@ -127,8 +95,7 @@ export const forgotPassword = (email) => {
 
 
 export const createReview = (bookUser, authorUser, reviewUser, ratingStars, nameUser, image, date, hour) => {
-  return firebase
-    .firestore()
+  return database
     .collection("reviews").add({
       book: bookUser,
       author: authorUser,
@@ -158,20 +125,20 @@ export const getPost = (postID) => {
   return review.get()
 }
 
-export const updateRewiews = () => {
-  return database
-    .collection("reviews").onSnapshot(snapshot => {
-      snapshot.docChanges(idReview).forEach(post => {
-        if (post.type == "added") {
-          //getReviews(post.doc.data(), post.doc.id);
-        }
-        if (post.type == "modified") {
-        }
-        if (post.type == "removed") {
-        }
-      })
-    })
-}
+// export const updateRewiews = () => {
+//   return database
+//     .collection("reviews").onSnapshot(snapshot => {
+//       snapshot.docChanges(idReview).forEach(post => {
+//         if (post.type == "added") {
+//           //getReviews(post.doc.data(), post.doc.id);
+//         }
+//         if (post.type == "modified") {
+//         }
+//         if (post.type == "removed") {
+//         }
+//       })
+//     })
+// }
 
 export const like = (postID, userID) => {
 

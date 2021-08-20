@@ -16,8 +16,8 @@ export default () => {
     <h1 class="h1-login">Login</h1>
     <fieldset class="fieldset-sign-in fieldset">
       <form class="form" action="">
-        <input class="form-input" type="email" placeholder="Email" id="login-email"/>
-        <input class="form-input"  type="password" placeholder="Senha" id="login-password"/>
+        <input class="form-input" type="email" placeholder="Email" id="login-email" required/>
+        <input class="form-input"  type="password" id="login-password" placeholder="Senha" required/>
         <p class="forget-password" id="text-forgot-password">Esqueceu sua senha?</p>
         <button type="button" class="btn" id="enter">Entrar</button>
         <p class="p-sign-in">Não tem uma conta? <a href="" class="forget-password-link" id="signup-link">Cadastre-se</a></p>    
