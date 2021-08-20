@@ -71,17 +71,20 @@ export const sidebar = () => {
         </button>
       </section>
 
-        <div class="profile-line sidebar-btn">
-        <img src="./img/profile-navbar.png" class="menu-img-side-bar"/>
-        <p class="sidebar-text" id="profile-sidebar">Perfil</p>
-        </div>
+      <section class="sidebar-tools">
+        <button class="sidebar-btn">
+          <div class="sidebar-div-links">
+            <img src="./img/profile-navbar.png" class="menu-img-sidebar"/>
+            <p class="sidebar-text" id="profile-sidebar">Perfil</p>
+          </div>
+        </button>
       </section>
 
       <section class="sidebar-tools sidebar-saved">
         <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
           <div class="sidebar-div-links">
-            <img src="../../img/save.png" alt="" class="save-sidebar">
-            <p class="sidebar-text" id="save-sidebar-text" >Salvos</p>
+              <img src="../../img/save.png" alt="" class="save-sidebar">
+              <p class="sidebar-text" id="save-sidebar-text" >Salvos</p>
           </div>
         </button>
       </section>
@@ -121,7 +124,7 @@ export const sidebar = () => {
   const editProfileLink = asideElement.querySelector("#edit-profile-link")
   const savedBtnSidebar = asideElement.querySelector("#saved-btn-sidebar")
   const profileSidebar = asideElement.querySelector("#profile-sidebar")
-  const profileSideBar = asideElement.querySelector(".menu-img-side-bar")
+  const profileSideBar = asideElement.querySelector(".menu-img-sidebar")
 
   profileSidebar.addEventListener("click", (e) => {
     e.preventDefault()

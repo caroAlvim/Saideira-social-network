@@ -462,7 +462,7 @@ a:hover {
 
 .sidebar-container {
     z-index: 2;
-    width: 100vw;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -527,7 +527,7 @@ a:hover {
 
 
 .user-information {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -541,7 +541,7 @@ a:hover {
 }
 
 .sidebar-user {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     color: rgb(200, 231, 255);
 }
 
@@ -557,7 +557,7 @@ a:hover {
 .profile-line {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     width: 100;
     align-items: center;
     text-align: center;
@@ -566,9 +566,6 @@ a:hover {
     border-top: 1px white solid;
 }
 
-.sidebar-add-review {
-    border-bottom: 1px solid white;
-}
 
 .sidebar-line {
     width: 100%;
@@ -591,6 +588,9 @@ a:hover {
     transition: 0.7s
 }
 
+.review-line{
+    margin:0.7rem 0;
+}
 
 .num {
     width: 2.2rem;
@@ -616,7 +616,7 @@ a:hover {
     border-top: solid 1px white;
     display: flex;
     align-self: center;
-    justify-content: center;
+    justify-content: left;
 
 }
 
@@ -725,14 +725,7 @@ header {
     margin-right: 2rem;
 }
 
-.welcome {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0rem;
-    background-color: white;
-}
+
 
 .photo-profile-feed {
     width: 6rem;
@@ -743,12 +736,7 @@ header {
     border: 2px solid rgb(89, 136, 189);
 }
 
-.h1-welcome {
-    font-size: 2rem;
-    font-weight: 100;
-    color: black;
-    padding: 0rem 0rem 0rem 1rem;
-}
+
 
 .make-review {
     padding: 1.5rem;
@@ -1126,7 +1114,7 @@ header {
 .comment-headline {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -1146,6 +1134,13 @@ header {
     color: black;
     font-weight: bold;
 }
+
+.comment-date-container{
+    display:flex;
+    flex-wrap: nowrap;
+
+}
+
 
 .comment-date {
     font-size: 1.3rem;
@@ -1393,7 +1388,7 @@ header {
 
 }
 
-.menu-img-side-bar {
+.menu-img-sidebar {
     cursor: pointer;
     filter: brightness(450%);
     width: 3rem;

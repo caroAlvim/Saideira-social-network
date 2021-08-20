@@ -33,8 +33,10 @@ export const comment = (userId, userImage, name, text, completeDate, hour) => {
     <div class = "comment-text">
       <div class="comment-headline">
         <p class="comment-username">${userName}</p>
-        <p class="comment-date">${completeDate}</p>
-        <p class="comment-date">${hour}</p>
+        <div class="comment-date-container">
+          <p class="comment-date">${completeDate}</p>
+          <p class="comment-date">${hour}</p>
+        </div>
       </div>
       <p class="comment-content">${text}</p>
     <div class="options-edition-comment" data-comment-edit>
