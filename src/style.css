@@ -1525,3 +1525,20 @@ header {
     filter: invert(77%) sepia(58%) saturate(1717%) hue-rotate(203deg) brightness(100%) contrast(88%);
     transition: 1s
 }
+
+ol, ul{
+    list-style: none;
+}
+
+.warning-msg{
+    font-size: 14px;
+    color: orange;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.error-stars-msg{
+    display: flex;
+    justify-content: space-around;
+}

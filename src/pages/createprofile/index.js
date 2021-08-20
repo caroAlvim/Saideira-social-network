@@ -30,7 +30,7 @@ export default () => {
             <img src="./img/camera.png" class="file-img">
           </div>
           <input type="file" class="file-input" id="input-profile-img" accept="image/*">
-          <input type="text" placeholder="Nome de usuário" class="form-input" id="input-username">
+          <input type="text" placeholder="Nome de usuário" class="form-input" id="input-username" required>
           <button type="button"id="send-profile" class="btn">Editar</button>
         </form>
       </fieldset>
