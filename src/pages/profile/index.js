@@ -78,41 +78,6 @@ export default () => {
 
   })
 
-
-  // //sectionElement.querySelector(".user-data").style.display="none" 
-  // sectionElement.querySelector(".sidebar-profile").style.borderTop="none" 
-  // //sectionElement.querySelector(".sidebar-profile").style.marginTop="3rem" 
-  // sectionElement.querySelector(".sidebar-review-image").src="../../img/home.png"
-  // sectionElement.querySelector(".sidebar-review-image").style.width="2.5rem"
-  // sectionElement.querySelector(".sidebar-review").innerText="Home"
-
-  // const openSidebar = sectionElement.querySelector("#open-sidebar")
-  // openSidebar.addEventListener("click", (e) => {
-  //   e.preventDefault()
-  //   const sidebar = sectionElement.querySelector("#sidebar")
-  //   sidebar.style.display = "block"
-  //   sidebar.classList.remove("sidebar-desktop")
-
-  // })
-
-  // const buttonHomeNavbar = sectionElement.querySelector("#home-navbar")
-  // buttonHomeNavbar.addEventListener("click", (e) => {
-  //   e.preventDefault()
-  //   window.history.pushState(null, null, "/home")
-  //   const popStateEvent = new PopStateEvent("popstate", {
-  //     state: {}
-  //   })
-  //   dispatchEvent(popStateEvent)
-
-  // })
-
-  // const buttonProfileNavbar = sectionElement.querySelector("#profile-navbar")
-  // buttonProfileNavbar.addEventListener("click", (e) => {
-  //   e.preventDefault()
-  //   window.scrollTo(0,0)
-
-  // })
-
   const buttonAddReviewNavbar = sectionElement.querySelector("#add-review-navbar")
   buttonAddReviewNavbar.addEventListener("click", (e) => {
     e.preventDefault()
@@ -136,11 +101,6 @@ export default () => {
   })
 
   loadPosts(getProfileReviews(currentUser().uid))
-
-
-
-
-
 
   return sectionElement
 }
