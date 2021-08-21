@@ -1,67 +1,38 @@
 import {
   currentUser,
-  getReviews,
   getProfileReviews,
-  logout
-} from "../../lib/index.js"
-
-
+  logout,
+} from '../../lib/index.js';
 
 export const sidebar = () => {
+  const asideElement = document.createElement('aside');
 
-  const asideElement = document.createElement("aside")
+  asideElement.classList.add('sidebar');
+  asideElement.classList.add('sidebar-desktop');
+  asideElement.classList.add('mobile-menu');
+  asideElement.setAttribute('id', 'sidebar');
 
-  asideElement.classList.add('sidebar')
-  asideElement.classList.add('sidebar-desktop')
-  asideElement.classList.add('mobile-menu')
-  asideElement.setAttribute("id", "sidebar")
-
-
-  const user = currentUser()
-  const imageUrl = user.photoURL
-  let profileImg
+  const user = currentUser();
+  const imageUrl = user.photoURL;
+  let profileImg;
 
   if (imageUrl != null) {
-    profileImg = user.photoURL
+    profileImg = user.photoURL;
   } else {
-    profileImg = "./img/default-img.png"
+    profileImg = './img/default-img.png';
   }
 
-  let userName
-  let userName2
-  const userNameFirebase = user.displayName
+  let userName;
+  let userName2;
+  const userNameFirebase = user.displayName;
 
-  if (userNameFirebase != null && userNameFirebase != undefined) {
-    userName = userNameFirebase
-    userName2 = "@" + userName.replace(/\s/g, '').toLowerCase();
-
+  if (userNameFirebase != null && userNameFirebase !== undefined) {
+    userName = userNameFirebase;
+    userName2 = `@${userName.replace(/\s/g, '').toLowerCase()}`;
   } else {
-    userName = "Usuário anônimo"
-    userName2 = ""
+    userName = 'Usuário anônimo';
+    userName2 = '';
   }
-
-  
-
-  // const numReviews = ()=>{
-  //   let i = 0
-  //   getReviews()
-  //   .then((snap) => {
-      
-  //     snap.forEach((doc) => {
-  //       console.log(currentUser().uid)
-  //       console.log(doc.data().userId)
-  //       if(currentUser().uid === doc.data().userId){
-  //         console.log("igual")
-  //         i += 1
-  //         console.log(i)
-  //       }
-  //     })
-  //   })
-  //   console.log(i)
-  //   return i
-  // }
-
- 
 
   const sidebarTemplate = `
     <div class="sidebar-container">
@@ -120,86 +91,77 @@ export const sidebar = () => {
       </section>
    
     </div>
-`
+`;
 
   getProfileReviews(currentUser().uid)
-  .then((snap) => {
-    let size = snap.size
-    asideElement.querySelector("#num-reviews").innerText = size
-  })
-
-
-  asideElement.innerHTML = sidebarTemplate
-
-  const logoutBtn = asideElement.querySelector("#logout-btn-sidebar")
-  const editProfileLink = asideElement.querySelector("#edit-profile-link")
-  const savedBtnSidebar = asideElement.querySelector("#saved-btn-sidebar")
-  const profileSidebar = asideElement.querySelector("#profile-sidebar")
-  const profileSideBar = asideElement.querySelector(".menu-img-sidebar")
-
-  profileSidebar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.history.pushState(null, null, "/perfil")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
+    .then((snap) => {
+      const size = snap.size;
+      asideElement.querySelector('#num-reviews').innerText = size;
     })
-    dispatchEvent(popStateEvent)
+    .catch((error) => {
+      console.log('Error getting documents: ', error);
+    });
 
-  })
+  asideElement.innerHTML = sidebarTemplate;
 
-  profileSideBar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.history.pushState(null, null, "/perfil")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
-    })
-    dispatchEvent(popStateEvent)
+  const logoutBtn = asideElement.querySelector('#logout-btn-sidebar');
+  const editProfileLink = asideElement.querySelector('#edit-profile-link');
+  const savedBtnSidebar = asideElement.querySelector('#saved-btn-sidebar');
+  const profileSidebar = asideElement.querySelector('#profile-sidebar');
+  const profileSideBar = asideElement.querySelector('.menu-img-sidebar');
 
-  })
+  profileSidebar.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.pushState(null, null, '/perfil');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  editProfileLink.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.history.pushState(null, null, "/editar-perfil")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
-    })
-    dispatchEvent(popStateEvent)
+  profileSideBar.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.pushState(null, null, '/perfil');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  })
+  editProfileLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.pushState(null, null, '/editar-perfil');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  logoutBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    logout()
-    window.history.pushState(null, null, "/login")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
-    })
-    dispatchEvent(popStateEvent)
-  })
+  logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout();
+    window.history.pushState(null, null, '/login');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  savedBtnSidebar.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.history.pushState(null, null, "/salvos")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
-    })
-    dispatchEvent(popStateEvent)
+  savedBtnSidebar.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.pushState(null, null, '/salvos');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  })
+  const closeBtn = asideElement.querySelector('#close-mobile-sidebar');
+  closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sidebarElement = document.querySelector('.mobile-menu');
+    sidebarElement.style.display = 'none';
+  });
 
-
-
-  const closeBtn = asideElement.querySelector("#close-mobile-sidebar")
-  closeBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    const sidebar = document.querySelector(".mobile-menu")
-    sidebar.style.display = "none"
-
-
-  })
- 
-
-
-  return asideElement
-
-}
+  return asideElement;
+};

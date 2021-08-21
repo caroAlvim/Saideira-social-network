@@ -1,32 +1,26 @@
-import { currentUser } from "../../lib/index.js"
+import { currentUser } from '../../lib/index.js';
 
 export const comment = (userId, userImage, name, text, completeDate, hour) => {
-  
-  
-  const sectionElement = document.createElement("section")
-  sectionElement.classList.add('comment-post')
+  const sectionElement = document.createElement('section');
+  sectionElement.classList.add('comment-post');
 
-  const image = userImage
-  let userPhoto
+  const image = userImage;
+  let userPhoto;
   if (image != null) {
-    userPhoto = image
+    userPhoto = image;
   } else {
-    userPhoto = "../../img/default-img.png"
+    userPhoto = '../../img/default-img.png';
   }
 
-  let userName
+  let userName;
 
-
-  if (name != null && name != undefined) {
-    userName = name
-
+  if (name != null && name !== undefined) {
+    userName = name;
   } else {
-    userName = "Usuário anônimo"
-
+    userName = 'Usuário anônimo';
   }
 
-  const commentTemplate =
-    `
+  const commentTemplate = `
     <div class="comment-image-div">
       <img src="${userPhoto}"class="comment-user-image"/>
     </div>
@@ -50,17 +44,14 @@ export const comment = (userId, userImage, name, text, completeDate, hour) => {
       </div>
     </div>
     </div>
-`
+`;
 
-  
-  sectionElement.innerHTML = commentTemplate
-  const deleteCommentBtn = sectionElement.querySelector("[data-comment-edit]")
-    
-  if(userId==currentUser().uid){
-    deleteCommentBtn.style.display="flex"
+  sectionElement.innerHTML = commentTemplate;
+  const deleteCommentBtn = sectionElement.querySelector('[data-comment-edit]');
+
+  if (userId === currentUser().uid) {
+    deleteCommentBtn.style.display = 'flex';
   }
-  
 
-  return sectionElement
-
-}
+  return sectionElement;
+};

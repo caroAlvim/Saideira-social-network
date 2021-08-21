@@ -14,7 +14,6 @@ export default () => {
 
     <button>Entre com sua conta Gmail</button>
   </form>
-  `
-
-  return loginTemplate
-}
+  `;
+  return loginTemplate;
+};

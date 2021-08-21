@@ -1,24 +1,18 @@
+/* eslint-disable no-shadow */
 import {
   currentUser,
   uploadImage,
   updateUserImage,
-  updateUserName
-} from "../../lib/index.js"
+  updateUserName,
+} from '../../lib/index.js';
 import {
-  errorInput
-} from '../../error.js'
+  errorInput,
+} from '../../error.js';
 
 export default () => {
-
-  //y.pushState("createprofile", null, "/createprofile")
-
-  const sectionElement = document.createElement("section")
-  sectionElement.setAttribute("id", "create-profile")
-  sectionElement.setAttribute("class", "form-page")
-
-
-  // const userName = user.displayName
-
+  const sectionElement = document.createElement('section');
+  sectionElement.setAttribute('id', 'create-profile');
+  sectionElement.setAttribute('class', 'form-page');
 
   const createProfileTemplate = `
     <div  class="form-container container-center" id="form-create-profile">
@@ -43,116 +37,103 @@ export default () => {
           <div class="loading"></div>
         </div>
   </div>
-  `
+  `;
 
-  sectionElement.innerHTML = createProfileTemplate
+  sectionElement.innerHTML = createProfileTemplate;
 
-  let photo = sectionElement.querySelector(".file-img")
-  let file = sectionElement.querySelector(".file-input")
-  const userNameInput = sectionElement.querySelector("#input-username")
+  const photo = sectionElement.querySelector('.file-img');
+  const file = sectionElement.querySelector('.file-input');
+  const userNameInput = sectionElement.querySelector('#input-username');
 
-  const backToLogin = sectionElement.querySelector("#back-to-login-fp")
-  backToLogin.addEventListener("click", (e) => {
-    e.preventDefault
-    window.history.pushState(null, null, "/home")
-    const popStateEvent = new PopStateEvent("popstate", {
-      state: {}
-    })
-    dispatchEvent(popStateEvent)
-  })
+  const backToLogin = sectionElement.querySelector('#back-to-login-fp');
+  backToLogin.addEventListener('click', () => {
+    window.history.pushState(null, null, '/home');
+    const popStateEvent = new PopStateEvent('popstate', {
+      state: {},
+    });
+    dispatchEvent(popStateEvent);
+  });
 
-  const user = currentUser()
-  const name = currentUser().displayName
-  const photoLink = currentUser().photoURL
+  const user = currentUser();
+  const name = currentUser().displayName;
+  const photoLink = currentUser().photoURL;
 
   if (name != null) {
-    userNameInput.value = name
+    userNameInput.value = name;
   }
 
   if (photoLink != null) {
     photo.src = photoLink;
-    photo.style.borderRadius = "50%"
-
+    photo.style.borderRadius = '50%';
   }
 
+  photo.addEventListener('click', () => {
+    file.click();
+  });
 
-  photo.addEventListener("click", () => {
-    file.click()
-  })
-
-  file.addEventListener("change", (e) => {
-    photo.style.borderRadius = "50%"
+  file.addEventListener('change', () => {
+    photo.style.borderRadius = '50%';
     if (file.files.legth <= 0) {
-
-
       return;
     }
 
-
-
-    let reader = new FileReader()
+    const reader = new FileReader();
     reader.onload = () => {
-      photo.src = reader.result
+      photo.src = reader.result;
+    };
+    reader.readAsDataURL(file.files[0]);
+  });
 
-    }
-    reader.readAsDataURL(file.files[0])
+  const sendProfileBtn = sectionElement.querySelector('#send-profile');
+  sendProfileBtn.addEventListener('click', () => {
+    const userNameInput = sectionElement.querySelector('#input-username');
+    const userName = userNameInput.value;
+    const image = document.getElementById('input-profile-img').files[0];
+    const userId = user.uid;
 
+    if (userName === '') {
+      const text = 'Escolha um nome de usuário';
+      errorInput(text, userNameInput);
+    } else if (image === undefined) {
+      updateUserName(userName);
 
-  })
-
-  const sendProfileBtn = sectionElement.querySelector("#send-profile")
-  sendProfileBtn.addEventListener("click", () => {
-
-    const userNameInput = sectionElement.querySelector("#input-username")
-    const userName = userNameInput.value
-    const image = document.getElementById("input-profile-img").files[0]
-    const userId = user.uid
-
-    if (userName == "") {
-      const text = "Escolha um nome de usuário"
-      errorInput(text, userNameInput)
-
+      setTimeout(() => {
+        window.history.pushState(null, null, '/home');
+        const popStateEvent = new PopStateEvent('popstate', {
+          state: {},
+        });
+        dispatchEvent(popStateEvent);
+      }, 1000);
+      sectionElement.querySelector('.load1').style.display = 'block';
     } else {
-      if (image === undefined) {
-        updateUserName(userName)
+      uploadImage('input-profile-img', `${userId}`)
+        .then((snapshot) => snapshot.ref.getDownloadURL())
+        .then((url) => {
+          const urlImage = url;
+          console.log(urlImage);
+          return urlImage;
+        })
+        .then((urlImage) => {
+          updateUserName(userName);
+          updateUserImage(urlImage);
+        })
+        .then(() => {
+          setTimeout(() => {
+            window.history.pushState(null, null, '/home');
+            const popStateEvent = new PopStateEvent('popstate', {
+              state: {},
+            });
+            dispatchEvent(popStateEvent);
+          },
+          1000);
+        })
+        .catch((error) => {
+          console.log('Error writing documents: ', error);
+        });
 
-        setTimeout(() => {
-          window.history.pushState(null, null, "/home")
-          const popStateEvent = new PopStateEvent("popstate", {
-            state: {}
-          })
-          dispatchEvent(popStateEvent)
-        }, 1000)
-        sectionElement.querySelector(".load1").style.display = "block"
-      } else {
-        uploadImage("input-profile-img", "" + userId + "")
-          .then(snapshot => snapshot.ref.getDownloadURL())
-          .then(url => {
-            const urlImage = url
-            console.log(urlImage)
-            return urlImage
-          })
-          .then((urlImage) => {
-            updateUserName(userName)
-            updateUserImage(urlImage)
-
-
-          })
-          .then(() => {
-            setTimeout(() => {
-
-              window.history.pushState(null, null, "/home")
-              const popStateEvent = new PopStateEvent("popstate", {
-                state: {}
-              })
-              dispatchEvent(popStateEvent)
-            }
-              , 1000)
-          })
-        sectionElement.querySelector(".load1").style.display = "block"
-      }
+      sectionElement.querySelector('.load1').style.display = 'block';
     }
-    sectionElement.querySelector(".load1").style.display = "block"
-  })
-  return sectionElement
-}
+    sectionElement.querySelector('.load1').style.display = 'block';
+  });
+  return sectionElement;
+};

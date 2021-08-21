@@ -1,11 +1,10 @@
-import { loginPage, signInGoogleAccount } from '../../lib/index.js'
-import { errorInput, errorPassword } from '../../error.js'
+import { loginPage, signInGoogleAccount } from '../../lib/index.js';
+import { errorInput, errorPassword } from '../../error.js';
 
 export default () => {
-
-  const sectionElement = document.createElement("section")
-  sectionElement.setAttribute("id", "signin-page")
-  sectionElement.setAttribute("class", "form-page")
+  const sectionElement = document.createElement('section');
+  sectionElement.setAttribute('id', 'signin-page');
+  sectionElement.setAttribute('class', 'form-page');
 
   const signInTemplate = `
   <div class="logo-container">
@@ -39,84 +38,80 @@ export default () => {
   
   `;
 
-  sectionElement.innerHTML = signInTemplate
-  const enterLogin = sectionElement.querySelector("#enter")
-  const loginWithGoogle = sectionElement.querySelector("#gmail-btn")
+  sectionElement.innerHTML = signInTemplate;
+  const enterLogin = sectionElement.querySelector('#enter');
+  const loginWithGoogle = sectionElement.querySelector('#gmail-btn');
 
-  const signUpLink = sectionElement.querySelector("#signup-link")
-  signUpLink.addEventListener("click", (e) => {
-    e.preventDefault()
-    window.history.pushState(null, null, "/cadastro")
-    const popStateEvent = new PopStateEvent("popstate", { state: {} })
-    dispatchEvent(popStateEvent)
-  })
-  const forgotPassword = sectionElement.querySelector("#text-forgot-password")
-  forgotPassword.addEventListener("click", (e) => {
-    window.history.pushState(null, null, "/recuperacao-senha")
-    const popStateEvent = new PopStateEvent("popstate", { state: {} })
-    dispatchEvent(popStateEvent)
-  })
+  const signUpLink = sectionElement.querySelector('#signup-link');
+  signUpLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.pushState(null, null, '/cadastro');
+    const popStateEvent = new PopStateEvent('popstate', { state: {} });
+    dispatchEvent(popStateEvent);
+  });
+  const forgotPassword = sectionElement.querySelector('#text-forgot-password');
+  forgotPassword.addEventListener('click', () => {
+    window.history.pushState(null, null, '/recuperacao-senha');
+    const popStateEvent = new PopStateEvent('popstate', { state: {} });
+    dispatchEvent(popStateEvent);
+  });
 
-  enterLogin.addEventListener("click", () => {
-    let text
-    const emailInput = sectionElement.querySelector("#login-email")
-    const passwordInput = sectionElement.querySelector("#login-password")
-    const email = emailInput.value
-    const password = passwordInput.value
+  enterLogin.addEventListener('click', () => {
+    let text;
+    const emailInput = sectionElement.querySelector('#login-email');
+    const passwordInput = sectionElement.querySelector('#login-password');
+    const email = emailInput.value;
+    const password = passwordInput.value;
     loginPage(email, password)
       .then(() => {
         setTimeout(() => {
-          const load = sectionElement.querySelector(".load")
-          load.style.display = "block"
-        }, 2000)
-        window.history.pushState(null, null, "/home")
-        const popStateEvent = new PopStateEvent("popstate", { state: {} })
-        dispatchEvent(popStateEvent)
-
+          const load = sectionElement.querySelector('.load');
+          load.style.display = 'block';
+        }, 2000);
+        window.history.pushState(null, null, '/home');
+        const popStateEvent = new PopStateEvent('popstate', { state: {} });
+        dispatchEvent(popStateEvent);
       })
       .catch((error) => {
-        const errorCode = error.code
+        const errorCode = error.code;
         switch (errorCode) {
-          case "auth/user-not-found":
-            text = "Usuário não encontrado"
-            errorInput(text, emailInput)
-            break
+          case 'auth/user-not-found':
+            text = 'Usuário não encontrado';
+            errorInput(text, emailInput);
+            break;
 
-          case "auth/wrong-password":
-            text = "Senha inválida"
-            errorPassword(text, passwordInput)
-            break
+          case 'auth/wrong-password':
+            text = 'Senha inválida';
+            errorPassword(text, passwordInput);
+            break;
 
-          case "auth/invalid-email":
-            text = "E-mail inválido"
-            errorInput(text, emailInput)
-            break
+          case 'auth/invalid-email':
+            text = 'E-mail inválido';
+            errorInput(text, emailInput);
+            break;
 
           default:
-            alert(error.message)
-
+            alert(error.message);
         }
-      })
-  })
+      });
+  });
 
-  loginWithGoogle.addEventListener("click", () => {
+  loginWithGoogle.addEventListener('click', () => {
     signInGoogleAccount()
       .then(() => {
-        window.history.pushState(null, null, "/home")
-        const popStateEvent = new PopStateEvent("popstate", { state: {} })
-        dispatchEvent(popStateEvent)
+        window.history.pushState(null, null, '/home');
+        const popStateEvent = new PopStateEvent('popstate', { state: {} });
+        dispatchEvent(popStateEvent);
       })
       .catch((error) => {
-        const errorCode = error.code
-        if (errorCode == "auth/invalid-email") {
-          alert("E-mail invalido")
+        const errorCode = error.code;
+        if (errorCode === 'auth/invalid-email') {
+          alert('E-mail invalido');
+        } else {
+          alert(error.message);
         }
-        else {
-          alert(error.message)
-        }
-      })
-  })
-
+      });
+  });
 
   return sectionElement;
-}
+};
