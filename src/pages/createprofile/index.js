@@ -110,7 +110,6 @@ export default () => {
         .then((snapshot) => snapshot.ref.getDownloadURL())
         .then((url) => {
           const urlImage = url;
-          console.log(urlImage);
           return urlImage;
         })
         .then((urlImage) => {
@@ -126,11 +125,9 @@ export default () => {
             dispatchEvent(popStateEvent);
           },
           1000);
-        })
-        .catch((error) => {
-          console.log('Error writing documents: ', error);
         });
-
+      // .catch((error) => {
+      //   console.log('Error writing documents: ', error);
       sectionElement.querySelector('.load1').style.display = 'block';
     }
     sectionElement.querySelector('.load1').style.display = 'block';

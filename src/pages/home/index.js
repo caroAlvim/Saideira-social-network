@@ -20,6 +20,7 @@ export default () => {
     userName2 = userName.replace(/\s/g, '').toLowerCase();
   } else {
     userName = 'Usuário anônimo';
+    // eslint-disable-next-line no-unused-vars
     userName2 = '';
   }
 
@@ -123,11 +124,13 @@ export default () => {
     showReviewArea();
   });
   const lightModeBackground = sectionElement.querySelectorAll('.noturn-mood');
+  // eslint-disable-next-line no-restricted-syntax
   for (const mood of lightModeBackground) {
     mood.addEventListener('click', (e) => {
       const target = e.target;
       const targetDataset = target.dataset.item;
       if (targetDataset === 'dark') {
+        // eslint-disable-next-line no-shadow
         const lightModeBackground = sectionElement.querySelector('.noturn-mood');
         const lightMode = sectionElement.querySelector('.light-mode');
         const textMode = sectionElement.querySelector('.span-mood');
@@ -151,6 +154,7 @@ export default () => {
         homeContent.style.backgroundColor = '#2c2c2c';
 
         const allPosts = document.querySelectorAll('[data-post]');
+        // eslint-disable-next-line no-restricted-syntax
         for (const posts of allPosts) {
           posts.style.backgroundColor = '#313c44';
           posts.style.boxShadow = '1px 1px 10px #000000';
@@ -163,6 +167,7 @@ export default () => {
           const nameAuthor = posts.children[0].children[0].children[0].children[1]
             .children[1];
           nameAuthor.style.color = 'white';
+          // eslint-disable-next-line no-shadow
           const userName = posts.children[0].children[0].children[0].children[0]
             .children[1].children[0].children[1];
           userName.style.color = '#a1a1a1';
@@ -174,6 +179,7 @@ export default () => {
           saveIcon.style.filter = 'brightness(100%) contrast(0%)';
 
           const allComments = document.querySelectorAll('.comment-text');
+          // eslint-disable-next-line no-restricted-syntax
           for (const comments of allComments) {
             comments.style.backgroundColor = '#7694aa';
           }
@@ -182,6 +188,7 @@ export default () => {
 
       if (targetDataset === 'light') {
         const lightMode = sectionElement.querySelector('.light-mode');
+        // eslint-disable-next-line no-shadow
         const lightModeBackground = sectionElement.querySelector('.noturn-mood');
         const textMode = sectionElement.querySelector('.span-mood');
         const noturnMode = sectionElement.querySelector('.dark-mode');
@@ -203,6 +210,7 @@ export default () => {
         homeContent.style.backgroundColor = '#f0f0f0';
 
         const allPosts = document.querySelectorAll('[data-post]');
+        // eslint-disable-next-line no-restricted-syntax
         for (const posts of allPosts) {
           posts.style.backgroundColor = '#ffffff';
           posts.style.boxShadow = '1px 1px 10px #888888';
@@ -215,6 +223,7 @@ export default () => {
           const nameAuthor = posts.children[0].children[0].children[0].children[1]
             .children[1];
           nameAuthor.style.color = 'black';
+          // eslint-disable-next-line no-shadow
           const userName = posts.children[0].children[0].children[0].children[0]
             .children[1].children[0].children[1];
           userName.style.color = 'grey';
@@ -226,6 +235,7 @@ export default () => {
           saveIcon.style.filter = 'none';
 
           const allComments = document.querySelectorAll('.comment-text');
+          // eslint-disable-next-line no-restricted-syntax
           for (const comments of allComments) {
             comments.style.backgroundColor = 'rgb(231, 239, 252)';
           }

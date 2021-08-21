@@ -49,7 +49,6 @@ export const likePost = (target, postId) => {
   target.classList.toggle('active');
 
   const numLikesDiv = target.parentNode.nextSibling.nextSibling;
-  console.log(numLikesDiv);
   let updatedNumLikes;
   getPost(postId)
     .then((review) => {
@@ -61,14 +60,13 @@ export const likePost = (target, postId) => {
       }
       numLikesDiv.innerText = updatedNumLikes;
       like(postId, userId);
-    })
-    .catch(() => {
-      alert('Falha ao curtir o post! Tente novamente.');
     });
+  // .catch(() => {
+  //   alert('Falha ao curtir o post! Tente novamente.');
+  // });
 };
 
 export const verifyInput = (verifyBook, verifyAuthor, verifyStars) => {
-  console.log('caiu no verifyInput');
   const bookLine = verifyBook.trim();
   const authorLine = verifyAuthor.trim();
   const starsValue = verifyStars.trim();
@@ -224,7 +222,7 @@ export const loadPosts = (functionFirebase) => {
 
           const txtAreas = document.querySelectorAll('.input-comment');
           for (let i = 0; i < txtAreas.length; i++) {
-            txtAreas[i].addEventListener('input', function () {
+            txtAreas[i].addEventListener('input', function size() {
               if (this.scrollHeight > this.offsetHeight) this.rows += 1;
             });
           }
@@ -245,10 +243,10 @@ export const loadPosts = (functionFirebase) => {
                     .then(() => {
                       divDelete.style.display = 'none';
                       post.remove();
-                    })
-                    .catch((error) => {
-                      console.log('Error writing documents: ', error);
                     });
+                  // .catch((error) => {
+                  //   console.log('Error writing documents: ', error);
+                  // });
                 });
                 divNo.addEventListener('click', () => {
                   divDelete.style.display = 'none';
@@ -290,10 +288,10 @@ export const loadPosts = (functionFirebase) => {
                 }
                 numSavesDiv.innerText = updatedNumSaves;
                 save(idReviewSaved, userId);
-              })
-                .catch((error) => {
-                  console.log('Error getting documents: ', error);
-                });
+              });
+              // .catch((error) => {
+              //   console.log('Error getting documents: ', error);
+              // });
             });
           }
         });
@@ -320,7 +318,6 @@ export const loadPosts = (functionFirebase) => {
               root.addEventListener('click', (e) => {
                 const target = e.target;
                 const targetDataset = target.dataset.item;
-                console.log(targetDataset)
                 if (targetDataset !== 'add-comment') {
                   commentDiv.style.display = 'none';
                 }
@@ -333,13 +330,11 @@ export const loadPosts = (functionFirebase) => {
               const divDelete = target.parentNode.children[1];
               const divYes = divDelete.children[0].children[1];
               const divNo = divDelete.children[0].children[2];
-              console.log(commentsDiv);
               const userPhoto = currentUser().photoURL;
               const userName = currentUser().displayName;
               const completeDate = commentsDiv.children[1].children[0]
                 .children[1].children[0].innerText;
               const hour = commentsDiv.children[1].children[0].children[1].children[1].innerText;
-              console.log(completeDate);
               divDelete.style.display = 'block';
               divYes.addEventListener('click', () => {
                 deleteComment(postId, commentValue, userId, userPhoto, userName, completeDate, hour)
@@ -394,10 +389,10 @@ export const loadPosts = (functionFirebase) => {
                 const edition = document.querySelector(`#edition-${postId}`);
                 edition.style.display = 'block';
               }
-            })
-            .catch((error) => {
-              console.log('Error getting documents: ', error);
             });
+          // .catch((error) => {
+          //   console.log('Error getting documents: ', error);
+          // });
         }
 
         for (const post of postDivList) {
@@ -417,15 +412,15 @@ export const loadPosts = (functionFirebase) => {
 
                 divComments.append(comment(userIdComment, userImage, userName, text, date, hour));
               }
-            })
-            .catch((error) => {
-              console.log('Error getting documents: ', error);
             });
+          // .catch((error) => {
+          //   console.log('Error getting documents: ', error);
+          // });
         }
-      })
-      .catch((error) => {
-        console.log('Error getting documents: ', error);
       });
+    // .catch((error) => {
+    //   console.log('Error getting documents: ', error);
+    // });
   };
 
   reviewsData();
@@ -475,19 +470,19 @@ export const publishReview = (e) => {
       })
       .then(() => {
         loadPosts(getReviews());
-      })
-      .catch((error) => {
-        console.log('Error writing documents: ', error);
       });
+    // .catch((error) => {
+    //   console.log('Error writing documents: ', error);
+    // });
   } else {
     createReview(bookName, authorName, valueReview, starsEvaluation,
       userNameFirebase, null, completeDate, hour)
       .then(() => {
         loadPosts(getReviews());
-      })
-      .catch((error) => {
-        console.log('Error writing documents: ', error);
       });
+    // .catch((error) => {
+    //   console.log('Error writing documents: ', error);
+    // });
   }
 };
 
@@ -557,10 +552,10 @@ export const openReviewEdit = (reviewId) => {
             modalEdit.style.display = 'none';
           }).then(() => {
             loadPosts(getReviews());
-          })
-          .catch((error) => {
-            console.log('Error writing documents: ', error);
           });
+        // .catch((error) => {
+        //   console.log('Error writing documents: ', error);
+        // });
       }
       // tratando erros
       document.querySelector('[data-book-error]').innerHTML = verified.book;
@@ -570,8 +565,8 @@ export const openReviewEdit = (reviewId) => {
     cancelEdit.addEventListener('click', () => {
       modalEdit.style.display = 'none';
     });
-  })
-    .catch((error) => {
-      console.log('Error getting documents: ', error);
-    });
+  });
+  // .catch((error) => {
+  //   console.log('Error getting documents: ', error);
+  // });
 };

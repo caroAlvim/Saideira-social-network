@@ -9,7 +9,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto;
+    font-family: 'Roboto',sans-serif;
     box-sizing: border-box;
     font-size: 10px;
     color: var(--text-color);
@@ -26,6 +26,8 @@ body {
     width: 100vw;
 }
 
+
+
 #sign-up,
 #signin-page {
     background: linear-gradient(90deg, #415792 0%, #637cc0 25%, #5d88b9 70%, #5E97AF 90%);
@@ -38,6 +40,8 @@ body {
     /* background: linear-gradient(359.92deg, #5E97AF -0.09%, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%); */
 
 }
+
+
 
 .form-page {
     display: flex
@@ -144,6 +148,52 @@ a {
     font-weight: bold;
     cursor: pointer;
 
+}
+
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.534);
+    border-top: #ffffff 1px solid;
+    box-shadow: rgb(10, 7, 3) 1px 2px 55px;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 3rem;
+    padding: 0.4rem 0rem 0rem 0rem;
+}
+
+.p-footer {
+    font-size: 1.5rem;
+    color: white;
+}
+
+footer a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: rgb(212, 212, 212);
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-1:hover {
+    text-decoration: none;
+    color: rgb(214, 180, 241);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-2:hover {
+    text-decoration: none;
+    color: rgb(168, 193, 230);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-3:hover {
+    text-decoration: none;
+    color: rgb(180, 226, 199);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a:hover {
@@ -341,6 +391,8 @@ a:hover {
     display: none;
 }
 
+
+
 /* home area */
 .review-area {
     display: none;
@@ -357,7 +409,6 @@ a:hover {
     border: none;
     border-radius: 10px;
     padding: 1rem;
-    font-size: 1.2rem;
     outline: none;
     font-size: 13px;
 }
@@ -392,6 +443,38 @@ a:hover {
     align-self: center;
 }
 
+.stars-edit input[type=radio] {
+    display: none;
+}
+
+.stars-edit label.stars {
+    cursor: pointer;
+    font-size: 3rem;
+    color: #e7e7e7;
+}
+
+.stars-edit label.stars:before {
+    content: '★';
+    color: #FC0;
+}
+
+.estrelas label.stars:before {
+    content: '★';
+    color: #FC0;
+}
+
+.stars-edit input[type=radio]:checked~label.stars:before {
+    color: #e6f5ff;
+}
+
+
+.stars-edit {
+    border-bottom: 1px solid #fafafa;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
 .estrelas input[type=radio] {
     display: none;
 }
@@ -402,10 +485,7 @@ a:hover {
     color: #e7e7e7;
 }
 
-.estrelas label.stars:before {
-    content: '★';
-    color: #FC0;
-}
+
 
 .estrelas input[type=radio]:checked~label.stars:before {
     color: #e6f5ff;
@@ -516,7 +596,6 @@ a:hover {
     border-radius: 100%;
     object-fit: cover;
     border: double 0.3rem transparent;
-    border-radius: 50%;
     background-image: linear-gradient(white, white),
         linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
     background-origin: border-box;
@@ -588,10 +667,6 @@ a:hover {
     transition: 0.7s
 }
 
-.review-line {
-    margin: 0.7rem 0;
-}
-
 .num {
     width: 2.2rem;
     height: 2.2rem;
@@ -612,7 +687,7 @@ a:hover {
 
 .sidebar-tools {
     width: 100%;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     border-top: solid 1px white;
     display: flex;
     align-self: center;
@@ -866,7 +941,6 @@ header {
 
 .username-post {
     font-size: 1.6rem;
-    margin-bottom: 1rem;
     color: grey;
     margin: 0 0 1rem 1rem;
 }
@@ -878,7 +952,6 @@ header {
 
 .date-post {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
     color: grey;
     margin: 0 0 1rem 1rem;
 }
@@ -1267,7 +1340,6 @@ header {
     margin: 0.5rem auto;
     display: flex;
     justify-content: center;
-    color: var(--dark-purple);
 }
 
 .confirm-buttons:hover,
@@ -1353,7 +1425,7 @@ header {
         linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    align-self: center;
+    
 }
 
 .user-name-profile {
@@ -1420,7 +1492,6 @@ header {
 .confirm-modal-edit {
     width: 60vw;
     padding: 0.5rem 2rem 0rem 2rem;
-    background: #2e1c5762;
     position: fixed;
     top: 5%;
     left: 20%;
@@ -1474,31 +1545,7 @@ header {
     align-items: center;
 }
 
-.stars-edit input[type=radio] {
-    display: none;
-}
 
-.stars-edit label.stars {
-    cursor: pointer;
-    font-size: 3rem;
-    color: #e7e7e7;
-}
-
-.stars-edit label.stars:before {
-    content: '★';
-    color: #FC0;
-}
-
-.stars-edit input[type=radio]:checked~label.stars:before {
-    color: #e6f5ff;
-}
-
-.stars-edit {
-    border-bottom: 1px solid #fafafa;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-}
 
 .confirm-buttons-edit {
     align-items: center;
@@ -1514,7 +1561,6 @@ header {
     margin: 0.5rem 4.5rem;
     display: flex;
     justify-content: center;
-    color: var(--dark-purple);
 }
 
 .confirm-buttons-edit:hover {
@@ -1541,50 +1587,6 @@ ul {
 
 }
 
-.footer {
-    background-color: rgba(0, 0, 0, 0.534);
-    border-top: #ffffff 1px solid;
-    box-shadow: rgb(10, 7, 3) 1px 2px 55px;
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 3rem;
-    padding: 0.4rem 0rem 0rem 0rem;
-}
-
-.p-footer {
-    font-size: 1.5rem;
-    color: white;
-}
-
-footer a {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: rgb(212, 212, 212);
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-footer .a-1:hover {
-    text-decoration: none;
-    color: rgb(214, 180, 241);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-footer .a-2:hover {
-    text-decoration: none;
-    color: rgb(168, 193, 230);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-footer .a-3:hover {
-    text-decoration: none;
-    color: rgb(180, 226, 199);
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 .load {
     animation: fadeOut 1s;
