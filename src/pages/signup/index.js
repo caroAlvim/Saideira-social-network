@@ -63,7 +63,7 @@ export default () => {
             break;
 
           default:
-            alert(error.message);
+            // alert(error.message);
         }
       });
   });

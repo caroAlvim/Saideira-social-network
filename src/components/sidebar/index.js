@@ -97,10 +97,10 @@ export const sidebar = () => {
     .then((snap) => {
       const size = snap.size;
       asideElement.querySelector('#num-reviews').innerText = size;
-    })
-    .catch((error) => {
-      console.log('Error getting documents: ', error);
     });
+  // .catch((error) => {
+  //   console.log('Error getting documents: ', error);
+  // });
 
   asideElement.innerHTML = sidebarTemplate;
 

@@ -91,7 +91,7 @@ export default () => {
             break;
 
           default:
-            alert(error.message);
+            // alert(error.message);
         }
       });
   });
@@ -106,9 +106,9 @@ export default () => {
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode === 'auth/invalid-email') {
-          alert('E-mail invalido');
+          // alert('E-mail invalido');
         } else {
-          alert(error.message);
+          // alert(error.message);
         }
       });
   });

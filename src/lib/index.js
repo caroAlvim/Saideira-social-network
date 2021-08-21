@@ -68,6 +68,7 @@ export const uploadImageBooks = (id) => {
   return ref.child('bookcover').child(imageName).put(file, metadata);
 };
 
+// eslint-disable-next-line consistent-return
 export const forgotPassword = (email) => {
   if (email !== '') {
     return firebase.auth()
@@ -115,10 +116,10 @@ export const like = (postID, userID) => {
           likes: firebase.firestore.FieldValue.arrayRemove(userID),
         });
       }
-    })
-    .catch((error) => {
-      console.error('Error writing document: ', error);
     });
+  // .catch((error) => {
+  //   console.error('Error writing document: ', error);
+  // });
 };
 
 export const sendComment = (postID, value, date, hour) => database.collection('reviews').doc(postID).update({
@@ -180,10 +181,10 @@ export const save = (postID, userID) => {
           saves: firebase.firestore.FieldValue.arrayRemove(userID),
         });
       }
-    })
-    .catch((error) => {
-      console.log('Error getting documents: ', error);
     });
+  // .catch((error) => {
+  //   console.log('Error getting documents: ', error);
+  // });
 };
 
 export const getSavedReviews = () => database
