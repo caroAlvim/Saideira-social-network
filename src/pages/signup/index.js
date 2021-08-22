@@ -17,8 +17,10 @@ export default () => {
     
       <fieldset class="fieldset-sign-up fieldset">
         <form class="form" action="">          
-          <input type="email" placeholder="Email" class="form-input" id="register-email" required/> 
-          <input type="password" placeholder="Senha" class="form-input" id="register-password" required/>
+          <input type="email" placeholder="Email" class="form-input" 
+          id="register-email" required/> 
+          <input type="password" placeholder="Senha" class="form-input"
+           id="register-password" required/>
           <button type="submit" id="register-btn" class="btn">Cadastrar</button>
         </form>
       </fieldset>
@@ -63,7 +65,7 @@ export default () => {
             break;
 
           default:
-            // alert(error.message);
+          // alert(error.message);
         }
       });
   });

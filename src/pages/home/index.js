@@ -56,7 +56,8 @@ export default () => {
             <img src="./img/imagebooks.png" class="file-img1">
           </div>
       <input type="file" class="file-input" id="input-profile-img" accept="image/*">
-      <textarea class="post-input" id="text" cols="30" rows="5" data-post-input placeholder ="Escreva sua review..."></textarea>
+      <textarea class="post-input" id="text" cols="30" rows="5" data-post-input 
+      placeholder ="Escreva sua review..."></textarea>
       
       <label class="review-rating">Avalie</label>
       <div class="estrelas" >
@@ -148,10 +149,21 @@ export default () => {
         const textHeader = sectionElement.querySelector('.header-home');
         const body = document.querySelector('body');
         const homeContent = document.querySelector('.home-content');
+        const navBar = document.querySelector('.home-navbar');
+        const homeNavBar = document.querySelector('#home-navbar');
+        const addNavBar = document.querySelector('#add-review-navbar');
+        const saveNavBar = document.querySelector('#save-navbar-img');
+        const openNavBar = document.querySelector('#open-sidebar');
         header.style.backgroundColor = '#313c44';
         textHeader.style.color = 'white';
         body.style.backgroundColor = '#2c2c2c';
         homeContent.style.backgroundColor = '#2c2c2c';
+        navBar.style.backgroundColor = '#404040';
+        navBar.style.borderTop = 'grey';
+        homeNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        addNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        saveNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        openNavBar.style.filter = 'brightness(800%) contrast(100%)';
 
         const allPosts = document.querySelectorAll('[data-post]');
         // eslint-disable-next-line no-restricted-syntax
@@ -204,10 +216,21 @@ export default () => {
         const textHeader = sectionElement.querySelector('.header-home');
         const body = document.querySelector('body');
         const homeContent = document.querySelector('.home-content');
+        const navBar = document.querySelector('.home-navbar');
+        const homeNavBar = document.querySelector('#home-navbar');
+        const addNavBar = document.querySelector('#add-review-navbar');
+        const saveNavBar = document.querySelector('#save-navbar-img');
+        const openNavBar = document.querySelector('#open-sidebar');
         header.style.backgroundColor = 'white';
         textHeader.style.color = 'black';
         body.style.backgroundColor = '#f0f0f0';
         homeContent.style.backgroundColor = '#f0f0f0';
+        navBar.style.backgroundColor = 'white';
+        navBar.style.borderTop = 'grey';
+        homeNavBar.style.filter = 'none';
+        addNavBar.style.filter = 'none';
+        saveNavBar.style.filter = 'none';
+        openNavBar.style.filter = 'none';
 
         const allPosts = document.querySelectorAll('[data-post]');
         // eslint-disable-next-line no-restricted-syntax
@@ -249,7 +272,8 @@ export default () => {
     sectionElement.querySelector('.review-area').style.display = 'none';
     sectionElement.querySelector('.welcome').style.display = 'flex';
     sectionElement.querySelector('.button-make-review').style.display = 'block';
-    sectionElement.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+    sectionElement.querySelector('.make-review').style.background =
+      'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
     sectionElement.querySelector('.p-make-review').style.display = 'block';
     window.history.pushState(null, null, '/home');
     const popStateEvent = new PopStateEvent('popstate', {

@@ -25,7 +25,8 @@ export const showReviewArea = () => {
   formReview.style.display = 'flex';
   document.querySelector('.welcome').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'none';
-  document.querySelector('.make-review').style.background = 'linear-gradient(300.92deg, #5E97AF 6.15%, #6D9ACE 80.44%, #5694DC 100.96%)';
+  document.querySelector('.make-review').style.background =
+    'linear-gradient(300.92deg, #5E97AF 6.15%, #6D9ACE 80.44%, #5694DC 100.96%)';
   document.querySelector('.p-make-review').style.display = 'none';
 };
 
@@ -174,17 +175,23 @@ export const loadPosts = (functionFirebase) => {
                   <p class="content-review">${reviewContent}</p> </br>
               </div>
               <div class="likes-container">
-              <button class="like"><img class="like-img"data-item="like" id="like-${postId}" src="./img/heart.png"></button>
+              <button class="like"><img class="like-img"data-item="like"
+               id="like-${postId}" src="./img/heart.png"></button>
               <span class="num-likes">${reviewLikes.length}</span>
-              <button  class="comment-btn" ><img class="comment" src="./img/comment-btn.png"  data-item="comment"/></button>
-                <div class="save" id="save-${postId}"><img class="icon-save"src="img/save-navbar.png"/></div>
+              <button  class="comment-btn" ><img class="comment"
+               src="./img/comment-btn.png"  data-item="comment"/></button>
+                <div class="save" id="save-${postId}">
+                <img class="icon-save"src="img/save-navbar.png"/></div>
                 <span class="num-saves">${reviewSaves.length}</span>
-                <div class="optionsedition" id="edition-${postId}" data-option style="display:none">
+                <div class="optionsedition" id="edition-${postId}"
+                 data-option style="display:none">
                 <div class="container-edit-btns">
-                  <button class="edit-delete" id="edit-post" data-item="edit">Editar</button>
+                  <button class="edit-delete" id="edit-post" 
+                  data-item="edit">Editar</button>
                     <section data-open-edit class="confirm-edit" id="editing-${postId}">
                     </section>
-                  <button class="edit-delete" id="delete-post" data-item="delete">Excluir</button>
+                  <button class="edit-delete" id="delete-post" 
+                  data-item="delete">Excluir</button>
                 </div>
                   <div class="confirm-delete">
                     <div class="confirm-modal">
@@ -205,7 +212,8 @@ export const loadPosts = (functionFirebase) => {
                       <p class="comment-username">${currentUser().displayName}</p>
                     </div>
             
-                    <textarea class="input-comment" rows="1" data-item="add-comment" placeholder="Adicione seu comentário." wrap="hard"></textarea>
+                    <textarea class="input-comment" rows="1" data-item="add-comment" 
+                    placeholder="Adicione seu comentário." wrap="hard"></textarea>
                     <button class="send-comment" data-item="send-comment">Publicar</button>
                     <div>
                 </div>
@@ -256,7 +264,8 @@ export const loadPosts = (functionFirebase) => {
           }
 
           if (bookImageUrl != null) {
-            document.querySelector(`#photo-${doc.id}`).innerHTML = `<img class="photo-book-review-post" src=${bookImageUrl}></img>`;
+            document.querySelector(`#photo-${doc.id}`).innerHTML =
+              `<img class="photo-book-review-post" src=${bookImageUrl}></img>`;
           }
 
           const heart = allReviews.querySelector(`#like-${doc.id}`);
@@ -439,7 +448,8 @@ export const publishReview = (e) => {
 
   document.querySelector('.review-area').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'block';
-  document.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+  document.querySelector('.make-review').style.background =
+    'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
   document.querySelector('.p-make-review').style.display = 'block';
 
   const formReview = document.querySelector('.review-area');
@@ -494,40 +504,52 @@ export const openReviewEdit = (reviewId) => {
     modalEdit.style.display = 'block';
 
     const contentEdit = `               
-                    <div >
-                        <div class="confirm-modal-edit" id=${reviewId}>
-                          <div class= "content-text">
-                            <h1 class="h1-confirm-edit">Editar</h1>
-                            <label class="review-label" for="book-${reviewId}">Livro:</label>
-                            <textarea class="review-input-edit" data-type-book type="text" id="book-${reviewId}" required>${post.data().book}</textarea>
-                              <ul class="warning-error" data-book-error> </ul> 
-                            <label class="review-label" for="author-${reviewId}">Autor</label>
-                            <textarea class="review-input-edit" data-type-author type="text" id="author-${reviewId}" required>${post.data().author}</textarea>
-                              <ul class="warning-error" data-author-error> </ul> 
-                            <textarea class="post-input-edit" id="review" cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
+     <div >
+        <div class="confirm-modal-edit" id=${reviewId}>
+         <div class= "content-text">
+           <h1 class="h1-confirm-edit">Editar</h1>
+             <label class="review-label" 
+              for="book-${reviewId}">Livro:</label>
+                <textarea class="review-input-edit" data-type-book
+                  type="text" id="book-${reviewId}" required>${post.data().book}</textarea>
+                    <ul class="warning-error" data-book-error> </ul> 
+                      <label class="review-label" for="author-${reviewId}">Autor</label>
+                        <textarea class="review-input-edit" data-type-author 
+                        type="text" id="author-${reviewId}" required>${post.data().author}</textarea>
+                          <ul class="warning-error" data-author-error> </ul> 
+                            <textarea class="post-input-edit" id="review" 
+                            cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
                           </div>
-                         <label class="review-rating">Avalie</label>
-                         <div class="stars-edit" >
-                          <input type="radio" id="star-empty" name="stars" value="${post.data().rating || ''}" checked/>
-                          <label for="str-1" class="stars"></label>
-                          <input type="radio" id="str-1" data-stars-form name="stars" value="★"/>
-                          <label for="str-2" class="stars"></label>
-                          <input type="radio" id="str-2" data-stars-form name="stars" value="★★"/>
-                          <label for="str-3" class="stars"></label>
-                          <input type="radio" id="str-3" data-stars-form name="stars" value="★★★"/>
-                          <label for="str-4" class="stars"></label>
-                          <input type="radio" id="str-4" data-stars-form name="stars" value="★★★★"/>
-                          <label for="str-5" class="stars"></label>
-                          <input type="radio" id="str-5" data-stars-form name="stars" value="★★★★★"/> 
-                        </div> 
+                          <label class="review-rating">Avalie</label>
+                            <div class="stars-edit" >
+                              <input type="radio" id="star-empty" name="stars" 
+                              value="${post.data().rating || ''}" checked/>
+                              <label for="str-1" class="stars"></label>
+                              <input type="radio" id="str-1" data-stars-form 
+                              name="stars" value="★"/>
+                              <label for="str-2" class="stars"></label>
+                              <input type="radio" id="str-2" data-stars-form
+                               name="stars" value="★★"/>
+                              <label for="str-3" class="stars"></label>
+                              <input type="radio" id="str-3" data-stars-form
+                               name="stars" value="★★★"/>
+                              <label for="str-4" class="stars"></label>
+                              <input type="radio" id="str-4" data-stars-form 
+                              name="stars" value="★★★★"/>
+                              <label for="str-5" class="stars"></label>
+                              <input type="radio" id="str-5" data-stars-form
+                               name="stars" value="★★★★★"/> 
+                            </div> 
                         <div class="error-stars-msg">
                           <ul class="warning-error" data-stars-error> </ul>
                         </div> 
                         <div class="align-btn">
-                          <button class="confirm-buttons-edit" id="yes-edit" data-edit-send >Editar</button>
-                          <button class="confirm-buttons-edit" id="no-edit" data-cancel-edit>Cancelar</button>
+                          <button class="confirm-buttons-edit" id="yes-edit"
+                           data-edit-send >Editar</button>
+                          <button class="confirm-buttons-edit" id="no-edit"
+                           data-cancel-edit>Cancelar</button>
                         </div>
-                    </div>`;
+        </div>`;
 
     modalEdit.innerHTML = contentEdit;
 

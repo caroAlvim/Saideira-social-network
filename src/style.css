@@ -9,7 +9,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     font-size: 10px;
     color: var(--text-color);
@@ -1425,7 +1425,7 @@ header {
         linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    
+
 }
 
 .user-name-profile {

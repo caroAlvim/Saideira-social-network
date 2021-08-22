@@ -45,9 +45,10 @@ export const sidebar = () => {
           <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
           <p class="sidebar-user sidebar-text">${userName2}</p>
         </div>
-        
+
       </section>
     
+      
       <section class="sidebar-profile">
         <div class="sidebar-line review-line">
           <p class="sidebar-text">Número de resenhas</p>

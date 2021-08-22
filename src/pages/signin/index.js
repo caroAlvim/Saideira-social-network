@@ -15,13 +15,18 @@ export default () => {
     <h1 class="h1-login">Login</h1>
     <fieldset class="fieldset-sign-in fieldset">
       <form class="form" action="">
-        <input class="form-input" type="email" placeholder="Email" id="login-email" required/>
-        <input class="form-input"  type="password" id="login-password" placeholder="Senha" required/>
+        <input class="form-input" type="email" placeholder="Email" id="login-email" 
+        required/>
+        <input class="form-input"  type="password" id="login-password" 
+        placeholder="Senha" required/>
         <p class="forget-password" id="text-forgot-password">Esqueceu sua senha?</p>
         <button type="button" class="btn" id="enter">Entrar</button>
-        <p class="p-sign-in">Não tem uma conta? <a href="" class="forget-password-link" id="signup-link">Cadastre-se</a></p>    
+        <p class="p-sign-in">Não tem uma conta? <a href=""
+         class="forget-password-link" id="signup-link">Cadastre-se</a></p>    
         <p class="or">OU</p>
-        <button class="btn gmail-btn" type="button" id="gmail-btn"><img class="logo-google" src="./img/logogoogle.png" class="logo-google"/>Entre com uma conta Google</button>
+        <button class="btn gmail-btn" type="button" id="gmail-btn">
+        <img class="logo-google" src="./img/logogoogle.png" 
+        class="logo-google"/>Entre com uma conta Google</button>
       </form>
     </fieldset>
   </div>
@@ -91,7 +96,7 @@ export default () => {
             break;
 
           default:
-            // alert(error.message);
+          // alert(error.message);
         }
       });
   });
