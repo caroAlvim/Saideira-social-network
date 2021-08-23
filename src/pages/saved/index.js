@@ -60,9 +60,20 @@ export default () => {
         const header = sectionElement.querySelector('header');
         const textHeader = sectionElement.querySelector('.header-home');
         const savedContent = document.querySelector('.home-content');
+        const navBar = document.querySelector('.home-navbar');
+        const homeNavBar = document.querySelector('#home-navbar');
+        const addNavBar = document.querySelector('#add-review-navbar');
+        const saveNavBar = document.querySelector('#save-navbar-img');
+        const openNavBar = document.querySelector('#open-sidebar');
         header.style.backgroundColor = '#313c44';
         textHeader.style.color = 'white';
         savedContent.style.backgroundColor = '#2c2c2c';
+        navBar.style.backgroundColor = '#404040';
+        navBar.style.borderTop = 'grey';
+        homeNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        addNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        saveNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        openNavBar.style.filter = 'brightness(800%) contrast(100%)';
 
         const allPosts = document.querySelectorAll('[data-post]');
         // eslint-disable-next-line no-restricted-syntax
@@ -113,9 +124,20 @@ export default () => {
         const header = sectionElement.querySelector('header');
         const textHeader = sectionElement.querySelector('.header-home');
         const savedContent = document.querySelector('.home-content');
+        const navBar = document.querySelector('.home-navbar');
+        const homeNavBar = document.querySelector('#home-navbar');
+        const addNavBar = document.querySelector('#add-review-navbar');
+        const saveNavBar = document.querySelector('#save-navbar-img');
+        const openNavBar = document.querySelector('#open-sidebar');
         header.style.backgroundColor = 'white';
         textHeader.style.color = 'black';
         savedContent.style.backgroundColor = '#f0f0f0';
+        navBar.style.backgroundColor = 'white';
+        navBar.style.borderTop = 'grey';
+        homeNavBar.style.filter = 'none';
+        addNavBar.style.filter = 'none';
+        saveNavBar.style.filter = 'none';
+        openNavBar.style.filter = 'none';
 
         const allPosts = document.querySelectorAll('[data-post]');
         // eslint-disable-next-line no-restricted-syntax

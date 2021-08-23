@@ -7,11 +7,16 @@ export const navbar = () => {
   sectionElement.setAttribute('class', 'home-navbar');
 
   const navbarTemplate = `
-  <button class="menu-mobile-btn" id="home-navbar"><img src="./img/home-navbar.png" class="menu-img"></button> 
-  <button class="menu-mobile-btn" id="add-review-navbar"><img src="./img/add-navbar.png" class="menu-img" id="add-review-navbar"></button> 
-  <button class="menu-mobile-btn" id="saved-navbar"><img src="./img/save-navbar.png" class="menu-img" id="save-navbar-img"></button>    
-  <button class="menu-mobile-btn" id="open-sidebar"><img src="./img/menu-navbar.png" class="menu-img" ></button>  
-  <button class="menu-mobile-btn" id="profile-navbar"><img src="${photoNavbar}" class="menu-img" id="photo-navbar" ></button> 
+  <button class="menu-mobile-btn" id="profile-navbar">
+  <img src="${photoNavbar}" class="menu-img" id="photo-navbar" ></button> 
+  <button class="menu-mobile-btn" id="home-navbar"><img
+   src="./img/home-navbar.png" class="menu-img"></button> 
+  <button class="menu-mobile-btn" id="add-review-navbar">
+  <img src="./img/add-navbar.png" class="menu-img" id="add-review-navbar"></button> 
+  <button class="menu-mobile-btn" id="saved-navbar">
+  <img src="./img/save-navbar.png" class="menu-img" id="save-navbar-img"></button>    
+  <button class="menu-mobile-btn" id="open-sidebar">
+  <img src="./img/menu-navbar.png" class="menu-img" ></button>  
   `;
   sectionElement.innerHTML = navbarTemplate;
 
