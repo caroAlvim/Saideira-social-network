@@ -1,19 +1,48 @@
-# Criando uma Rede Social
+# Bookish - A Rede Social para amantes de livros
 
 ## Índice
 
-- [1. Prefácio](#1-prefácio)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker edition](#6-hacker-edition)
-- [7. Entrega](#7-entrega)
-- [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
+- [1. Introdução](#1-introdução)
+- [2. Histórias de Usuário](#2-histórias-de-usuário)
+- [3. Interface](#3-interface)
+- [4. Objetivos de aprendizagem](#4-objetivos-de-aprendizagem)
+
 
 ---
+## 1. Introdução
 
-## 1. Prefácio
+Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
+invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
+viver sem elas.
+
+Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em
+uma rodada de financiamento com investidores, foi apresentada uma rede social
+para químicos onde os usuários podem publicar artigos a respeito de suas
+pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com
+determinadas tags ou popularidade, mais recente ou mais comentado.
+
+Nesse projeto, foi solicitada a criação de uma rede social que permitisse à qualquer usuário criar uma conta de acesso,
+logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
+
+### Tema
+
+
+
+## 2. Histórias de Usuário
+
+
+## 3. Interface
+
+### Protótipos
+
+### Layout Final
+
+
+## 4. Objetivos de Aprendizagem
+
+
+
+## 1. Projeto
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
 invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
