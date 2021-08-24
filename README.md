@@ -1,4 +1,4 @@
-# Bookish - A Rede Social para amantes de livros
+# Saideira - A Rede Social para amantes de bons drinks
 
 ## Índice
 
