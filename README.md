@@ -6,6 +6,7 @@
 - [2. Histórias de Usuário](#2-histórias-de-usuário)
 - [3. Interface](#3-interface)
 - [4. Objetivos de aprendizagem](#4-objetivos-de-aprendizagem)
+- [5. Desenvolvedoras](#5-desenvolvedoras)
 
 
 ---
@@ -87,5 +88,7 @@ Outro tópico relevante necessário ao desenvolvimento do projeto foi a utiliza�
 ## 5. Desenvolvedoras
 
 [Carolina Alvim](https://github.com/caroAlvim)
+
 [Larissa Siqueira](https://github.com/LarissaSiq)
+
 [Karen Freitas](https://github.com/karen-freitas)
