@@ -35,15 +35,15 @@ O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura
 
 ### História de Usuário 1 
 
-:pushpin: *Como leitor, gostaria de me cadastrar em uma rede social direcionada aos amantes de literatura, para que possa ter acesso à conteúdos específicos do tema e descobrir novos livros*
+:pushpin: *Como leitor, gostaria de me cadastrar em uma rede social direcionada aos amantes de literatura, para que possa ter acesso à conteúdos específicos do tema e descobrir novos livros.*
 
 **Critérios de aceitação**
 
-- [x]  Novos usuários podem registrar-se usando um e-mail ou uma conta Gmail
+- [x]  Novos usuários podem registrar-se usando um e-mail ou uma conta Gmail.
 - [x]  Não poderá ser feito o cadastro de usuários repetidos.
 - [x]  Somente usuários com contas válidas têm acesso permitido.
 - [x]  A conta do usuário deve ser um email válido.
-- [x]  O que o usuário digita no campo de senha (*input*) deve ser secreto
+- [x]  O que o usuário digita no campo de senha (*input*) deve ser secreto.
 
 ### História de Usuário 2
 
@@ -61,7 +61,7 @@ O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura
 
 ### História de Usuário 3
 
-:pushpin: *Como usuário de uma rede social para leitores, gostaria de interagir nas publicações e resenhas de outros usuários, para desenvolver novos entendimentos sobre os livros e expor minhas opiniões*
+:pushpin: *Como usuário de uma rede social para leitores, gostaria de interagir nas publicações e resenhas de outros usuários, para desenvolver novos entendimentos sobre os livros e expor minhas opiniões.*
 
 **Critérios de aceitação**
 
@@ -87,8 +87,8 @@ Outro tópico relevante necessário ao desenvolvimento do projeto foi a utiliza�
 
 ## 5. Desenvolvedoras
 
-[Carolina Alvim](https://github.com/caroAlvim)
+:woman_technologist: [Carolina Alvim](https://github.com/caroAlvim)
 
-[Larissa Siqueira](https://github.com/LarissaSiq)
+:woman_technologist: [Larissa Siqueira](https://github.com/LarissaSiq)
 
-[Karen Freitas](https://github.com/karen-freitas)
+:woman_technologist: [Karen Freitas](https://github.com/karen-freitas)
