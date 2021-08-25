@@ -7,11 +7,7 @@ export default () => {
   sectionElement.setAttribute('class', 'form-page');
 
   const signUpTemplate = `
-    <div class="logo-container">
     <button class="back-to-login">← Voltar</button>
-    <h1 id="bookish">BOOKISH</h1>
-      <img class="site-logo" src="./img/logo.png">
-    </div>
     <div  class="form-container" id="form-sign-up">
       <h1 class="h1-login">Cadastro</h1>
     
@@ -24,7 +20,6 @@ export default () => {
           <button type="submit" id="register-btn" class="btn">Cadastrar</button>
         </form>
       </fieldset>
-
     </div>
   `;
   sectionElement.innerHTML = signUpTemplate;

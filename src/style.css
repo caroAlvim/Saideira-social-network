@@ -2,8 +2,6 @@
 
 :root {
     --text-color: rgb(70, 60, 75);
-    --dark-purple: #894796;
-    --default-blue: #515fad;
 }
 
 * {
@@ -30,38 +28,37 @@ body {
 
 #sign-up,
 #signin-page {
-    background: linear-gradient(90deg, #415792 0%, #637cc0 25%, #5d88b9 70%, #5E97AF 90%);
+    background-color: #ffc23ee3;
 }
 
 #create-profile,
 #forgot-password,
 #modal-sucessful {
-    background: linear-gradient(180deg, #4c63a1 0%, #637cc0 25%, #5d88b9 70%, #5E97AF 90%);
-    /* background: linear-gradient(359.92deg, #5E97AF -0.09%, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%); */
-
+    background-color: #ffc23ee3;
 }
 
 
 
-.form-page {
-    display: flex
-}
-
-.logo-container {
-    width: 50vw;
+.form-page,
+#forgot-password {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0px 0px 0px 100px;
-}
-
-.site-logo {
-    width: 70rem;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(img/logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .form-container {
-    width: 50vw;
-    height: 100vh;
+    padding: 2rem 0rem 0rem;
+    border-radius: 10%;
+    background-color: rgba(255, 255, 255, 0.911);
+    width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,14 +67,14 @@ body {
 }
 
 .h1-login {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     margin-bottom: 1.6rem;
 }
 
 .fieldset {
     border: none;
-    width: 80%;
+    width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,9 +88,21 @@ body {
     flex-direction: column;
 }
 
+.form-fp {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-cp {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .form-input {
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgba(87, 87, 87, 0.027);
     outline: none;
     font-size: 1.2rem;
     width: 100%;
@@ -106,7 +115,7 @@ body {
     align-self: flex-start;
     cursor: pointer;
     font-size: 1.2rem;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .forget-password:hover {
@@ -116,11 +125,10 @@ body {
 
 .btn {
     cursor: pointer;
-    background-color: #e3eafad3;
+    background-color: #ffbb00d3;
     color: var(--default-blue);
     font-weight: bolder;
     width: 100%;
-
     margin: 3rem 0;
     padding: 1.2rem;
     border-radius: 5px;
@@ -131,19 +139,19 @@ body {
 }
 
 .btn:hover {
-    background-color: var(--default-blue);
-    transition: 0.7s;
+    background-color: rgb(160, 61, 15);
     color: white;
+    transition: 0.7s;
 }
 
 .p-sign-in {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.2rem;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
@@ -196,14 +204,26 @@ footer .a-3:hover {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+footer .a-4:hover {
+    text-decoration: none;
+    color: rgb(255, 245, 189);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer .a-5:hover {
+    text-decoration: none;
+    color: rgb(226, 180, 207);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 a:hover {
     color: var(--default-blue);
-    text-decoration: underline var(--default-blue);
+    text-decoration: underline grey;
 }
 
 .or {
     font-size: 1.6rem;
-    color: #ffffff;
+    color: #000000;
     margin: 2rem 0;
 }
 
@@ -211,7 +231,7 @@ a:hover {
     width: 100%;
     cursor: pointer;
     color: var(--default-blue);
-    background-color: #e3eafad3;
+    background-color: #ffbb00d3;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -224,7 +244,7 @@ a:hover {
 }
 
 #gmail-btn:hover {
-    background-color: var(--default-blue);
+    background-color: rgb(160, 61, 15);
     transition: 0.7s;
     color: white;
 }
@@ -283,14 +303,14 @@ a:hover {
     width: 8%;
     height: 6%;
     font-weight: bold;
-    color: #9fd3d4;
+    color: #ffffff;
     background-color: transparent;
     border: none;
 }
 
 .back-to-login:hover {
     border: none;
-    background-color: #90c1cf;
+    background-color: #eb9d0d;
     color: #ffffff;
     transition: 1s;
     border-radius: 5px;
@@ -300,27 +320,25 @@ a:hover {
     display: none
 }
 
-#bookish {
-    color: #ffffff;
-    position: absolute;
-    font-size: 50px;
-    margin: 0px 350px 400px 0px;
-    text-shadow: black 0.1em 0.1em 0.2em
-}
 
 .h1 {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     margin-bottom: 1.6rem;
 }
 
-#form-container-forgot-password,
+#form-container-forgot-password {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+}
+
 #form-create-profile {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0px 200px;
-    width: 100%;
+    height: 60vh;
 }
 
 #back-to-login-fp {
@@ -367,8 +385,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 100%;
-    height: 100vh;
+    height: 150vh;
 }
 
 
@@ -439,7 +456,6 @@ a:hover {
 }
 
 #input-username {
-    width: 80%;
     align-self: center;
 }
 
@@ -521,7 +537,6 @@ a:hover {
 }
 
 #send-profile {
-    width: 80%;
     align-self: center;
 
 }

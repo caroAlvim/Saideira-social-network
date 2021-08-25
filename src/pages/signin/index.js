@@ -7,10 +7,6 @@ export default () => {
   sectionElement.setAttribute('class', 'form-page');
 
   const signInTemplate = `
-  <div class="logo-container">
-  <h1 id="bookish">BOOKISH</h1>
-    <img class="site-logo" src="./img/logo.png"/>
-  </div>
   <div  class="form-container" id="form-sign-in">
     <h1 class="h1-login">Login</h1>
     <fieldset class="fieldset-sign-in fieldset">
@@ -32,11 +28,13 @@ export default () => {
   </div>
   <footer class="footer">
       <p class="p-footer">copyright@2021 | feito por
-        <a class="a-1"href="https://github.com/caroAlvim" target="blank">Carolina Alvim</a>,
-        <a class="a-2"href="https://github.com/karen-freitas" target="new ">Karen Freitas</a>
+      
+        <a class="a-1"href="https://github.com/bruna-devbio" target="blank">Bruna Calixto</a>,
+        <a class="a-2"href="https://github.com/caroAlvim" target="bla">Carolina Alvim</a>,
+        <a class="a-3"href="https://github.com/karen-freitas" target="new">Karen Freitas</a>,
+        <a class="a-4"href="https://github.com/LarissaSiq" target="newblew">Larissa Siqueira</a>
         e
-        <a class="a-3" href="https://github.com/LarissaSiq" target="neblank">Larissa
-          Siqueira</a>
+        <a class="a-5" href="https://github.com/leticia-aniceto" target="neblank">Letícia Aniceto</a>
       </p>
     </footer>
   
