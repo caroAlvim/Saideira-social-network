@@ -767,7 +767,7 @@ a:hover {
 
     align-items: unset;
     justify-content: unset;
-    width: 80%;
+    width: 60%;
 }
 
 header {
@@ -867,8 +867,7 @@ header {
 .main-information-post {
     display: flex;
     width: 100%;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -918,6 +917,13 @@ header {
 
 }
 
+.book-image {
+    display: flex;
+    width:100%;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
 .photo-post-review {
     width: 7rem;
     height: 7rem;
@@ -925,10 +931,6 @@ header {
     align-self: center;
     border: 2px solid rgb(89, 136, 189);
     border-radius: 50%;
-    /* background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5755b9 0%, #3180a5 53.12%, #65a4b8 100%);
-    background-origin: border-box;
-    background-clip: content-box, border-box; */
 
 }
 
@@ -967,9 +969,16 @@ header {
     margin: 1rem 0rem 1.5rem 0;
     font-size: 1.6rem;
     color: #202020;
-    width: 60%;
+    width: 50%;
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+
+.photo-book-review-post {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid rgb(223, 216, 216);
 }
 
 .content-review {
@@ -1017,14 +1026,6 @@ header {
     display: flex;
     flex-direction: column;
     position: absolute;
-}
-
-.photo-book-review-post {
-    width: 12rem;
-    height: 14rem;
-    object-fit: cover;
-    border: 1px solid rgb(223, 216, 216);
-
 }
 
 
@@ -1391,7 +1392,7 @@ header {
 }
 
 .profile-container {
-    width: 70%;
+    width: 50%;
 }
 
 .photo-profile-div {
@@ -1643,14 +1644,14 @@ ul {
 
 
 .span-mood {
-    margin: 0rem 0rem 0rem 29.6vw;
+    margin: 0rem 0rem 0rem 15vw;
     font-size: 1.2rem;
 }
 
 .noturn-mood {
     background-color: #313c44;
     position: absolute;
-    margin: 0rem 0rem 0rem 50vw;
+    margin: 0rem 0rem 0rem 35vw;
     width: 6rem;
     border-radius: 20rem;
     height: 3rem;
@@ -1683,14 +1684,14 @@ ul {
 }
 
 .span-mood1 {
-    margin: 0rem 0rem 0rem 38vw;
+    margin: 0rem 0rem 0rem 15vw;
     font-size: 1.2rem;
 }
 
 .noturn-mood1 {
     background-color: #313c44;
     position: absolute;
-    margin: 0rem 0rem 0rem 58vw;
+    margin: 0rem 0rem 0rem 38vw;
     width: 6rem;
     border-radius: 20rem;
     height: 3rem;
