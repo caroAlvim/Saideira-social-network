@@ -40,7 +40,11 @@ export default () => {
       </p>
     </footer>
   
-  
+    <div class="load1">
+    <div class="loading">
+    <img class ="gif-load" src="./img/gif-teste.gif"/>
+    </div>
+    </div>
   `;
 
   sectionElement.innerHTML = signInTemplate;
@@ -70,7 +74,7 @@ export default () => {
     loginPage(email, password)
       .then(() => {
         setTimeout(() => {
-          const load = sectionElement.querySelector('.load');
+          const load = sectionElement.querySelector('.load1');
           load.style.display = 'block';
         }, 2000);
         window.history.pushState(null, null, '/home');

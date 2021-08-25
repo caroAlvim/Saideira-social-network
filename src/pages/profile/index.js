@@ -46,8 +46,10 @@ export default () => {
     
     </div>
     <div class="load">
-    <div class="loading"></div>
-  </div>
+        <div class="loading">
+        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        </div>
+        </div>
     
   `;
   sectionElement.innerHTML = profileTemplate;
