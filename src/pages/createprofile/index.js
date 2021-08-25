@@ -19,7 +19,7 @@ export default () => {
     <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
       <h1 class="h1-login">Editar perfil</h1>
       <fieldset class=" fieldset fieldset-create-profile">
-        <form class="form"  action="">
+        <form class="form-cp"  action="">
           <div class="container-file-img">
             <img src="./img/camera.png" class="file-img">
           </div>
@@ -29,13 +29,11 @@ export default () => {
         </form>
       </fieldset>
     </div>
-
     <div class="load1">
         <div class="loading">
         <img class ="gif-load" src="./img/gif-teste.gif"/>
         </div>
         </div>
-
         <div class="load">
         <div class="loading">
         <img class ="gif-load" src="./img/gif-teste.gif"/>
@@ -109,7 +107,6 @@ export default () => {
         });
         dispatchEvent(popStateEvent);
       }, 1000);
-      sectionElement.querySelector('.load1').style.display = 'block';
     } else {
       uploadImage('input-profile-img', `${userId}`)
         .then((snapshot) => snapshot.ref.getDownloadURL())
