@@ -25,8 +25,7 @@ export const showReviewArea = () => {
   formReview.style.display = 'flex';
   document.querySelector('.welcome').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'none';
-  document.querySelector('.make-review').style.background =
-    'linear-gradient(300.92deg, #5E97AF 6.15%, #6D9ACE 80.44%, #5694DC 100.96%)';
+  document.querySelector('.make-review').style.background = 'linear-gradient(300.92deg, #5E97AF 6.15%, #6D9ACE 80.44%, #5694DC 100.96%)';
   document.querySelector('.p-make-review').style.display = 'none';
 };
 
@@ -67,29 +66,29 @@ export const likePost = (target, postId) => {
   // });
 };
 
-export const verifyInput = (verifyBook, verifyAuthor, verifyStars) => {
-  const bookLine = verifyBook.trim();
-  const authorLine = verifyAuthor.trim();
+export const verifyInput = (verifyDrink, verifyTitle, verifyStars) => {
+  const drinkLine = verifyDrink.trim();
+  const titleLine = verifyTitle.trim();
   const starsValue = verifyStars.trim();
 
-  let bookError = '';
-  let authorError = '';
+  let drinkError = '';
+  let titleError = '';
   let starsError = '';
 
-  if (!bookLine) {
-    bookError = '<li class="warning-msg"> Por favor, digite o nome do livro </li>';
+  if (!drinkLine) {
+    drinkError = '<li class="warning-msg"> Por favor, digite o nome da bebida </li>';
   }
-  if (!authorLine) {
-    authorError = '<li class="warning-msg"> Por favor, digite o nome do autor </li>';
+  if (!titleLine) {
+    titleError = '<li class="warning-msg"> Por favor, digite o título da sua avaliação </li>';
   }
   if (!starsValue) {
     starsError = '<li class="warning-msg"> Por favor, faça a sua avaliação </li>';
   }
   const verified = {
-    book: bookError,
-    author: authorError,
+    drink: drinkError,
+    title: titleError,
     stars: starsError,
-    status: (!bookError && !authorError && !starsError),
+    status: (!drinkError && !titleError && !starsError),
   };
 
   return verified;
@@ -112,8 +111,8 @@ export const loadPosts = (functionFirebase) => {
           const hour = doc.data().hourPost;
           const bookImageUrl = doc.data().imageUrl;
           const userImageUrl = doc.data().userImg;
-          const bookTitle = doc.data().book;
-          const author = doc.data().author;
+          const drinkTitle = doc.data().drink;
+          const title = doc.data().title;
           const rating = doc.data().rating;
           const reviewContent = doc.data().review;
           const reviewLikes = doc.data().likes;
@@ -157,10 +156,10 @@ export const loadPosts = (functionFirebase) => {
                     </div>
                     <div class="book-information">
                       <div class="title-wrapper">
-                        <h2 class="title-book"> ${bookTitle} </h2>
+                        <h2 class="title-book"> ${drinkTitle} </h2>
                         <span class="stars-show">${rating}</span>
                       </div>
-                      <h3 class="name-author">${author} </h3>
+                      <h3 class="name-author">${title} </h3>
                     </div>
                   </div>
                   <div class="book-image" id="photo-${postId}">
@@ -264,8 +263,7 @@ export const loadPosts = (functionFirebase) => {
           }
 
           if (bookImageUrl != null) {
-            document.querySelector(`#photo-${doc.id}`).innerHTML =
-              `<img class="photo-book-review-post" src=${bookImageUrl}></img>`;
+            document.querySelector(`#photo-${doc.id}`).innerHTML = `<img class="photo-book-review-post" src=${bookImageUrl}></img>`;
           }
 
           const heart = allReviews.querySelector(`#like-${doc.id}`);
@@ -366,7 +364,7 @@ export const loadPosts = (functionFirebase) => {
                 const userPhoto = currentUser().photoURL;
                 const userName = currentUser().displayName;
                 const date = new Date();
-                const completeDate = date.toLocaleDateString('en-GB');
+                const completeDate = date.toLocaleDateString('pt-BR');
                 const hour = date.toLocaleTimeString('pt-BR', {
                   timeStyle: 'short',
                   hour12: false,
@@ -439,7 +437,7 @@ export const publishReview = (e) => {
   const user = currentUser();
   e.preventDefault();
   const date = new Date();
-  const completeDate = date.toLocaleDateString('en-GB');
+  const completeDate = date.toLocaleDateString('pt-BR');
   const hour = date.toLocaleTimeString('pt-BR', {
     timeStyle: 'short',
     hour12: false,
@@ -448,16 +446,15 @@ export const publishReview = (e) => {
 
   document.querySelector('.review-area').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'block';
-  document.querySelector('.make-review').style.background =
-    'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+  document.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
   document.querySelector('.p-make-review').style.display = 'block';
 
   const formReview = document.querySelector('.review-area');
   formReview.style.display = 'none';
 
   const userNameFirebase = user.displayName;
-  const bookName = document.querySelector('[data-book-input]').value;
-  const authorName = document.querySelector('[data-author-input]').value;
+  const drinkName = document.querySelector('[data-book-input]').value;
+  const titleName = document.querySelector('[data-author-input]').value;
   const starsEvaluation = document.querySelector('input[name="stars"]:checked').value;
   const reviewUser = document.querySelector('[data-post-input]');
   const valueReview = reviewUser.value;
@@ -475,7 +472,7 @@ export const publishReview = (e) => {
         return urlImage;
       })
       .then((urlImage) => {
-        createReview(bookName, authorName, valueReview, starsEvaluation,
+        createReview(drinkName, titleName, valueReview, starsEvaluation,
           userNameFirebase, urlImage, completeDate, hour);
       })
       .then(() => {
@@ -485,7 +482,7 @@ export const publishReview = (e) => {
     //   console.log('Error writing documents: ', error);
     // });
   } else {
-    createReview(bookName, authorName, valueReview, starsEvaluation,
+    createReview(drinkName, titleName, valueReview, starsEvaluation,
       userNameFirebase, null, completeDate, hour)
       .then(() => {
         loadPosts(getReviews());
@@ -509,13 +506,13 @@ export const openReviewEdit = (reviewId) => {
          <div class= "content-text">
            <h1 class="h1-confirm-edit">Editar</h1>
              <label class="review-label" 
-              for="book-${reviewId}">Livro:</label>
+              for="book-${reviewId}">Drink:</label>
                 <textarea class="review-input-edit" data-type-book
-                  type="text" id="book-${reviewId}" required>${post.data().book}</textarea>
+                  type="text" id="book-${reviewId}" required>${post.data().drink}</textarea>
                     <ul class="warning-error" data-book-error> </ul> 
-                      <label class="review-label" for="author-${reviewId}">Autor</label>
+                      <label class="review-label" for="author-${reviewId}">Sua avaliação</label>
                         <textarea class="review-input-edit" data-type-author 
-                        type="text" id="author-${reviewId}" required>${post.data().author}</textarea>
+                        type="text" id="author-${reviewId}" required>${post.data().title}</textarea>
                           <ul class="warning-error" data-author-error> </ul> 
                             <textarea class="post-input-edit" id="review" 
                             cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
@@ -557,8 +554,8 @@ export const openReviewEdit = (reviewId) => {
     const cancelEdit = document.querySelector('[data-cancel-edit]');
 
     sendEdit.addEventListener('click', () => {
-      const bookNameEdited = document.querySelector('[data-type-book]').value;
-      const authorNameEdited = document.querySelector('[data-type-author]').value;
+      const drinkNameEdited = document.querySelector('[data-type-book]').value;
+      const titleNameEdited = document.querySelector('[data-type-author]').value;
       const starsEvaluationElement = document.querySelector('[data-stars-form]:checked');
       let starsEvaluationEdited = '';
       if (starsEvaluationElement) {
@@ -567,9 +564,9 @@ export const openReviewEdit = (reviewId) => {
 
       const reviewUserNew = document.querySelector('[data-review-edit]').value;
 
-      const verified = verifyInput(bookNameEdited, authorNameEdited, starsEvaluationEdited);
+      const verified = verifyInput(drinkNameEdited, titleNameEdited, starsEvaluationEdited);
       if (verified.status) {
-        editReview(authorNameEdited, bookNameEdited, reviewUserNew, starsEvaluationEdited, reviewId)
+        editReview(titleNameEdited, drinkNameEdited, reviewUserNew, starsEvaluationEdited, reviewId)
           .then(() => {
             modalEdit.style.display = 'none';
           }).then(() => {
@@ -580,8 +577,8 @@ export const openReviewEdit = (reviewId) => {
         // });
       }
       // tratando erros
-      document.querySelector('[data-book-error]').innerHTML = verified.book;
-      document.querySelector('[data-author-error]').innerHTML = verified.author;
+      document.querySelector('[data-book-error]').innerHTML = verified.drink;
+      document.querySelector('[data-author-error]').innerHTML = verified.title;
       document.querySelector('[data-stars-error]').innerHTML = verified.stars;
     });
     cancelEdit.addEventListener('click', () => {
