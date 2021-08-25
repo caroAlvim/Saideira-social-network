@@ -62,7 +62,7 @@
     }
 
     .home-container {
-        width: 90%;
+        width: 70%;
     }
 
     .confirm-modal-edit {
@@ -71,11 +71,11 @@
     }
 
     .span-mood {
-        margin: 0rem 0vw 0rem 25vw;
+        margin: 0rem 0vw 0rem 12vw;
     }
 
     .noturn-mood {
-        margin: 0rem 0rem 0rem 50vw;
+        margin: 0rem 0rem 0rem 36vw;
     }
 
 }
@@ -221,9 +221,6 @@
         display: block;
     }
 
-    .home-container {
-        width: 80%;
-    }
 
     .sidebar {
         display: none;
@@ -260,6 +257,22 @@
 
     .align-btn {
         flex-direction: column;
+    }
+
+    .span-mood {
+        margin: 0rem 0vw 0rem 22vw;
+    }
+
+    .noturn-mood {
+        margin: 0rem 0rem 0rem 51vw;
+    }
+
+    .span-mood1 {
+        margin: 0rem 10vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 70vw;
     }
 
 }
@@ -307,21 +320,9 @@
         display: none;
     }
 
-    .span-mood1 {
-        margin: 0rem 10vw 0rem 0vw;
-    }
+  
 
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 70vw;
-    }
-
-    .span-mood {
-        margin: 0rem 0vw 0rem 25vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 58vw;
-    }
+    
 }
 
 @media (max-width:768px) {
@@ -342,6 +343,10 @@
     .home-content {
 
         width: 100vw;
+    }
+
+    .home-container {
+        width: 80%;
     }
 
 
@@ -384,18 +389,24 @@
         left: 40%;
     }
 
-}
-
-@media (max-width: 700px) {
     .span-mood {
-        margin: 0rem 0vw 0rem 20vw;
+        margin: 0rem 0vw 0rem 15vw;
     }
 
     .noturn-mood {
-        margin: 0rem 0rem 0rem 57vw;
+        margin: 0rem 0rem 0rem 54vw;
+    }
+
+    .span-mood1 {
+        margin: 0rem 12vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 68vw;
     }
 
 }
+
 
 @media (max-width: 576px) {
 
@@ -498,8 +509,24 @@
     }
 
     .noturn-mood {
-        margin: 0rem 0rem 0rem 53vw;
+        margin: 0rem 0rem 0rem 65vw;
     }
+
+    .span-mood1 {
+        margin: 0rem 20vw 0rem 0vw;
+    }
+
+    .noturn-mood1 {
+        margin: 0rem 0rem 0rem 80vw;
+    }
+
+    .home-container,
+    .profile-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
 
 }
 
@@ -531,11 +558,6 @@
         font-size: 12px;
     }
 
-    .home-container,
-    .profile-container {
-        width: 100%;
-        box-sizing: border-box;
-    }
 
     .buttons {
 
