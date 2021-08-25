@@ -10,14 +10,13 @@ export default () => {
    <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
       <h1 class="h1">Esqueceu sua senha?</h1>
       <fieldset class="fieldset-forgot-password fieldset">
-        <form class="form"  action="">
+        <form class="form-fp"  action="">
           <input type="text" placeholder="Email" class="form-input" id="none"/>
           <input type="email" placeholder="Email" class="form-input" id="input-email"/>
           <button type="button" id="send-forgot-password" class="btn">Recuperar Senha</button>
         </form>
       </fieldset>
     </div>
-
     
   `;
   sectionElement.innerHTML = pageForgotPassword;
@@ -30,6 +29,7 @@ export default () => {
     const email = emailValue.value;
     forgotPassword(email)
       .then(() => {
+        sectionElement.querySelector('#form-container-forgot-password').style.backgroundColor = "#ffffff00";
         sectionElement.querySelector('#form-container-forgot-password').innerHTML = `
         <div class="content">
             <img src="img/sucessful.png" class="check"/>
@@ -56,7 +56,7 @@ export default () => {
             break;
 
           default:
-            // alert(error.message);
+          // alert(error.message);
         }
       });
   });

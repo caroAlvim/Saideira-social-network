@@ -30,14 +30,6 @@
         width: 40vw;
     }
 
-    .form-container {
-        width: 60vw;
-    }
-
-    .form {
-        width: 60%
-    }
-
     .confirm-buttons,
     .confirm-buttons-comment {
         margin: 0.5rem 6.5rem
@@ -47,10 +39,6 @@
 }
 
 @media (max-width: 1200px) {
-
-    .form {
-        width: 80%
-    }
 
     .sidebar {
         width: 25vw;
@@ -82,13 +70,7 @@
 
 @media (max-width: 1024px) {
 
-    #sign-up,
-    #signin-page,
-    #create-profile,
-    #forgot-password,
-    #modal-sucessful {
-        background: linear-gradient(180deg, #4c63a1 0%, #637cc0 25%, #5d88b9 70%, #5E97AF 90%);
-    }
+
 
     .form-page {
         width: 100vw;
@@ -109,11 +91,6 @@
         display: none;
     }
 
-    .form-container {
-        width: 100vw;
-        height: auto;
-    }
-
     #bookish {
         margin: 0rem 15rem 13rem 0rem;
         font-size: 1.5rem;
@@ -122,10 +99,6 @@
     .site-logo {
         width: 25rem;
         height: 19rem;
-    }
-
-    .form {
-        width: 50%;
     }
 
     .back-to-login {
@@ -140,22 +113,6 @@
         height: 3rem;
     }
 
-    #form-container-forgot-password,
-    #form-create-profile {
-        width: 100vw;
-        min-height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0rem;
-        padding: 0rem;
-
-    }
-
-    .fieldset-forgot-password,
-    .fieldset-create-profile {
-        width: 80%;
-    }
 
     #logout-btn {
         margin: 0rem 0rem 0rem 75vw;
@@ -233,7 +190,10 @@
         position: fixed;
         top: 0;
         right: 0;
+<<<<<<< HEAD
         background: linear-gradient(359.92deg, #F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
+=======
+>>>>>>> 3bc81e9699be72a8a8c6f62e6ed3ab2243023bd5
         padding: 3rem;
         border-radius: 15% 0% 0% 15%;
     }
@@ -321,9 +281,9 @@
         display: none;
     }
 
-  
 
-    
+
+
 }
 
 @media (max-width:768px) {
@@ -433,7 +393,10 @@
         position: fixed;
         top: 0;
         right: 0;
+<<<<<<< HEAD
         background: linear-gradient(359.92deg, #F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
+=======
+>>>>>>> 3bc81e9699be72a8a8c6f62e6ed3ab2243023bd5
         color: white;
         justify-content: center;
         display: none;
@@ -533,10 +496,6 @@
 @media(max-width: 496px) {
     :root {
         font-size: 8px;
-    }
-
-    .form {
-        width: 95%
     }
 
     .logo-container {
