@@ -1049,7 +1049,7 @@ header {
 .like {
     background-color: transparent;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     transition: all 0.3s;
     margin-right: 0.5rem;
     border: none;
@@ -1058,7 +1058,7 @@ header {
 }
 
 .like img {
-    width: 2.5rem;
+    width: 2.2rem;
 }
 
 .like:hover {
@@ -1083,8 +1083,9 @@ header {
 
 
 .active {
+    content:url("img/taca.png");
     animation: animateHeart 1s;
-    filter: invert(42%) sepia(88%) saturate(5238%) hue-rotate(344deg) brightness(87%) contrast(96%);
+    
 }
 
 .num-likes,
@@ -1101,7 +1102,6 @@ header {
     background-color: white;
     margin-top: 0.5rem;
     border: none;
-    color: #7c7979;
 
 
 
@@ -1112,7 +1112,7 @@ header {
 }
 
 .comment {
-    height: 2rem;
+    height: 2.2rem;
 }
 
 .comment:hover {
