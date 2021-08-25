@@ -919,7 +919,7 @@ header {
 
 .book-image {
     display: flex;
-    width:100%;
+    width: 100%;
     justify-content: center;
     margin-bottom: 2rem;
 }
@@ -1077,9 +1077,9 @@ header {
 
 
 .active {
-    content:url("img/taca.png");
+    content: url("img/taca.png");
     animation: animateHeart 1s;
-    
+
 }
 
 .num-likes,
@@ -1590,7 +1590,7 @@ ul {
 
 
 .load {
-    animation: fadeOut 1s;
+    animation: fadeOut 2.5s;
     animation-fill-mode: forwards;
     transition: 1s;
     width: 100vw;
@@ -1601,6 +1601,16 @@ ul {
     left: 0%;
     z-index: 3;
     transform: scale(1);
+}
+
+.gif-load {
+    border: 0.2rem solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 35%;
+    left: 44%;
 }
 
 .load1 {
@@ -1621,24 +1631,6 @@ ul {
     100% {
         opacity: 0;
         visibility: hidden;
-    }
-}
-
-.loading {
-    animation: is-rotating 1s infinite;
-    border: 1rem solid #e5e5e5;
-    border-radius: 50%;
-    border-top-color: #2b2883;
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 35%;
-    left: 43%;
-}
-
-@keyframes is-rotating {
-    to {
-        transform: rotate(1turn);
     }
 }
 

@@ -29,12 +29,17 @@ export default () => {
         </form>
       </fieldset>
     </div>
+
     <div class="load1">
-          <div class="loading"></div>
+        <div class="loading">
+        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        </div>
         </div>
 
         <div class="load">
-          <div class="loading"></div>
+        <div class="loading">
+        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        </div>
         </div>
   </div>
   `;
@@ -124,7 +129,7 @@ export default () => {
             });
             dispatchEvent(popStateEvent);
           },
-          1000);
+            1000);
         });
       // .catch((error) => {
       //   console.log('Error writing documents: ', error);
