@@ -78,7 +78,7 @@ export const forgotPassword = (email) => {
 
 export const createReview = (bookUser, authorUser, reviewUser, ratingStars,
   nameUser, image, date, hour) => database
-    .collection('reviews').add({
+    .collection('drinks').add({
       book: bookUser,
       author: authorUser,
       review: reviewUser,
@@ -95,15 +95,15 @@ export const createReview = (bookUser, authorUser, reviewUser, ratingStars,
     });
 
 export const getReviews = () => database
-  .collection('reviews').orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get();
+  .collection('drinks').orderBy('datePost', 'desc').orderBy('hourPost', 'desc').get();
 
 export const getPost = (postID) => {
-  const review = database.collection('reviews').doc(postID);
+  const review = database.collection('drinks').doc(postID);
   return review.get();
 };
 
 export const like = (postID, userID) => {
-  const review = database.collection('reviews').doc(postID);
+  const review = database.collection('drinks').doc(postID);
   review.get()
     .then((rev) => {
       const likesArray = rev.data().likes;
@@ -123,7 +123,7 @@ export const like = (postID, userID) => {
 };
 
 export const sendComment = (postID, value, date, hour) =>
-  database.collection('reviews').doc(postID).update({
+  database.collection('drinks').doc(postID).update({
     comments: firebase.firestore.FieldValue.arrayUnion(
       {
         value,
@@ -137,7 +137,7 @@ export const sendComment = (postID, value, date, hour) =>
   });
 
 export const deleteComment = (postID, value, userId, userImg,
-  userName, date, hour) => database.collection('reviews').doc(postID).update({
+  userName, date, hour) => database.collection('drinks').doc(postID).update({
     comments: firebase.firestore.FieldValue.arrayRemove(
       {
         value,
@@ -150,11 +150,11 @@ export const deleteComment = (postID, value, userId, userImg,
     ),
   });
 
-export const deletePost = (postId) => database.collection('reviews').doc(postId).delete();
+export const deletePost = (postId) => database.collection('drinks').doc(postId).delete();
 
 export const editReview = (authorEdited, bookEdited, textEdited,
   starsRatingEdited, reviewId) => database
-    .collection('reviews')
+    .collection('drinks')
     .doc(reviewId)
     .update({
       author: authorEdited,
@@ -170,7 +170,7 @@ export const saveReview = (userId, postId) => database
   });
 
 export const save = (postID, userID) => {
-  const saveReviews = database.collection('reviews').doc(postID);
+  const saveReviews = database.collection('drinks').doc(postID);
   saveReviews.get()
     .then((review) => {
       const savesArray = review.data().saves;
@@ -190,10 +190,10 @@ export const save = (postID, userID) => {
 };
 
 export const getSavedReviews = () => database
-  .collection('reviews').where('saves', 'array-contains',
+  .collection('drinks').where('saves', 'array-contains',
     firebase.auth().currentUser.uid).orderBy('datePost', 'desc').orderBy('hourPost', 'desc')
   .get();
 
 export const getProfileReviews = (userId) => database
-  .collection('reviews').where('userId', '==', userId).orderBy('datePost', 'desc').orderBy('hourPost', 'desc')
+  .collection('drinks').where('userId', '==', userId).orderBy('datePost', 'desc').orderBy('hourPost', 'desc')
   .get();
