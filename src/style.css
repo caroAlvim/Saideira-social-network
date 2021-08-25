@@ -4,12 +4,13 @@
     --text-color: rgb(70, 60, 75);
     --dark-purple: #894796;
     --default-blue: #515fad;
+    --hover-sidebar: rgb(255, 206, 200);
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family:Lato,sans-serif;
     box-sizing: border-box;
     font-size: 10px;
     color: var(--text-color);
@@ -528,17 +529,18 @@ a:hover {
 
 /* Sidebar component */
 .sidebar-desktop {
-    width: 20vw;
+   width: 20vw;
     min-height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
-    background: linear-gradient(359.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%);
+    background: linear-gradient(359.92deg,#F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
     color: white;
     display: flex;
     justify-content: center;
-
+    border-radius: 15% 0% 0% 15%;
 }
+
 
 .sidebar-container {
     z-index: 2;
@@ -583,7 +585,7 @@ a:hover {
 
 .sidebar-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .user-name {
@@ -597,13 +599,11 @@ a:hover {
     object-fit: cover;
     border: double 0.3rem transparent;
     background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
+        linear-gradient(360deg, #F2EBEC 0%, #cfc5c7 53.12%, #c3b9bb 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
     align-self: center;
 }
-
-
 
 .user-information {
     margin-top: 2.5rem;
@@ -614,14 +614,27 @@ a:hover {
 
 }
 
+.user-more-gif {
+    display: flex;
+    flex-direction: row;
+}
+
 .sidebar-user-name {
     align-self: flex-start;
     margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+
+.gif-cheers {
+    width: 7vh;
+    height: 8.8vh;
+    margin-left: 1.8rem;
 }
 
 .sidebar-user {
     margin-bottom: 2.5rem;
-    color: rgb(200, 231, 255);
+    color: rgb(255, 206, 200);
 }
 
 .sidebar-profile {
@@ -655,14 +668,14 @@ a:hover {
 }
 
 #edit-profile-link {
-    color: rgb(200, 231, 255);
+    color: rgb(255, 206, 200);
     font-size: 1.4rem;
     text-align: center;
     margin: 0.5rem 0rem 0rem 0rem;
 }
 
 #edit-profile-link:hover {
-    color: var(--default-blue);
+    color: var(--hover-sidebar);
     text-decoration: none;
     transition: 0.7s
 }
@@ -725,19 +738,12 @@ a:hover {
 
 }
 
-
-
-
 .sidebar-btn {
     border: none;
     background: transparent;
     color: white;
     cursor: pointer
 }
-
-
-
-
 
 .sidebar-logout {
     font-size: 1.5rem;

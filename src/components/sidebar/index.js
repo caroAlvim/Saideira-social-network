@@ -42,7 +42,10 @@ export const sidebar = () => {
         <img src="${profileImg}"   class="sidebar-user-img"/>
         <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
         <div class="user-information">
+          <div class="user-more-gif">
           <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
+          <img class="gif-cheers" src="https://ik.imagekit.io/dqzqulyog87g/cheers_aXnV3uBaSA2.gif?updatedAt=1629885304890" alt="gif cerveja">
+          </div>
           <p class="sidebar-user sidebar-text">${userName2}</p>
         </div>
 
@@ -51,7 +54,7 @@ export const sidebar = () => {
       
       <section class="sidebar-profile">
         <div class="sidebar-line review-line">
-          <p class="sidebar-text">Número de resenhas</p>
+          <p class="sidebar-text">Publicações</p>
           <div class="num"><p class="num-text" id="num-reviews"></p></div>
         </div>
 
@@ -59,7 +62,7 @@ export const sidebar = () => {
         <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
           <div class="sidebar-div-links">
             <img class="sidebar-review-image" src="../../img/add.png" alt="">
-            <p class="sidebar-text sidebar-review" >Adicionar resenha</p>
+            <p class="sidebar-text sidebar-review" >Adicionar publicação</p>
           </div>
         </button>
       </section>
