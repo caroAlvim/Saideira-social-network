@@ -20,7 +20,7 @@
 body {
     width: 100vw;
     font-size: 1.6rem;
-    background-color: #f0f0f0;
+    background-color: #F2CE89;
 }
 
 #root {
@@ -534,21 +534,26 @@ a:hover {
     position: fixed;
     top: 0;
     right: 0;
-    background: linear-gradient(359.92deg,#F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
     color: white;
     display: flex;
     justify-content: center;
-    border-radius: 15% 0% 0% 15%;
 }
 
 
 .sidebar-container {
-    z-index: 2;
     width: 90%;
+    z-index: 2;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255, 0.7);
     display: flex;
+    background-color: rgba(226, 205, 16, 0.534);
     flex-direction: column;
     align-items: center;
     padding: 3rem;
+    /* border-radius: 10px; */
+    backdrop-filter: blur(45px);
+}
+
 
 }
 
@@ -584,7 +589,7 @@ a:hover {
 }
 
 .sidebar-text {
-    color: white;
+    color: rgb(34, 6, 39);
     font-size: 1.4rem;
 }
 
@@ -761,7 +766,6 @@ a:hover {
 
 
 .home-content {
-    background-color: #f0f0f0;
     background-repeat: repeat;
     display: flex;
     justify-content: center;
@@ -857,7 +861,7 @@ header {
 .posts-reviews {
     margin: 2rem 0;
     padding: 2rem 1rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.39);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
