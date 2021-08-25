@@ -28,7 +28,7 @@ export default () => {
   <div class="home-container">
    
     <header>
-      <h1 class="header-home">Bookish</h1>
+      <h1 class="header-home">Saideira ou Bons Drinks</h1>
       <span class="span-mood">Light</span>
       <div class="noturn-mood" data-item>
       <button class="dark-mode" data-item="dark"></button>
@@ -42,16 +42,16 @@ export default () => {
     </div>
     
     <div class="make-review">
-      <p class="p-make-review">PUBLIQUE UM REVIEW</p>
+      <p class="p-make-review">Escreva sua avaliação</p>
       <button class="button-make-review" id="add-review">+</button>
     </div>
      <form class="review-area" action="">
      
-      <label class="review-label" for="book-name">Livro:</label>
+      <label class="review-label" for="book-name">Drink:</label>
       <input class="review-input" id="book-name" data-book-input type="text" placeholder="" required/>
-      <label class="review-label" for="book-author">Autor</label>
+      <label class="review-label" for="book-author"> Adicione um título</label>
       <input class="review-input" id="book-author" data-author-input type="text" placeholder="" required/>
-      <label class="review-label1" for="book-edition">Anexe a imagem da capa do livro</label>
+      <label class="review-label1" for="book-edition">Anexe uma imagem</label>
       <div class="container-file-img1">
             <img src="./img/imagebooks.png" class="file-img1">
           </div>
@@ -272,8 +272,7 @@ export default () => {
     sectionElement.querySelector('.review-area').style.display = 'none';
     sectionElement.querySelector('.welcome').style.display = 'flex';
     sectionElement.querySelector('.button-make-review').style.display = 'block';
-    sectionElement.querySelector('.make-review').style.background =
-      'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+    sectionElement.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
     sectionElement.querySelector('.p-make-review').style.display = 'block';
     window.history.pushState(null, null, '/home');
     const popStateEvent = new PopStateEvent('popstate', {
