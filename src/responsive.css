@@ -35,7 +35,6 @@
         margin: 0.5rem 6.5rem
     }
 
-
 }
 
 @media (max-width: 1200px) {
@@ -57,14 +56,12 @@
         top: 5%;
         left: 20%;
     }
-
-    .span-mood {
-        margin: 0rem 0vw 0rem 12vw;
+    .dark-container-profile{
+        padding-left:15rem;
+       
     }
 
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 36vw;
-    }
+  
 
 }
 
@@ -216,21 +213,13 @@
         flex-direction: column;
     }
 
-    .span-mood {
-        margin: 0rem 0vw 0rem 22vw;
+    .dark-container-profile{
+        padding-left:0rem;
+        margin-right:0.5rem;
+       
     }
 
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 51vw;
-    }
-
-    .span-mood1 {
-        margin: 0rem 10vw 0rem 0vw;
-    }
-
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 70vw;
-    }
+  
 
 }
 
@@ -346,21 +335,6 @@
         left: 40%;
     }
 
-    .span-mood {
-        margin: 0rem 0vw 0rem 15vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 54vw;
-    }
-
-    .span-mood1 {
-        margin: 0rem 12vw 0rem 0vw;
-    }
-
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 68vw;
-    }
 
 }
 
@@ -389,10 +363,6 @@
         position: fixed;
         top: 0;
         right: 0;
-<<<<<<< HEAD
-        background: linear-gradient(359.92deg, #F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
-=======
->>>>>>> 3bc81e9699be72a8a8c6f62e6ed3ab2243023bd5
         color: white;
         justify-content: center;
         display: none;
@@ -463,26 +433,18 @@
         left: 35%;
     }
 
-    .span-mood {
-        margin: 0rem 0vw 0rem 11vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 65vw;
-    }
-
-    .span-mood1 {
-        margin: 0rem 20vw 0rem 0vw;
-    }
-
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 80vw;
-    }
+ 
 
     .home-container,
     .profile-container {
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .dark-container-profile{
+        
+        margin-right:1rem;
+       
     }
 
 
@@ -572,21 +534,6 @@
         left: 32%;
     }
 
-    .span-mood1 {
-        margin: 0rem 20vw 0rem 0vw;
-    }
-
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 80vw;
-    }
-
-    .span-mood {
-        margin: 0rem 0vw 0rem 17vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 68vw;
-    }
 
 }
 
@@ -651,13 +598,7 @@
         left: 27%;
     }
 
-    .span-mood {
-        margin: 0rem 0vw 0rem 0vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 60vw;
-    }
+   
 }
 
 
@@ -744,19 +685,5 @@
         left: 23%;
     }
 
-    .span-mood1 {
-        margin: 0rem 20vw 0rem 0vw;
-    }
-
-    .noturn-mood1 {
-        margin: 0rem 0rem 0rem 80vw;
-    }
-
-    .span-mood {
-        margin: 0rem 8vw 0rem 0vw;
-    }
-
-    .noturn-mood {
-        margin: 0rem 0rem 0rem 58vw;
-    }
+  
 }

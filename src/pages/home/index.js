@@ -1,4 +1,4 @@
-import { currentUser, getReviews } from '../../lib/index.js';
+import { currentUser, getHashtagReviews, getReviews } from '../../lib/index.js';
 import { sidebar } from '../../components/sidebar/index.js';
 import {
   showReviewArea, publishReview, loadPosts,
@@ -28,13 +28,23 @@ export default () => {
   <div class="home-container">
    
     <header>
-      <h1 class="header-home">Saideira ou Bons Drinks</h1>
-      <span class="span-mood">Light</span>
-      <div class="noturn-mood" data-item>
-      <button class="dark-mode" data-item="dark"></button>
-      <button class ="light-mode" data-item="light"></button>
-      </div>
+    <div class="logo-title">
       <img class="favicon-home" src="img/favicon.png">
+      <h1 class="header-home">Bons Drinks</h1>
+    </div>
+      <div class="search-container">
+        <input type="text" id="input-search" placeholder="Busque por uma tag">
+        <button id="search"><img src="./img/search.png"></button>
+      </div>
+      
+      <div class="dark-container">
+        <div class="noturn-mood" data-item>
+          <button class="dark-mode" data-item="dark"></button>
+          <button class ="light-mode" data-item="light"></button>
+        </div>
+        <span class="span-mood">Light</span>
+      </div>
+      
     </header>
     <div class="timeline">
     <div class="welcome">
@@ -58,6 +68,11 @@ export default () => {
       <input type="file" class="file-input" id="input-profile-img" accept="image/*">
       <textarea class="post-input" id="text" cols="30" rows="5" data-post-input 
       placeholder ="Escreva sua review..."></textarea>
+      <label class="review-label" for="hashtags">Adicione hashtags</label>
+      <input class="review-input" id="hashtags" data-hashtags name="hashtags" type="text"  placeholder="Exemplos: #cerveja #vinho #gelada #winelover #drinks"/>
+      
+
+      
       
       <label class="review-rating">Avalie</label>
       <div class="estrelas" >
@@ -79,6 +94,7 @@ export default () => {
         </div>
      </form>   
     </div>
+    <div  class="search-result"></div>
     <div data-all-reviews class= "all-reviews">
     
     </div>
@@ -125,6 +141,30 @@ export default () => {
   buttonAddReview.addEventListener('click', () => {
     showReviewArea();
   });
+
+  const searchBtn = sectionElement.querySelector('#search');
+  searchBtn.addEventListener('click', () => {
+    const hashtag = sectionElement.querySelector('#input-search').value;
+    let hash
+    if(hashtag.charAt(0)==="#"){
+      hash = hashtag.slice(1)
+    }else{
+      hash = hashtag
+    }
+    console.log(hash);
+    const containerSearch = sectionElement.querySelector('.search-result');
+    containerSearch.innerHTML = `
+    <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
+    <span class="result-text"> Resultados para #${hash}</span>`;
+    loadPosts(getHashtagReviews(hash));
+
+    const quit = sectionElement.querySelector('.quit');
+    quit.addEventListener('click', () => {
+      containerSearch.innerHTML = '';
+      loadPosts(getReviews());
+    });
+  });
+
   const lightModeBackground = sectionElement.querySelectorAll('.noturn-mood');
   // eslint-disable-next-line no-restricted-syntax
   for (const mood of lightModeBackground) {
@@ -155,6 +195,7 @@ export default () => {
         const addNavBar = document.querySelector('#add-review-navbar');
         const saveNavBar = document.querySelector('#save-navbar-img');
         const openNavBar = document.querySelector('#open-sidebar');
+        const inputSearch = document.querySelector('#input-search');
         header.style.backgroundColor = '#313c44';
         textHeader.style.color = 'white';
         body.style.backgroundColor = '#2c2c2c';
@@ -165,6 +206,7 @@ export default () => {
         addNavBar.style.filter = 'brightness(800%) contrast(100%)';
         saveNavBar.style.filter = 'brightness(800%) contrast(100%)';
         openNavBar.style.filter = 'brightness(800%) contrast(100%)';
+        inputSearch.style.backgroundColor = '#abc4d6';
 
         const allPosts = document.querySelectorAll('[data-post]');
         // eslint-disable-next-line no-restricted-syntax
@@ -205,6 +247,7 @@ export default () => {
         const lightModeBackground = sectionElement.querySelector('.noturn-mood');
         const textMode = sectionElement.querySelector('.span-mood');
         const noturnMode = sectionElement.querySelector('.dark-mode');
+        const inputSearch = document.querySelector('#input-search');
         lightModeBackground.style.backgroundColor = '#313c44';
         noturnMode.style.backgroundColor = 'white';
         noturnMode.style.opacity = '1';
@@ -212,6 +255,7 @@ export default () => {
         textMode.innerHTML = 'Light';
         textMode.style.color = 'black';
         lightMode.style.margin = '0rem 0rem 0rem 3rem';
+        inputSearch.style.backgroundColor = 'white';
 
         const header = sectionElement.querySelector('header');
         const textHeader = sectionElement.querySelector('.header-home');
