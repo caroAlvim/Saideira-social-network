@@ -282,6 +282,16 @@ export default () => {
     window.history.pushState(null, null, '/home');
   });
 
+  const buttonSearchNavbar = sectionElement.querySelector('#search-navbar-btn');
+  buttonSearchNavbar.addEventListener('click', (e) => {
+    e.preventDefault();
+    sectionElement.innerHTML = '';
+    sectionElement.append(home());
+    window.scrollTo(0, 0);
+    window.history.pushState(null, null, '/home');
+  });
+
+
   loadPosts(getProfileReviews(currentUser().uid));
 
   return sectionElement;

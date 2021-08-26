@@ -131,10 +131,11 @@
 
     .home-navbar {
         display: flex;
+        flex-direction: column;
         width: 100vw;
+        position: fixed;
         justify-content: space-between;
         align-items: center;
-        position: fixed;
         bottom: 0;
         left: 0;
         padding: 2rem 10rem;
@@ -142,6 +143,51 @@
         border-top: thin solid #d4d4d4;
         z-index: 2;
 
+    }
+
+    .search-navbar{
+        justify-content: center;
+        align-items: center;
+        display:none;
+        padding:1rem 0;
+        margin-bottom:2rem;
+    }
+    .navbar{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    #input-search-navbar{
+        width:35rem;
+        height:4rem;
+        border:solid 1px rgb(199, 192, 192);
+        padding:0 1rem;
+        border-radius: 15px;
+        color:grey;
+        font-family: 'Roboto';
+        Font-size:2rem;
+    }
+
+        
+    #search-nav{
+        border:none;
+        align-items:center;
+        background-color:transparent;
+    
+    }
+
+    #search-nav img{
+        width:3rem;
+        margin-left:1rem;
+       
+    }
+    
+    #input-search-navbar:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
     }
 
     .home-container,
@@ -216,6 +262,10 @@
         padding-left:0rem;
         margin-right:0.5rem;
        
+    }
+
+    .search-container{
+        display:none;
     }
 
   
@@ -303,7 +353,7 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        padding: 2rem 10rem;
+        padding: 2rem 5rem;
         background-color: white;
         border-top: thin solid #d4d4d4;
         z-index: 2;
@@ -437,7 +487,7 @@
 
     .home-container,
     .profile-container {
-        width: 100%;
+        width: 98%;
         box-sizing: border-box;
     }
 
@@ -482,7 +532,7 @@
     }
 
     .posts-reviews {
-        margin: 1rem;
+        margin: 1rem 0;
         padding: 1rem;
     }
 
@@ -534,6 +584,15 @@
         left: 32%;
     }
 
+    #input-search-navbar{
+        width:25rem;
+        height:4rem;
+        font-size:1.5rem;
+    }
+
+    .search-result{
+       margin-left:2rem;
+    }
 
 }
 
@@ -685,5 +744,13 @@
         left: 23%;
     }
 
+    #input-search-navbar{
+        width:18rem;
+        height:4rem;
+        font-size:1rem;
+    }
+    .home-navbar{
+        padding: 2rem 2rem;
+    }
   
 }
