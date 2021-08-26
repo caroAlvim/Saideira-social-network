@@ -7,7 +7,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family:Lato,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
     font-size: 10px;
     color: var(--text-color);
@@ -24,8 +24,6 @@ body {
     width: 100vw;
 }
 
-
-
 #sign-up,
 #signin-page {
     background-color: #ffc23ee3;
@@ -38,18 +36,9 @@ body {
 }
 
 
-<<<<<<< HEAD
-.form-page {
-    display: flex
-}
-
-.logo-container {
-    width: 50vw;
-=======
 
 .form-page,
 #forgot-password {
->>>>>>> 3bc81e9699be72a8a8c6f62e6ed3ab2243023bd5
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,11 +149,11 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-
+    align-self: baseline;
+    margin: 1vh 4vh 3vh 5vh;
 }
 
 
@@ -554,30 +543,28 @@ a:hover {
 .sidebar-desktop {
    width: 20vw;
     min-height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
+    position: absolute;
+    margin-top: 15vh;
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: inherit;
 }
 
 
 .sidebar-container {
-    width: 90%;
+    width: 50vh;
+    height: 90%;
     z-index: 2;
     outline: none;
-    border: 1px solid rgb(255, 255, 255, 0.7);
+    border: 1px solid rgba(236, 182, 65, 0.5);
     display: flex;
-    background-color: rgba(226, 205, 16, 0.534);
+    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B) ;
+    border-radius: 10px;
     flex-direction: column;
     align-items: center;
     padding: 3rem;
-    /* border-radius: 10px; */
     backdrop-filter: blur(45px);
-}
-
-
+    box-shadow: 8px 15px 15px rgb(245 192 122 / 98%)
 }
 
 .close-mobile-sidebar {
@@ -607,13 +594,14 @@ a:hover {
 .user-data {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
 }
 
 .sidebar-text {
-    color: rgb(34, 6, 39);
-    font-size: 1.4rem;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
 .user-name {
@@ -626,29 +614,25 @@ a:hover {
     border-radius: 100%;
     object-fit: cover;
     border: double 0.3rem transparent;
-    background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #F2EBEC 0%, #cfc5c7 53.12%, #c3b9bb 100%);
+    background-image: linear-gradient(white, white), linear-gradient(360deg, #f1a602e3 0%, #f19239dc 53.12%, #eecc83e3 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    align-self: center;
+    align-self: auto;
 }
 
 .user-information {
-    margin-top: 2.5rem;
+    margin: 2.5rem auto auto 1.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
 
-.user-more-gif {
-    display: flex;
-    flex-direction: row;
-}
+
 
 .sidebar-user-name {
-    align-self: flex-start;
+    align-self: auto;
+    margin-left: 2.0rem;
     margin-bottom: 0.5rem;
     margin-top: 0.7rem;
 }
@@ -662,7 +646,7 @@ a:hover {
 
 .sidebar-user {
     margin-bottom: 2.5rem;
-    color: rgb(255, 206, 200);
+    color: rgb(34, 6, 39);
 }
 
 .sidebar-profile {
@@ -690,22 +674,23 @@ a:hover {
 .sidebar-line {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.6rem 0rem 1.5rem;
 }
 
+
 #edit-profile-link {
-    color: rgb(255, 206, 200);
+    color: rgb(34, 6, 39);
     font-size: 1.4rem;
     text-align: center;
-    margin: 0.5rem 0rem 0rem 0rem;
 }
 
 #edit-profile-link:hover {
-    color: var(--hover-sidebar);
+    color: #FFD14B;
     text-decoration: none;
-    transition: 0.7s
+    transition: 0.3s
 }
 
 .num {
@@ -733,13 +718,13 @@ a:hover {
     display: flex;
     align-self: center;
     justify-content: left;
-
 }
+
 
 .sidebar-div-links {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     font-weight: normal;
@@ -748,11 +733,6 @@ a:hover {
 
 .sidebar-div-links img {
     margin-right: 10px
-}
-
-#sidebar-review:hover {
-    text-decoration: none;
-    transition: 0.7s
 }
 
 .save-sidebar {

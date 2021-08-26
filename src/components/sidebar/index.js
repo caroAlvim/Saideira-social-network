@@ -35,67 +35,56 @@ export const sidebar = () => {
   }
 
   const sidebarTemplate = `
-  <nav>
-  <div class="sidebar-container">
-    <button class="close-mobile-sidebar" id="close-mobile-sidebar">x</button>
-    <section class="user-data">
-    
+    <div class="sidebar-container">
+      <button class="close-mobile-sidebar" id="close-mobile-sidebar">x</button>
+      <section class="user-data">
       <img src="${profileImg}"   class="sidebar-user-img"/>
-      <a href="" class="sidebar-link" id="edit-profile-link">editar</a>
       <div class="user-information">
-        <div class="user-more-gif">
         <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
-        <!--<img class="gif-cheers" src="https://ik.imagekit.io/dqzqulyog87g/cheers_aXnV3uBaSA2.gif?updatedAt=1629885304890" alt="gif cerveja">-->
-        </div>
         <p class="sidebar-user sidebar-text">${userName2}</p>
       </div>
-  
     </section>
-  
+    <a href="" class="sidebar-link" id="edit-profile-link">Editar</a>
     
-    <section class="sidebar-profile">
-      <div class="sidebar-line review-line">
-        <p class="sidebar-text">Publicações</p>
-        <div class="num"><p class="num-text" id="num-reviews"></p></div>
-      </div>
-  
-      <section class="sidebar-tools sidebar-add-review">
-      <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
-        <div class="sidebar-div-links">
-          <img class="sidebar-review-image" src="../../img/add.png" alt="">
-          <p class="sidebar-text sidebar-review" >Adicionar publicação</p>
+      <section class="sidebar-profile">
+        <div class="sidebar-line review-line">
+          <p class="sidebar-text display-links-sidebar">Publicações</p>
+          <div class="num"><p class="num-text" id="num-reviews"></p></div>
         </div>
-      </button>
-    </section>
-  
-    <section class="sidebar-tools">
-      <button class="sidebar-btn">
-        <div class="sidebar-div-links">
-          <img src="./img/profile-navbar.png" class="menu-img-sidebar"/>
-          <p class="sidebar-text" id="profile-sidebar">Perfil</p>
-        </div>
-      </button>
-    </section>
-  
-    <section class="sidebar-tools sidebar-saved">
-      <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
-        <div class="sidebar-div-links">
-            <img src="../../img/save.png" alt="" class="save-sidebar">
-            <p class="sidebar-text" id="save-sidebar-text" >Salvos</p>
-        </div>
-      </button>
-    </section>
-  
-    <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
-      <button class="sidebar-btn" id="logout-btn-sidebar"> 
-        <div class="sidebar-div-links" >
-          <img src="../../img/logout-white.png" alt="" id="sidebar-img-logout">
-          <p class="sidebar-logout sidebar-text"">Sair</p>
-        </div>
-      </button>
-    </section>
-  </div>
-  </nav>
+        <section class="sidebar-tools sidebar-add-review">
+        <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
+          <div class="sidebar-div-links">
+            <img class="sidebar-review-image" src="../../img/add.png" alt="">
+            <p class="sidebar-text sidebar-review display-links-sidebar" >Adicionar publicações</p>
+          </div>
+        </button>
+      </section>
+      <section class="sidebar-tools">
+        <button class="sidebar-btn">
+          <div class="sidebar-div-links">
+            <img src="./img/profile-navbar.png" class="menu-img-sidebar"/>
+            <p class="sidebar-text display-links-sidebar" id="profile-sidebar">Perfil</p>
+          </div>
+        </button>
+      </section>
+      <section class="sidebar-tools sidebar-saved">
+        <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
+          <div class="sidebar-div-links">
+              <img src="../../img/save.png" alt="" class="save-sidebar">
+              <p class="sidebar-text display-links-sidebar" id="save-sidebar-text" >Salvos</p>
+          </div>
+        </button>
+      </section>
+      <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
+        <button class="sidebar-btn" id="logout-btn-sidebar"> 
+          <div class="sidebar-div-links" >
+            <img src="../../img/logout-white.png" alt="" id="sidebar-img-logout">
+            <p class="sidebar-logout sidebar-text display-links-sidebar">Sair</p>
+          </div>
+        </button>
+      </section>
+   
+    </div>
 `;
 
   getProfileReviews(currentUser().uid)
@@ -170,3 +159,8 @@ export const sidebar = () => {
 
   return asideElement;
 };
+
+/*
+ <div class="align-info-user">
+</div>
+*/
