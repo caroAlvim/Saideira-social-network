@@ -99,8 +99,7 @@ export default () => {
     
     </div>
     <div class="load">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        <div class="cup">
         </div>
         </div>
   </div>
@@ -146,9 +145,9 @@ export default () => {
   searchBtn.addEventListener('click', () => {
     const hashtag = sectionElement.querySelector('#input-search').value;
     let hash
-    if(hashtag.charAt(0)==="#"){
+    if (hashtag.charAt(0) === "#") {
       hash = hashtag.slice(1)
-    }else{
+    } else {
       hash = hashtag
     }
     console.log(hash);
