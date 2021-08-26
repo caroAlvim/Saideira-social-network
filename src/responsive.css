@@ -1,4 +1,7 @@
 @media (min-width:1400px) {
+    .container-logo-mobile {
+        display: none;
+    }
 
     :root {
         font-size: 12px
@@ -22,12 +25,11 @@
     .align-btn {
         flex-direction: row;
     }
-
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
-    .logo-container {
-        width: 40vw;
+    .container-logo-mobile {
+        display: none;
     }
 
     .confirm-buttons,
@@ -56,17 +58,24 @@
         top: 5%;
         left: 20%;
     }
-    .dark-container-profile{
-        padding-left:15rem;
-       
+
+    .dark-container-profile {
+        padding-left: 15rem;
+
     }
 
-  
+    .container-logo-mobile {
+        display: none;
+    }
 
 }
 
 @media (max-width: 1024px) {
 
+
+    .container-logo-mobile {
+        display: none
+    }
 
 
     .form-page {
@@ -105,7 +114,8 @@
     }
 
     #back-to-login-fp {
-        margin: 0rem 50vw 35rem 0rem;
+        top: 2rem;
+        left: 2rem;
         width: auto;
         height: 3rem;
     }
@@ -212,13 +222,13 @@
         flex-direction: column;
     }
 
-    .dark-container-profile{
-        padding-left:0rem;
-        margin-right:0.5rem;
-       
+    .dark-container-profile {
+        padding-left: 0rem;
+        margin-right: 0.5rem;
+
     }
 
-  
+
 
 }
 
@@ -334,7 +344,78 @@
         left: 40%;
     }
 
+    .form-page,
+    #forgot-password {
+        background-image: none;
+    }
 
+    .form-page {
+        width: 100vw;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .form-container {
+        margin: 20rem 0rem 12rem 0rem;
+        position: absolute;
+        width: 60vw;
+        height: auto;
+    }
+
+    .form-cp {
+        width: 80%;
+    }
+
+    .form-fp {
+        width: 50vw;
+        height: auto;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    #form-create-profile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .fieldset-forgot-password,
+    .fieldset-create-profile {
+        width: 100%;
+    }
+
+    #logout-btn {
+        margin: 0rem 0rem 0rem 75vw;
+        position: unset;
+    }
+
+    .p-footer {
+        font-size: 1.1rem;
+    }
+
+    footer a {
+        font-size: 1.1rem;
+    }
+
+    .footer {
+        padding: 0.8rem 0rem 0rem 0rem;
+    }
+
+    .container-logo-mobile {
+        display: block;
+        margin: 0;
+        margin: 0rem 0rem 40rem 0rem;
+    }
+
+    .logo-mobile {
+        width: 78rem;
+    }
 }
 
 
@@ -433,7 +514,7 @@
         left: 35%;
     }
 
- 
+
 
     .home-container,
     .profile-container {
@@ -441,14 +522,32 @@
         box-sizing: border-box;
     }
 
-    .dark-container-profile{
-        
-        margin-right:1rem;
-       
+    .dark-container-profile {
+
+        margin-right: 1rem;
+
     }
 
+    .form-container {
+        width: 80vw;
+        height: auto;
+    }
 
+    .fieldset {
+        width: 60vw;
+    }
 
+    .p-footer {
+        font-size: 1rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 0.6rem 0rem 0rem 0rem;
+    }
 }
 
 @media(max-width: 496px) {
@@ -534,6 +633,17 @@
         left: 32%;
     }
 
+    .p-footer {
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 0.6rem 0rem 0rem 0rem;
+    }
 
 }
 
@@ -587,18 +697,22 @@
     }
 
     .p-footer {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
     footer a {
-        font-size: 1.1rem;
+        font-size: 0.9em;
+    }
+
+    .footer {
+        padding: 0.6rem 0rem 0rem 0rem;
     }
 
     .loading {
         left: 27%;
     }
 
-   
+
 }
 
 
@@ -669,21 +783,21 @@
     }
 
     .p-footer {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     footer a {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     .footer {
         height: 2rem;
-        padding: 0.3rem 0rem 0rem 0rem;
+        padding: 0.5rem 0rem 0rem 0rem;
     }
 
     .loading {
         left: 23%;
     }
 
-  
+
 }
