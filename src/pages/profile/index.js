@@ -25,7 +25,7 @@ export default () => {
       <header>
         <div class="logo-title">
           <img class="favicon-home" src="img/favicon.png">
-          <h1 class="header-home">Bons Drinks</h1>
+          <h1 class="header-home">Saideira</h1>
         </div>
      
       <div class="dark-container-profile">

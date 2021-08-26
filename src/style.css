@@ -1457,8 +1457,8 @@ header {
     height: 17rem;
     padding-top: 10rem;
     margin-top: -2rem;
-    /* background:linear-gradient(180deg, #415792 0%, #4c65ac 25%, #5d9cb9 70%, #60aaca 90%);  */
-    background-image: url(img/book.jpg);
+    background:linear-gradient(180deg, #ff9700 0%, #ff9700 25%, #fc0 70%, #ffd14b 90%);
+    /* background-image: url(img/book.jpg);
     /* background-image: url(img/books.jpg);  */
     background-size: cover;
     background-position: right;
@@ -1480,7 +1480,7 @@ header {
     border: double 0.3rem transparent;
     border-radius: 50%;
     background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
+    linear-gradient(360deg, #b95567 0%, #fc0 53.12%, #ff9700 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
 
@@ -1513,7 +1513,7 @@ header {
 }
 
 .home-profile-text {
-    color: #3A81C2;
+    color: #313c44;
 
 
 }
