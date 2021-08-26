@@ -14,7 +14,7 @@ export default () => {
     <header >
       <div class="logo-title">
         <img class="favicon-home" src="img/favicon.png">
-        <h1 class="header-home">Bons Drinks</h1>
+        <h1 class="Saideira"></h1>
       </div>
 
       <div class="dark-container-profile">
@@ -243,6 +243,15 @@ export default () => {
     sectionElement.append(home());
     window.scrollTo(0, 0);
     showReviewArea();
+    window.history.pushState(null, null, '/home');
+  });
+
+  const buttonSearchNavbar = sectionElement.querySelector('#search-navbar-btn');
+  buttonSearchNavbar.addEventListener('click', (e) => {
+    e.preventDefault();
+    sectionElement.innerHTML = '';
+    sectionElement.append(home());
+    window.scrollTo(0, 0);
     window.history.pushState(null, null, '/home');
   });
 

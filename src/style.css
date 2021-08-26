@@ -804,7 +804,7 @@ header {
 .logo-title {
     display: flex;
     align-items: center;
-    width: 50%;
+    width:40%;
 
 }
 
@@ -814,11 +814,11 @@ header {
     align-items: center;
 }
 
-#input-search {
-    width: 12rem;
-    height: 3rem;
-    border: solid 1px rgb(199, 192, 192);
-    padding: 0 1rem;
+#input-search{
+    width:15rem;
+    height:3rem;
+    border:solid 1px rgb(199, 192, 192);
+    padding:0 1rem;
     border-radius: 15px;
     color: grey;
     font-family: 'Roboto';
@@ -1863,5 +1863,6 @@ ul {
 .hashs {
     font-size: 1.5rem;
     font-style: italic;
-    color: black;
+    color:black;
 }
+
