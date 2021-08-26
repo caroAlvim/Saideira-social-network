@@ -1,5 +1,6 @@
 @media (min-width:1400px) {
-    .container-logo-mobile {
+
+    .container-logo-mobile2 {
         display: none;
     }
 
@@ -28,7 +29,8 @@
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
-    .container-logo-mobile {
+
+    .container-logo-mobile2 {
         display: none;
     }
 
@@ -64,7 +66,7 @@
 
     }
 
-    .container-logo-mobile {
+    .container-logo-mobile2 {
         display: none;
     }
 
@@ -72,11 +74,9 @@
 
 @media (max-width: 1024px) {
 
-
-    .container-logo-mobile {
+    .container-logo-mobile2 {
         display: none
     }
-
 
     .form-page {
         width: 100vw;
@@ -233,7 +233,18 @@
 }
 
 @media (max-width: 1024px) and (min-width:496px) {
-
+     
+    .btn-sgin {
+        background-color: rgb(247, 243, 206);
+    }
+    
+    .gmail-btn {
+        background-color: rgb(247, 243, 206);
+    }
+    
+    .container-logo-mobile {
+        display: none;
+    }
 
     .mobile-menu {
         width: 100vw;
@@ -247,8 +258,14 @@
         margin: 0;
         padding: 0;
         background-color: rgba(0, 0, 0, 0.5);
+    }
 
+    img.logo-mobile {
+        visibility: hidden;
+    }
 
+    .form-container {
+        z-index: 1;
     }
 
     @keyframes sidebar {
@@ -275,12 +292,48 @@
         display: none;
     }
 
-
-
-
 }
 
 @media (max-width:768px) {
+
+    .back-to-login {
+        height: 10em;
+        width: 10em;
+        font-size: 16px;
+    }
+
+    img.logo-mobile-signup {
+        width: 87vw;
+        height: 81vw;
+        margin-bottom: 62vw;
+        z-index: 1;
+    }
+
+    img.logo-mobile2 {
+        width: 84vw;
+        height: 76vw;
+        margin-bottom: 100vw;
+    }
+
+    #form-sign-in{
+        width: 80vw;
+        height: auto;
+        margin-top: 65vw;
+    }
+
+    #form-sign-up, #form-sign-in {
+        background-color: #ffffa0;
+    }
+
+    #form-sign-up {
+        width: 80vw;
+        height: auto;
+        margin-top: 50vh;
+    }
+
+    .btn {
+        margin: 2rem 0;
+    }
 
     .align-btn {
         display: flex;
@@ -363,6 +416,7 @@
         position: absolute;
         width: 60vw;
         height: auto;
+        z-index: 1;
     }
 
     .form-cp {
@@ -420,6 +474,10 @@
 
 
 @media (max-width: 576px) {
+
+    .hero{
+        display: none;
+    }
 
     #sidebar {
         z-index: 200;
@@ -555,13 +613,14 @@
         font-size: 8px;
     }
 
+    .hero{
+        display: none;
+    }
+
     .logo-container {
         margin-bottom: 4rem;
 
     }
-
-
-
 
     .sidebar-container {
         padding: 0 10rem;
@@ -649,6 +708,10 @@
 
 
 @media(max-width: 340px) {
+
+    .hero{
+        display: none;
+    }
 
     .sidebar-user-img {
         width: 10rem;

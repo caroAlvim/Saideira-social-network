@@ -7,7 +7,7 @@ export default () => {
   sectionElement.setAttribute('class', 'form-page');
 
   const signUpTemplate = `
-  <div class="container-logo-mobile""><img class="logo-mobile" src="./img/logo-mobile.png"/></div>
+  <div class="container-logo-mobile2"><img class="logo-mobile-signup" src="./img/saideira-transparent.png"/></div>
     <button class="back-to-login">← Voltar</button>
     <div  class="form-container" id="form-sign-up">
       <h1 class="h1-login">Cadastro</h1>
