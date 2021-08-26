@@ -805,7 +805,7 @@ header {
 }
 
 .timeline {
-    margin: 0rem 0rem;
+    margin: 1.5rem 0 0;
 }
 
 .favicon-home {
@@ -828,11 +828,12 @@ header {
 
 .make-review {
     padding: 1.5rem;
-    background: linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%);
+    background: linear-gradient(600.92deg, rgb(160 15 35) 50.15%, #ffb100 100.44%);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    border-radius: 17px;
 }
 
 .p-make-review,
@@ -1320,8 +1321,8 @@ header {
 .h1-confirm-delete,
 .h1-confirm-delete-comment {
     color: #ffffff;
-    font-size: 1.5rem;
-    padding: 1rem 0rem;
+    font-size: 1.6rem;
+    padding: 1rem 0;
     align-items: center;
     text-align: center;
 }
@@ -1329,10 +1330,10 @@ header {
 .confirm-modal,
 .confirm-modal-comment {
     width: 25rem;
-    height: 15rem;
-    background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
+    height: 17rem;
+    background: linear-gradient(600.92deg, rgb(160 15 35) 50.15%, #ff9900 100.44%);
     border-radius: 20px;
-    padding: 5px;
+    padding: 1.5rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1510,8 +1511,8 @@ header {
     top: 5%;
     left: 20%;
     z-index: 3;
-    background: linear-gradient(600.92deg, #5e74af 50.15%, #6da7ce 100.44%);
-    border-radius: 20px;
+    background: linear-gradient(600.92deg, rgb(160 15 35) 50.15%, #ff9900 100.44%);
+    border-radius: 3rem;
     display: grid;
     justify-content: center;
 }
