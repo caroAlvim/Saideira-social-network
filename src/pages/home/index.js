@@ -247,6 +247,7 @@ export default () => {
         const lightModeBackground = sectionElement.querySelector('.noturn-mood');
         const textMode = sectionElement.querySelector('.span-mood');
         const noturnMode = sectionElement.querySelector('.dark-mode');
+        const inputSearch = document.querySelector('#input-search');
         lightModeBackground.style.backgroundColor = '#313c44';
         noturnMode.style.backgroundColor = 'white';
         noturnMode.style.opacity = '1';
@@ -254,6 +255,7 @@ export default () => {
         textMode.innerHTML = 'Light';
         textMode.style.color = 'black';
         lightMode.style.margin = '0rem 0rem 0rem 3rem';
+        inputSearch.style.backgroundColor = 'white';
 
         const header = sectionElement.querySelector('header');
         const textHeader = sectionElement.querySelector('.header-home');
