@@ -24,8 +24,8 @@ export default () => {
    
       <header>
         <div class="logo-title">
-          <img class="favicon-home" src="img/favicon.png">
-          <h1 class="header-home">Saideira</h1>
+          <img class="favicon-home" src="img/face.svg">
+          <h1 class="header-home"></h1>
         </div>
      
       <div class="dark-container-profile">
@@ -278,6 +278,15 @@ export default () => {
     sectionElement.appendChild(home());
     window.scrollTo(0, 0);
     showReviewArea();
+    window.history.pushState(null, null, '/home');
+  });
+
+  const buttonSearchNavbar = sectionElement.querySelector('#search-navbar-btn');
+  buttonSearchNavbar.addEventListener('click', (e) => {
+    e.preventDefault();
+    sectionElement.innerHTML = '';
+    sectionElement.append(home());
+    window.scrollTo(0, 0);
     window.history.pushState(null, null, '/home');
   });
 

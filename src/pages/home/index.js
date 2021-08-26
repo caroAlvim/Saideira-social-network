@@ -1,4 +1,6 @@
-import { currentUser, getHashtagReviews, getReviews } from '../../lib/index.js';
+import {
+  currentUser, searchHashtagReviews, getReviews, searchDrinks,
+} from '../../lib/index.js';
 import { sidebar } from '../../components/sidebar/index.js';
 import {
   showReviewArea, publishReview, loadPosts,
@@ -29,11 +31,11 @@ export default () => {
    
     <header>
     <div class="logo-title">
-      <img class="favicon-home" src="img/favicon.png">
-      <h1 class="header-home">Saideira</h1>
+      <img class="favicon-home" src="img/face.svg">
+      <h1 class="header-home"></h1>
     </div>
       <div class="search-container">
-        <input type="text" id="input-search" placeholder="Busque por uma tag">
+        <input type="text" id="input-search" placeholder="Busque por bebida ou #tag">
         <button id="search"><img src="./img/search.png"></button>
       </div>
       
@@ -143,19 +145,22 @@ export default () => {
 
   const searchBtn = sectionElement.querySelector('#search');
   searchBtn.addEventListener('click', () => {
-    const hashtag = sectionElement.querySelector('#input-search').value;
-    let hash;
-    if (hashtag.charAt(0) === '#') {
-      hash = hashtag.slice(1);
-    } else {
-      hash = hashtag;
-    }
-    // console.log(hash);
     const containerSearch = sectionElement.querySelector('.search-result');
-    containerSearch.innerHTML = `
-    <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
-    <span class="result-text"> Resultados para #${hash}</span>`;
-    loadPosts(getHashtagReviews(hash));
+    const hashtag = sectionElement.querySelector('#input-search').value;
+    if (hashtag.charAt(0) === '#') {
+      const hash = hashtag.slice(1);
+      containerSearch.innerHTML = `
+      <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
+      <span class="result-text"> Resultados para #${hash}</span>`;
+      loadPosts(searchHashtagReviews(hash));
+    } else {
+      const termsArray = hashtag.toLowerCase().split(' ');
+      // console.log(termsArray);
+      containerSearch.innerHTML = `
+      <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
+      <span class="result-text"> Resultados para ${hashtag}</span>`;
+      loadPosts(searchDrinks(termsArray));
+    }
 
     const quit = sectionElement.querySelector('.quit');
     quit.addEventListener('click', () => {
@@ -354,6 +359,39 @@ export default () => {
   const createReviewBtn = sectionElement.querySelector('[data-publish-btn]');
 
   createReviewBtn.addEventListener('click', publishReview);
+
+  const buttonSearchNavbar = sectionElement.querySelector('#search-navbar-btn');
+  const searchNavbar = sectionElement.querySelector('.search-navbar');
+  const searchBtnNav = sectionElement.querySelector('#search-nav');
+  const searchInput = sectionElement.querySelector('#input-search-navbar');
+  buttonSearchNavbar.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchNavbar.style.display = 'flex';
+    searchBtnNav.addEventListener('click', () => {
+      searchNavbar.style.display = 'none';
+      const containerSearch = document.querySelector('.search-result');
+      const hashtag = searchInput.value;
+      if (hashtag.charAt(0) === '#') {
+        const hash = hashtag.slice(1);
+        containerSearch.innerHTML = `
+      <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
+      <span class="result-text"> Resultados para #${hash}</span>`;
+        loadPosts(searchHashtagReviews(hash));
+      } else {
+        const termsArray = hashtag.toLowerCase().split(' ');
+        containerSearch.innerHTML = `
+      <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
+      <span class="result-text"> Resultados para ${hashtag}</span>`;
+        loadPosts(searchDrinks(termsArray));
+      }
+
+      const quit = document.querySelector('.quit');
+      quit.addEventListener('click', () => {
+        containerSearch.innerHTML = '';
+        loadPosts(getReviews());
+      });
+    });
+  });
 
   loadPosts(getReviews());
 

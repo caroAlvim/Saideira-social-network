@@ -118,10 +118,14 @@ export const loadPosts = (functionFirebase) => {
           const reviewLikes = doc.data().likes;
           const reviewSaves = doc.data().saves;
           const hashtags = doc.data().hashtags;
-          let tags = '';
-          if (hashtags !== undefined) {
-            tags = '#'+hashtags.join('#')
+          let tags;
+          console.log(hashtags);
+          if (hashtags === undefined || hashtags[0] === '') {
+            tags = '';
+          } else {
+            tags = `#${hashtags.join(' #')}`;
           }
+
           let userName;
           let userName2;
 
@@ -469,7 +473,7 @@ export const publishReview = (e) => {
   const hashs = document.querySelector('[data-hashtags]').value;
   printReview.classList.add('new-review');
   const hashtags = hashs.slice(1).split(' #');
-  //console.log(hashtags)
+  console.log(hashtags);
 
   window.scrollTo(0, 0);
 
