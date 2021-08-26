@@ -541,25 +541,23 @@ a:hover {
 
 /* Sidebar component */
 .sidebar-desktop {
-   width: 20vw;
+    width: 20vw;
     min-height: 100vh;
-    position: absolute;
-    margin-top: 15vh;
+    position: fixed;
+    right: 0;
     color: white;
     display: flex;
-    flex-direction: inherit;
+    justify-content: center;
 }
 
 
 .sidebar-container {
     width: 50vh;
-    height: 90%;
     z-index: 2;
     outline: none;
     border: 1px solid rgba(236, 182, 65, 0.5);
     display: flex;
-    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B) ;
-    border-radius: 10px;
+    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
     flex-direction: column;
     align-items: center;
     padding: 3rem;
@@ -600,7 +598,7 @@ a:hover {
 
 .sidebar-text {
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 

@@ -190,12 +190,8 @@
         position: fixed;
         top: 0;
         right: 0;
-<<<<<<< HEAD
-        background: linear-gradient(359.92deg, #F2C230 6.15%, #F28444 52.44%, #F25244 77.96%);
-=======
->>>>>>> 3bc81e9699be72a8a8c6f62e6ed3ab2243023bd5
+        background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B) ;
         padding: 3rem;
-        border-radius: 15% 0% 0% 15%;
     }
 
     .profile-container {
