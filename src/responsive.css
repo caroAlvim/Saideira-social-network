@@ -66,17 +66,9 @@
 
     }
 
-    .container-logo-mobile2 {
-        display: none;
-    }
-
 }
 
 @media (max-width: 1024px) {
-
-    .container-logo-mobile2 {
-        display: none
-    }
 
     .form-page {
         width: 100vw;
@@ -225,9 +217,7 @@
     .dark-container-profile {
         padding-left: 0rem;
         margin-right: 0.5rem;
-
     }
-
 
 
 }
@@ -296,6 +286,11 @@
 
 @media (max-width:768px) {
 
+    #form-container-forgot-password {
+        margin-top: 40vh;
+        height: 40vh;
+    }
+
     .back-to-login {
         height: 10em;
         width: 10em;
@@ -315,13 +310,20 @@
         margin-bottom: 100vw;
     }
 
+    img.logo-mobile-reset {
+        width: 84vw;
+        height: 76vw;
+        margin-bottom: 88vw;
+    }
+
+
     #form-sign-in{
         width: 80vw;
         height: auto;
         margin-top: 65vw;
     }
 
-    #form-sign-up, #form-sign-in {
+    #form-sign-up, #form-sign-in, #form-container-forgot-password {
         background-color: #ffffa0;
     }
 
