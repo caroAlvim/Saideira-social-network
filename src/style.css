@@ -117,8 +117,9 @@ body {
 }
 
 .forget-password:hover {
-    color: var(--default-blue);
-    text-decoration: underline var(--default-blue);
+    background-color: rgb(160, 61, 15);
+    color: white;
+    transition: 0.7s;
 }
 
 .btn {
@@ -534,8 +535,9 @@ a:hover {
 }
 
 .button-review:hover {
-    filter: invert(77%) sepia(58%) saturate(1717%) hue-rotate(203deg) brightness(100%) contrast(88%);
-    transition: 1s
+    background-color: rgb(160, 61, 15);
+    color: white;
+    transition: 0.7s;
 }
 
 #send-profile {
@@ -1384,13 +1386,13 @@ header {
 .confirm-buttons-comment {
     align-items: center;
     text-align: center;
-    background-color: #d5e2ff;
+    background-color: #ffbb00;
     padding: 0.5rem 1rem;
     width: 11rem;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    color: var(--dark-purple);
+    color: white;
     font-size: 1.3rem;
     margin: 0.5rem auto;
     display: flex;
@@ -1399,8 +1401,9 @@ header {
 
 .confirm-buttons:hover,
 .confirm-buttons-comment:hover {
-    filter: invert(77%) sepia(58%) saturate(1717%) hue-rotate(203deg) brightness(100%) contrast(88%);
-    transition: 1s
+    background-color: rgb(160, 61, 15);
+    color: white;
+    transition: 0.7s;
 }
 
 .icon-save {
@@ -1587,14 +1590,15 @@ header {
 .post-input-edit {
     outline: none;
     margin: 2rem 0rem;
-    padding: 1rem;
+    padding: 1rem 0rem;
     border-radius: 10px;
     font-size: 1.5rem;
+    height: 130px;
 }
 
 .align-btn {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     padding: 1rem;
     align-items: center;
@@ -1605,22 +1609,23 @@ header {
 .confirm-buttons-edit {
     align-items: center;
     text-align: center;
-    background-color: #d5e2ff;
-    padding: 0.5rem 1rem;
+    background-color: #ffbb00;
+    padding: 0.8rem 1rem;
     width: 11rem;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    color: var(--dark-purple);
-    font-size: 1.3rem;
+    color: white;
+    font-size: 1.6rem;
     margin: 0.5rem 4.5rem;
     display: flex;
     justify-content: center;
 }
 
 .confirm-buttons-edit:hover {
-    filter: invert(77%) sepia(58%) saturate(1717%) hue-rotate(203deg) brightness(100%) contrast(88%);
-    transition: 1s
+    background-color: rgb(160, 61, 15);
+    color: white;
+    transition: 0.7s;
 }
 
 ol,
