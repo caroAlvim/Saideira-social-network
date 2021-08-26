@@ -198,6 +198,7 @@ export const getProfileReviews = (userId) => database
   .collection('reviews').where('userId', '==', userId).orderBy('datePost', 'desc').orderBy('hourPost', 'desc')
   .get();
 
-  export const getHashtagReviews = (hashtag) => database
-  .collection('reviews').where('hashtags', 'array-contains', hashtag).orderBy('datePost', 'desc').orderBy('hourPost', 'desc')
+export const getHashtagReviews = (hashtag) => database
+  .collection('reviews').where('hashtags', 'array-contains', hashtag).orderBy('datePost', 'desc')
+  .orderBy('hourPost', 'desc')
   .get();
