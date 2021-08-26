@@ -556,17 +556,15 @@ a:hover {
 
 
 .sidebar-container {
-    width: 50vh;
-    z-index: 2;
-    outline: none;
-    border: 1px solid rgba(236, 182, 65, 0.5);
+    width: 25%;
     display: flex;
-    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
+    height: 100vh;
     flex-direction: column;
-    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
     padding: 3rem;
-    backdrop-filter: blur(45px);
-    box-shadow: 8px 15px 15px rgb(245 192 122 / 98%)
 }
 
 .close-mobile-sidebar {
@@ -588,7 +586,7 @@ a:hover {
 
 .close-mobile-sidebar:hover {
     cursor: pointer;
-    background-color: #47b4a598;
+    background-color: #eeb354d7;
     transition: .3s ease-in;
 
 }
@@ -597,12 +595,12 @@ a:hover {
     width: 100%;
     display: flex;
     flex-direction: row;
-
+    margin: 3.0rem;
 }
 
 .sidebar-text {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
@@ -611,8 +609,8 @@ a:hover {
 }
 
 .sidebar-user-img {
-    width: 11rem;
-    height: 11rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 100%;
     object-fit: cover;
     border: double 0.3rem transparent;
@@ -634,7 +632,6 @@ a:hover {
 
 .sidebar-user-name {
     align-self: auto;
-    margin-left: 2.0rem;
     margin-bottom: 0.5rem;
     margin-top: 0.7rem;
 }
@@ -672,16 +669,14 @@ a:hover {
     border-top: 1px white solid;
 }
 
-
 .sidebar-line {
     width: 100%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 0rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 0rem 1.5rem
 }
-
 
 #edit-profile-link {
     color: rgb(34, 6, 39);
@@ -693,6 +688,12 @@ a:hover {
     color: #FFD14B;
     text-decoration: none;
     transition: 0.3s
+}
+
+.total-publications {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
 }
 
 .num {
@@ -715,8 +716,7 @@ a:hover {
 
 .sidebar-tools {
     width: 100%;
-    padding: 1.5rem 0;
-    border-top: solid 1px white;
+    padding: 2.8rem 0;
     display: flex;
     align-self: center;
     justify-content: left;
@@ -983,9 +983,8 @@ header {
     height: 7rem;
     object-fit: cover;
     align-self: center;
-    border: 2px solid rgb(89, 136, 189);
+    border: 2px solid rgb(214, 117, 52);
     border-radius: 50%;
-
 }
 
 .name-profile-post {

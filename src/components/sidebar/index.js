@@ -34,58 +34,64 @@ export const sidebar = () => {
     userName2 = '';
   }
 
-  const sidebarTemplate = `
+    const sidebarTemplate = `
     <div class="sidebar-container">
-      <button class="close-mobile-sidebar" id="close-mobile-sidebar">x</button>
-      <section class="user-data">
-      <img src="${profileImg}"   class="sidebar-user-img"/>
-      <div class="user-information">
-        <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
-        <p class="sidebar-user sidebar-text">${userName2}</p>
-      </div>
+    <button class="close-mobile-sidebar" id="close-mobile-sidebar">x</button>
+    <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
+      <button class="sidebar-btn" id="logout-btn-sidebar">
+        <div class="sidebar-div-links">
+          <img src="../../img/logout-white.png" alt="" id="sidebar-img-logout">
+          <p class="sidebar-logout sidebar-text display-links-sidebar">Sair</p>
+        </div>
+      </button>
     </section>
-    <a href="" class="sidebar-link" id="edit-profile-link">Editar</a>
-    
-      <section class="sidebar-profile">
-        <div class="sidebar-line review-line">
+
+    <section class="sidebar-profile">
+      <div class="sidebar-line review-line">
+        <div class="total-publications">
           <p class="sidebar-text display-links-sidebar">Publicações</p>
-          <div class="num"><p class="num-text" id="num-reviews"></p></div>
+          <div class="num">
+            <p class="num-text" id="num-reviews"></p>
+          </div>
         </div>
         <section class="sidebar-tools sidebar-add-review">
-        <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
-          <div class="sidebar-div-links">
-            <img class="sidebar-review-image" src="../../img/add.png" alt="">
-            <p class="sidebar-text sidebar-review display-links-sidebar" >Adicionar publicações</p>
-          </div>
-        </button>
-      </section>
-      <section class="sidebar-tools">
-        <button class="sidebar-btn">
-          <div class="sidebar-div-links">
-            <img src="./img/profile-navbar.png" class="menu-img-sidebar"/>
-            <p class="sidebar-text display-links-sidebar" id="profile-sidebar">Perfil</p>
-          </div>
-        </button>
-      </section>
-      <section class="sidebar-tools sidebar-saved">
-        <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
-          <div class="sidebar-div-links">
+          <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
+            <div class="sidebar-div-links">
+              <img class="sidebar-review-image" src="../../img/add.png" alt="">
+              <p class="sidebar-text sidebar-review display-links-sidebar">Adicionar publicações</p>
+            </div>
+          </button>
+        </section>
+        <section class="sidebar-tools">
+          <button class="sidebar-btn">
+            <div class="sidebar-div-links">
+              <img src="./img/profile-navbar.png" class="menu-img-sidebar" />
+              <p class="sidebar-text display-links-sidebar" id="profile-sidebar">Perfil</p>
+            </div>
+          </button>
+        </section>
+        <section class="sidebar-tools sidebar-saved">
+          <button href="" id="saved-btn-sidebar" class="sidebar-btn sidebar-btn-mobile">
+            <div class="sidebar-div-links">
               <img src="../../img/save.png" alt="" class="save-sidebar">
-              <p class="sidebar-text display-links-sidebar" id="save-sidebar-text" >Salvos</p>
+              <p class="sidebar-text display-links-sidebar" id="save-sidebar-text">Salvos</p>
+            </div>
+          </button>
+        </section>
+
+        <section class="user-data">
+          <img src="${profileImg}" class="sidebar-user-img" />
+          <div class="user-information">
+            <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
+            <p class="sidebar-user sidebar-text">${userName2}</p>
           </div>
-        </button>
-      </section>
-      <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
-        <button class="sidebar-btn" id="logout-btn-sidebar"> 
-          <div class="sidebar-div-links" >
-            <img src="../../img/logout-white.png" alt="" id="sidebar-img-logout">
-            <p class="sidebar-logout sidebar-text display-links-sidebar">Sair</p>
-          </div>
-        </button>
-      </section>
-   
-    </div>
-`;
+          <a href="" class="sidebar-link" id="edit-profile-link">Editar</a>
+        </section>
+        
+      </div>
+    </section>
+  </div>
+  `;
 
   getProfileReviews(currentUser().uid)
     .then((snap) => {
