@@ -13,9 +13,9 @@
     }
 
     .confirm-modal-edit {
-        top: 4%;
+        top: 2%;
         left: 19%;
-        height: 90vh;
+        height: 94vh;
     }
 
     .stars-edit {
@@ -25,16 +25,19 @@
     .align-btn {
         flex-direction: row;
     }
+
+    .post-input-edit {
+        height: 100px;
+    }
+
+    .confirm-buttons-edit {
+        padding: 0.5rem 1rem;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
     .container-logo-mobile {
         display: none;
-    }
-
-    .confirm-buttons,
-    .confirm-buttons-comment {
-        margin: 0.5rem 6.5rem
     }
 
 }
@@ -55,7 +58,7 @@
     }
 
     .confirm-modal-edit {
-        top: 5%;
+        top: 2%;
         left: 20%;
     }
 
@@ -197,7 +200,7 @@
         position: fixed;
         top: 0;
         right: 0;
-        background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B) ;
+        background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
         padding: 3rem;
     }
 
@@ -210,7 +213,7 @@
     }
 
     .confirm-modal-edit {
-        top: 10%;
+        top: 2%;
         width: 90vw;
         left: 5%;
     }
@@ -220,7 +223,7 @@
     }
 
     .align-btn {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .dark-container-profile {
@@ -335,10 +338,8 @@
     }
 
     .confirm-modal-edit {
-        top: 6.5%;
         width: 90vw;
         left: 4%;
-        padding: 2rem;
     }
 
     .loading {
@@ -603,7 +604,7 @@
     }
 
     .confirm-modal-edit {
-        top: 15%;
+        top: 7%;
         width: 90vw;
         left: 5%;
         padding: 2rem;
@@ -682,7 +683,7 @@
     }
 
     .confirm-modal-edit {
-        top: 15%;
+        top: 7%;
         width: 90vw;
         left: 5%;
         padding: 2rem;
