@@ -197,6 +197,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B) ;
         padding: 3rem;
     }
 
@@ -437,7 +438,6 @@
 
 
     }
-
 
     .mobile-menu {
         width: 100vw;
