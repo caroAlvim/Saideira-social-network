@@ -117,6 +117,12 @@ export const loadPosts = (functionFirebase) => {
           const reviewContent = doc.data().review;
           const reviewLikes = doc.data().likes;
           const reviewSaves = doc.data().saves;
+          const hashtags = doc.data().hashtags
+          let tags = ""
+          if(hashtags!==undefined){
+            tags = "#"+hashtags.join(" #")
+          }
+          
 
           let userName;
           let userName2;
@@ -172,6 +178,8 @@ export const loadPosts = (functionFirebase) => {
               <div class="data-book-post">
                   
                   <p class="content-review">${reviewContent}</p> </br>
+                  <p class="hashs">${tags}</p></br>
+                  
               </div>
               <div class="likes-container">
               <button class="like"><img class="like-img"data-item="like"
@@ -460,7 +468,10 @@ export const publishReview = (e) => {
   const valueReview = reviewUser.value;
   const image = document.getElementById('input-profile-img').files[0];
   const printReview = document.createElement('article');
+  const hashs = document.querySelector('[data-hashtags]').value;
   printReview.classList.add('new-review');
+  const hashtags = hashs.slice(1).split(' #');
+  console.log(hashtags)
 
   window.scrollTo(0, 0);
 
@@ -473,7 +484,7 @@ export const publishReview = (e) => {
       })
       .then((urlImage) => {
         createReview(drinkName, titleName, valueReview, starsEvaluation,
-          userNameFirebase, urlImage, completeDate, hour);
+          userNameFirebase, urlImage, completeDate, hour, hashtags);
       })
       .then(() => {
         loadPosts(getReviews());
@@ -483,7 +494,7 @@ export const publishReview = (e) => {
     // });
   } else {
     createReview(drinkName, titleName, valueReview, starsEvaluation,
-      userNameFirebase, null, completeDate, hour)
+      userNameFirebase, null, completeDate, hour, hashtags)
       .then(() => {
         loadPosts(getReviews());
       });

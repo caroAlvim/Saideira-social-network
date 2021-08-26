@@ -22,13 +22,20 @@ export default () => {
   const profileTemplate = `
   <div class="profile-container">
    
-    <header>
-      <p class="header-home">Bookish</p>
-      <span class="span-mood1">Light</span>
-      <div class="noturn-mood1" data-item>
-      <button class="dark-mode1" data-item="dark"></button>
-      <button class ="light-mode1" data-item="light"></button>
+      <header>
+        <div class="logo-title">
+          <img class="favicon-home" src="img/favicon.png">
+          <h1 class="header-home">Bons Drinks</h1>
+        </div>
+     
+      <div class="dark-container-profile">
+      <div class="noturn-mood" data-item>
+        <button class="dark-mode" data-item="dark"></button>
+        <button class ="light-mode" data-item="light"></button>
       </div>
+      <span class="span-mood">Light</span>
+    </div>
+    
       <button class="btn-home-profile">
         <img class="icon-home" src="img/home-blue.png">
         <p class="home-profile-text">Home</p>

@@ -12,13 +12,19 @@ export default () => {
   <div class="home-container">
    
     <header >
-      <p class="header-home">Bookish</p>
-      <span class="span-mood">Light</span>
-      <div class="noturn-mood" data-item>
-      <button class="dark-mode" data-item="dark"></button>
-      <button class ="light-mode" data-item="light"></button>
+      <div class="logo-title">
+        <img class="favicon-home" src="img/favicon.png">
+        <h1 class="header-home">Bons Drinks</h1>
       </div>
-      <img class="favicon-home" src="img/favicon.png">
+
+      <div class="dark-container-profile">
+      <div class="noturn-mood" data-item>
+        <button class="dark-mode" data-item="dark"></button>
+        <button class ="light-mode" data-item="light"></button>
+      </div>
+      <span class="span-mood">Light</span>
+      </div>
+     
     </header>
   
     <div class="saved-items">
