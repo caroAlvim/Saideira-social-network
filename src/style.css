@@ -459,6 +459,10 @@ a:hover {
     align-self: center;
 }
 
+#hashtags{
+    margin-bottom:2rem;
+}
+
 .stars-edit input[type=radio] {
     display: none;
 }
@@ -793,17 +797,55 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+   justify-content: space-between;
     padding: 0.5rem;
     background-color: #ffffff;
     z-index: 1;
+}
+
+.logo-title{
+    display:flex;
+    align-items: center;
+    width:50%;
+
+}
+
+.search-container{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items: center;
+}
+
+#input-search{
+    width:12rem;
+    height:3rem;
+    border:solid 1px rgb(199, 192, 192);
+    padding:0 1rem;
+    border-radius: 15px;
+    color:grey;
+    font-family: 'Roboto';
+}
+
+#input-search:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#search{
+    border:none;
+    background-color:transparent;
+}
+
+#search img{
+    width:1.8rem;
+    margin-left:0.5rem;
 }
 
 .header-home {
     font-size: 2.2rem;
     color: black;
     font-weight: bold;
-    padding: 0.5rem 2rem
+    padding: 0.5rem 
 }
 
 .timeline {
@@ -812,7 +854,7 @@ header {
 
 .favicon-home {
     width: 4.5rem;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
 }
 
 
@@ -1650,27 +1692,37 @@ ul {
     }
 }
 
+.dark-container{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-right:0.5rem;
+
+}
 
 .span-mood {
-    margin: 0rem 0rem 0rem 15vw;
+    margin-left: 6rem; 
+    /* margin: 0rem 0rem 0rem 12vw; */
+    margin-right: 1rem; 
     font-size: 1.2rem;
 }
 
 .noturn-mood {
     background-color: #313c44;
     position: absolute;
-    margin: 0rem 0rem 0rem 35vw;
-    width: 6rem;
+    /* margin: 0rem 0rem 0rem 35vw; */
+    /* margin-left: 82%; */
+    width: 5rem;
     border-radius: 20rem;
-    height: 3rem;
+    height: 2rem;
 }
 
 .dark-mode,
 .dark-mode1 {
     cursor: pointer;
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border: none;
     background-color: white;
     margin: 0.2rem 0rem 0rem 0.5rem;
@@ -1682,8 +1734,8 @@ ul {
 .light-mode1 {
     cursor: pointer;
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border: none;
     background-color: #313c44;
     margin: 0.2rem 0rem 0rem 3rem;
@@ -1691,16 +1743,37 @@ ul {
     transition: 1s;
 }
 
-.span-mood1 {
-    margin: 0rem 0rem 0rem 15vw;
-    font-size: 1.2rem;
+.dark-container-profile{
+    padding-left:13rem;
+    display:flex;
+    align-items: center;
+
 }
 
-.noturn-mood1 {
-    background-color: #313c44;
-    position: absolute;
-    margin: 0rem 0rem 0rem 38vw;
-    width: 6rem;
-    border-radius: 20rem;
-    height: 3rem;
+.search-result{
+    display:flex;
+    align-items: center;
+}
+
+.quit{
+    margin:1rem 0 
+ 
+}
+
+.quit-img{
+    width:2.5rem;
+    margin-right:1.5rem;
+    cursor:pointer;
+}
+
+
+.result-text{
+    font-size:1.6rem;
+    color:black;
+}
+
+.hashs{
+    font-size: 1.5rem;
+    font-style: italic;
+    color:black;
 }

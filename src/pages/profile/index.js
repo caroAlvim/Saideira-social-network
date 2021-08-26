@@ -22,13 +22,20 @@ export default () => {
   const profileTemplate = `
   <div class="profile-container">
    
-    <header>
-      <p class="header-home">Bookish</p>
-      <span class="span-mood1">Light</span>
-      <div class="noturn-mood1" data-item>
-      <button class="dark-mode1" data-item="dark"></button>
-      <button class ="light-mode1" data-item="light"></button>
+      <header>
+        <div class="logo-title">
+          <img class="favicon-home" src="img/favicon.png">
+          <h1 class="header-home">Bons Drinks</h1>
+        </div>
+     
+      <div class="dark-container-profile">
+      <div class="noturn-mood" data-item>
+        <button class="dark-mode" data-item="dark"></button>
+        <button class ="light-mode" data-item="light"></button>
       </div>
+      <span class="span-mood">Light</span>
+    </div>
+    
       <button class="btn-home-profile">
         <img class="icon-home" src="img/home-blue.png">
         <p class="home-profile-text">Home</p>
@@ -79,7 +86,7 @@ export default () => {
     sidebar.classList.remove('sidebar-desktop');
   });
 
-  const lightModeBackground = sectionElement.querySelectorAll('.noturn-mood1');
+  const lightModeBackground = sectionElement.querySelectorAll('.noturn-mood');
   // eslint-disable-next-line no-restricted-syntax
   for (const mood of lightModeBackground) {
     mood.addEventListener('click', (e) => {
@@ -87,10 +94,10 @@ export default () => {
       const targetDataset = target.dataset.item;
       if (targetDataset === 'dark') {
         // eslint-disable-next-line no-shadow
-        const lightModeBackground = sectionElement.querySelector('.noturn-mood1');
-        const lightMode = sectionElement.querySelector('.light-mode1');
-        const textMode = sectionElement.querySelector('.span-mood1');
-        const noturnMode = sectionElement.querySelector('.dark-mode1');
+        const lightModeBackground = sectionElement.querySelector('.noturn-mood');
+        const lightMode = sectionElement.querySelector('.light-mode');
+        const textMode = sectionElement.querySelector('.span-mood');
+        const noturnMode = sectionElement.querySelector('.dark-mode');
         lightModeBackground.style.backgroundColor = 'white';
         noturnMode.style.backgroundColor = '#313c44';
         noturnMode.style.opacity = '1';
@@ -154,11 +161,11 @@ export default () => {
       }
 
       if (targetDataset === 'light') {
-        const lightMode = sectionElement.querySelector('.light-mode1');
+        const lightMode = sectionElement.querySelector('.light-mode');
         // eslint-disable-next-line no-shadow
-        const lightModeBackground = sectionElement.querySelector('.noturn-mood1');
-        const textMode = sectionElement.querySelector('.span-mood1');
-        const noturnMode = sectionElement.querySelector('.dark-mode1');
+        const lightModeBackground = sectionElement.querySelector('.noturn-mood');
+        const textMode = sectionElement.querySelector('.span-mood');
+        const noturnMode = sectionElement.querySelector('.dark-mode');
         lightModeBackground.style.backgroundColor = '#313c44';
         noturnMode.style.backgroundColor = 'white';
         noturnMode.style.opacity = '1';
