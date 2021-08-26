@@ -24,7 +24,7 @@ export default () => {
    
       <header>
         <div class="logo-title">
-          <img class="favicon-home" src="img/favicon.png">
+          <img class="favicon-home" src="img/face.svg">
           <h1 class="header-home"></h1>
         </div>
      
