@@ -7,6 +7,7 @@ export default () => {
   sectionElement.setAttribute('class', 'form-page');
 
   const signInTemplate = `
+  <div class="container-logo-mobile2"><img class="logo-mobile2" src="./img/saideira-transparent.png"/></div>
   <div  class="form-container" id="form-sign-in">
     <h1 class="h1-login">Login</h1>
     <fieldset class="fieldset-sign-in fieldset">

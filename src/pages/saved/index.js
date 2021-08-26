@@ -14,7 +14,7 @@ export default () => {
     <header >
       <div class="logo-title">
         <img class="favicon-home" src="img/favicon.png">
-        <h1 class="header-home">Bons Drinks</h1>
+        <h1 class="Saideira"></h1>
       </div>
 
       <div class="dark-container-profile">
@@ -37,8 +37,7 @@ export default () => {
     
     </div>
     <div class="load">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        <div class="cup">
         </div>
         </div>
   `;

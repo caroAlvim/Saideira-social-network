@@ -25,7 +25,7 @@ export const showReviewArea = () => {
   formReview.style.display = 'flex';
   document.querySelector('.welcome').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'none';
-  document.querySelector('.make-review').style.background = 'linear-gradient(300.92deg, #5E97AF 6.15%, #6D9ACE 80.44%, #5694DC 100.96%)';
+  document.querySelector('.make-review').style.display = 'none';
   document.querySelector('.p-make-review').style.display = 'none';
 };
 
@@ -456,7 +456,7 @@ export const publishReview = (e) => {
 
   document.querySelector('.review-area').style.display = 'none';
   document.querySelector('.button-make-review').style.display = 'block';
-  document.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+  // document.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
   document.querySelector('.p-make-review').style.display = 'block';
 
   const formReview = document.querySelector('.review-area');

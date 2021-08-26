@@ -31,8 +31,8 @@ export default () => {
    
     <header>
     <div class="logo-title">
-      <img class="favicon-home" src="img/favicon.png">
-      <h1 class="header-home">Bons Drinks</h1>
+      <img class="favicon-home" src="img/saideira-transparent.svg">
+      <h1 class="header-home"></h1>
     </div>
       <div class="search-container">
         <input type="text" id="input-search" placeholder="Busque por bebida ou #tag">
@@ -65,7 +65,7 @@ export default () => {
       <input class="review-input" id="book-author" data-author-input type="text" placeholder="" required/>
       <label class="review-label1" for="book-edition">Anexe uma imagem</label>
       <div class="container-file-img1">
-            <img src="./img/imagebooks.png" class="file-img1">
+            <img src="./img/imageDrinks.png" class="file-img1">
           </div>
       <input type="file" class="file-input" id="input-profile-img" accept="image/*">
       <textarea class="post-input" id="text" cols="30" rows="5" data-post-input 
@@ -101,8 +101,7 @@ export default () => {
     
     </div>
     <div class="load">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        <div class="cup">
         </div>
         </div>
   </div>
@@ -322,7 +321,7 @@ export default () => {
     sectionElement.querySelector('.review-area').style.display = 'none';
     sectionElement.querySelector('.welcome').style.display = 'flex';
     sectionElement.querySelector('.button-make-review').style.display = 'block';
-    sectionElement.querySelector('.make-review').style.background = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
+    // sectionElement.querySelector('.make-review').style.display = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';
     sectionElement.querySelector('.p-make-review').style.display = 'block';
     window.history.pushState(null, null, '/home');
     const popStateEvent = new PopStateEvent('popstate', {

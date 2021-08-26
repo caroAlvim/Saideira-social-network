@@ -1,5 +1,9 @@
 @media (min-width:1400px) {
 
+    .container-logo-mobile2 {
+        display: none;
+    }
+
     :root {
         font-size: 12px
     }
@@ -10,9 +14,9 @@
     }
 
     .confirm-modal-edit {
-        top: 4%;
+        top: 2%;
         left: 19%;
-        height: 90vh;
+        height: 94vh;
     }
 
     .stars-edit {
@@ -23,16 +27,19 @@
         flex-direction: row;
     }
 
+    .post-input-edit {
+        height: 100px;
+    }
+
+    .confirm-buttons-edit {
+        padding: 0.5rem 1rem;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
-    .logo-container {
-        width: 40vw;
-    }
 
-    .confirm-buttons,
-    .confirm-buttons-comment {
-        margin: 0.5rem 6.5rem
+    .container-logo-mobile2 {
+        display: none;
     }
 
 }
@@ -53,21 +60,18 @@
     }
 
     .confirm-modal-edit {
-        top: 5%;
+        top: 2%;
         left: 20%;
     }
-    .dark-container-profile{
-        padding-left:15rem;
-       
-    }
 
-  
+    .dark-container-profile {
+        padding-left: 15rem;
+
+    }
 
 }
 
 @media (max-width: 1024px) {
-
-
 
     .form-page {
         width: 100vw;
@@ -105,7 +109,8 @@
     }
 
     #back-to-login-fp {
-        margin: 0rem 50vw 35rem 0rem;
+        top: 2rem;
+        left: 2rem;
         width: auto;
         height: 3rem;
     }
@@ -233,6 +238,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
         padding: 3rem;
     }
 
@@ -245,7 +251,7 @@
     }
 
     .confirm-modal-edit {
-        top: 10%;
+        top: 2%;
         width: 90vw;
         left: 5%;
     }
@@ -255,13 +261,12 @@
     }
 
     .align-btn {
-        flex-direction: column;
+        flex-direction: row;
     }
 
-    .dark-container-profile{
-        padding-left:0rem;
-        margin-right:0.5rem;
-       
+    .dark-container-profile {
+        padding-left: 0rem;
+        margin-right: 0.5rem;
     }
 
     .search-container{
@@ -273,7 +278,18 @@
 }
 
 @media (max-width: 1024px) and (min-width:496px) {
-
+     
+    .btn-sgin {
+        background-color: rgb(247, 243, 206);
+    }
+    
+    .gmail-btn {
+        background-color: rgb(247, 243, 206);
+    }
+    
+    .container-logo-mobile {
+        display: none;
+    }
 
     .mobile-menu {
         width: 100vw;
@@ -287,8 +303,14 @@
         margin: 0;
         padding: 0;
         background-color: rgba(0, 0, 0, 0.5);
+    }
 
+    img.logo-mobile {
+        visibility: hidden;
+    }
 
+    .form-container {
+        z-index: 1;
     }
 
     @keyframes sidebar {
@@ -315,12 +337,60 @@
         display: none;
     }
 
-
-
-
 }
 
 @media (max-width:768px) {
+
+    #form-container-forgot-password {
+        margin-top: 40vh;
+        height: 40vh;
+    }
+
+    .back-to-login {
+        height: 10em;
+        width: 10em;
+        font-size: 16px;
+    }
+
+    img.logo-mobile-signup {
+        width: 87vw;
+        height: 81vw;
+        margin-bottom: 62vw;
+        z-index: 1;
+    }
+
+    img.logo-mobile2 {
+        width: 84vw;
+        height: 76vw;
+        margin-bottom: 100vw;
+    }
+
+    img.logo-mobile-reset {
+        width: 84vw;
+        height: 76vw;
+        margin-bottom: 88vw;
+    }
+
+
+    #form-sign-in{
+        width: 80vw;
+        height: auto;
+        margin-top: 65vw;
+    }
+
+    #form-sign-up, #form-sign-in, #form-container-forgot-password {
+        background-color: #ffffa0;
+    }
+
+    #form-sign-up {
+        width: 80vw;
+        height: auto;
+        margin-top: 50vh;
+    }
+
+    .btn {
+        margin: 2rem 0;
+    }
 
     .align-btn {
         display: flex;
@@ -374,21 +444,95 @@
     }
 
     .confirm-modal-edit {
-        top: 6.5%;
         width: 90vw;
         left: 4%;
-        padding: 2rem;
     }
 
     .loading {
         left: 40%;
     }
 
+    .form-page,
+    #forgot-password {
+        background-image: none;
+    }
 
+    .form-page {
+        width: 100vw;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .form-container {
+        margin: 20rem 0rem 12rem 0rem;
+        position: absolute;
+        width: 60vw;
+        height: auto;
+        z-index: 1;
+    }
+
+    .form-cp {
+        width: 80%;
+    }
+
+    .form-fp {
+        width: 50vw;
+        height: auto;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    #form-create-profile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .fieldset-forgot-password,
+    .fieldset-create-profile {
+        width: 100%;
+    }
+
+    #logout-btn {
+        margin: 0rem 0rem 0rem 75vw;
+        position: unset;
+    }
+
+    .p-footer {
+        font-size: 1.1rem;
+    }
+
+    footer a {
+        font-size: 1.1rem;
+    }
+
+    .footer {
+        padding: 0.8rem 0rem 0rem 0rem;
+    }
+
+    .container-logo-mobile {
+        display: block;
+        margin: 0;
+        margin: 0rem 0rem 40rem 0rem;
+    }
+
+    .logo-mobile {
+        width: 78rem;
+    }
 }
 
 
 @media (max-width: 576px) {
+
+    .hero{
+        display: none;
+    }
 
     #sidebar {
         z-index: 200;
@@ -406,7 +550,6 @@
 
 
     }
-
 
     .mobile-menu {
         width: 100vw;
@@ -483,7 +626,7 @@
         left: 35%;
     }
 
- 
+
 
     .home-container,
     .profile-container {
@@ -491,14 +634,32 @@
         box-sizing: border-box;
     }
 
-    .dark-container-profile{
-        
-        margin-right:1rem;
-       
+    .dark-container-profile {
+
+        margin-right: 1rem;
+
     }
 
+    .form-container {
+        width: 80vw;
+        height: auto;
+    }
 
+    .fieldset {
+        width: 60vw;
+    }
 
+    .p-footer {
+        font-size: 1rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 0.6rem 0rem 0rem 0rem;
+    }
 }
 
 @media(max-width: 496px) {
@@ -506,13 +667,14 @@
         font-size: 8px;
     }
 
+    .hero{
+        display: none;
+    }
+
     .logo-container {
         margin-bottom: 4rem;
 
     }
-
-
-
 
     .sidebar-container {
         padding: 0 10rem;
@@ -554,7 +716,7 @@
     }
 
     .confirm-modal-edit {
-        top: 15%;
+        top: 7%;
         width: 90vw;
         left: 5%;
         padding: 2rem;
@@ -599,6 +761,10 @@
 
 @media(max-width: 340px) {
 
+    .hero{
+        display: none;
+    }
+
     .sidebar-user-img {
         width: 10rem;
         height: 10rem;
@@ -631,7 +797,7 @@
     }
 
     .confirm-modal-edit {
-        top: 15%;
+        top: 7%;
         width: 90vw;
         left: 5%;
         padding: 2rem;
@@ -646,18 +812,22 @@
     }
 
     .p-footer {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
     footer a {
-        font-size: 1.1rem;
+        font-size: 0.9em;
+    }
+
+    .footer {
+        padding: 0.6rem 0rem 0rem 0rem;
     }
 
     .loading {
         left: 27%;
     }
 
-   
+
 }
 
 
@@ -728,16 +898,16 @@
     }
 
     .p-footer {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     footer a {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     .footer {
         height: 2rem;
-        padding: 0.3rem 0rem 0rem 0rem;
+        padding: 0.5rem 0rem 0rem 0rem;
     }
 
     .loading {

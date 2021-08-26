@@ -15,8 +15,9 @@ export default () => {
   sectionElement.setAttribute('class', 'form-page');
 
   const createProfileTemplate = `
+  <div class="container-logo-mobile""><img class="logo-mobile" src="./img/logo-mobile.png"/></div>
+  <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
     <div  class="form-container container-center" id="form-create-profile">
-    <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
       <h1 class="h1-login">Editar perfil</h1>
       <fieldset class=" fieldset fieldset-create-profile">
         <form class="form-cp"  action="">
@@ -30,13 +31,11 @@ export default () => {
       </fieldset>
     </div>
     <div class="load1">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
-        </div>
+    <div class="cup1">
+    </div>
         </div>
         <div class="load">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        <div class="cup">
         </div>
         </div>
   </div>
