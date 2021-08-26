@@ -7,7 +7,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto;
     box-sizing: border-box;
     font-size: 10px;
     color: var(--text-color);
@@ -17,14 +17,12 @@
 body {
     width: 100vw;
     font-size: 1.6rem;
-    background-color: #f0f0f0;
+    background-color: white;
 }
 
 #root {
     width: 100vw;
 }
-
-
 
 #sign-up,
 #signin-page {
@@ -151,11 +149,11 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-
+    align-self: baseline;
+    margin: 1vh 4vh 3vh 5vh;
 }
 
 
@@ -551,23 +549,23 @@ a:hover {
     width: 20vw;
     min-height: 100vh;
     position: fixed;
-    top: 0;
     right: 0;
-    background: linear-gradient(359.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%);
     color: white;
     display: flex;
     justify-content: center;
-
 }
 
-.sidebar-container {
-    z-index: 2;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem;
 
+.sidebar-container {
+    width: 25%;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom right, #f1b54e, #FF9700, #FFD14B);
+    padding: 3rem;
 }
 
 .close-mobile-sidebar {
@@ -589,7 +587,7 @@ a:hover {
 
 .close-mobile-sidebar:hover {
     cursor: pointer;
-    background-color: #47b4a598;
+    background-color: #eeb354d7;
     transition: .3s ease-in;
 
 }
@@ -597,13 +595,14 @@ a:hover {
 .user-data {
     width: 100%;
     display: flex;
-    flex-direction: column;
-
+    flex-direction: row;
+    margin: 3.0rem;
 }
 
 .sidebar-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
 .user-name {
@@ -611,37 +610,43 @@ a:hover {
 }
 
 .sidebar-user-img {
-    width: 11rem;
-    height: 11rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 100%;
     object-fit: cover;
     border: double 0.3rem transparent;
-    background-image: linear-gradient(white, white),
-        linear-gradient(360deg, #5567b9 0%, #289acf 53.12%, #3adaf0 100%);
+    background-image: linear-gradient(white, white), linear-gradient(360deg, #f1a602e3 0%, #f19239dc 53.12%, #eecc83e3 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    align-self: center;
+    align-self: auto;
 }
 
-
-
 .user-information {
-    margin-top: 2.5rem;
+    margin: 2.5rem auto auto 1.5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
 
+
+
 .sidebar-user-name {
-    align-self: flex-start;
+    align-self: auto;
     margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+
+.gif-cheers {
+    width: 7vh;
+    height: 8.8vh;
+    margin-left: 1.8rem;
 }
 
 .sidebar-user {
     margin-bottom: 2.5rem;
-    color: rgb(200, 231, 255);
+    color: rgb(34, 6, 39);
 }
 
 .sidebar-profile {
@@ -665,26 +670,31 @@ a:hover {
     border-top: 1px white solid;
 }
 
-
 .sidebar-line {
     width: 100%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 0rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 0rem 1.5rem
 }
 
 #edit-profile-link {
-    color: rgb(200, 231, 255);
+    color: rgb(34, 6, 39);
     font-size: 1.4rem;
     text-align: center;
-    margin: 0.5rem 0rem 0rem 0rem;
 }
 
 #edit-profile-link:hover {
-    color: var(--default-blue);
+    color: #FFD14B;
     text-decoration: none;
-    transition: 0.7s
+    transition: 0.3s
+}
+
+.total-publications {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
 }
 
 .num {
@@ -707,18 +717,17 @@ a:hover {
 
 .sidebar-tools {
     width: 100%;
-    padding: 1.5rem 0;
-    border-top: solid 1px white;
+    padding: 2.8rem 0;
     display: flex;
     align-self: center;
     justify-content: left;
-
 }
+
 
 .sidebar-div-links {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     font-weight: normal;
@@ -727,11 +736,6 @@ a:hover {
 
 .sidebar-div-links img {
     margin-right: 10px
-}
-
-#sidebar-review:hover {
-    text-decoration: none;
-    transition: 0.7s
 }
 
 .save-sidebar {
@@ -745,19 +749,12 @@ a:hover {
 
 }
 
-
-
-
 .sidebar-btn {
     border: none;
     background: transparent;
     color: white;
     cursor: pointer
 }
-
-
-
-
 
 .sidebar-logout {
     font-size: 1.5rem;
@@ -775,7 +772,6 @@ a:hover {
 
 
 .home-content {
-    background-color: #f0f0f0;
     background-repeat: repeat;
     display: flex;
     justify-content: center;
@@ -911,7 +907,7 @@ header {
 .posts-reviews {
     margin: 2rem 0;
     padding: 2rem 1rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.39);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -989,9 +985,8 @@ header {
     height: 7rem;
     object-fit: cover;
     align-self: center;
-    border: 2px solid rgb(89, 136, 189);
+    border: 2px solid rgb(214, 117, 52);
     border-radius: 50%;
-
 }
 
 .name-profile-post {
@@ -1648,7 +1643,7 @@ ul {
 
 
 .load {
-    animation: fadeOut 2.5s;
+    animation: fadeOut 4s;
     animation-fill-mode: forwards;
     transition: 1s;
     width: 100vw;
@@ -1661,18 +1656,102 @@ ul {
     transform: scale(1);
 }
 
-.gif-load {
-    border: 0.2rem solid rgb(255, 255, 255);
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+.cup {
     position: absolute;
-    top: 35%;
-    left: 44%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 180px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(img/waves.png);
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: animate 4s linear;
+    animation-iteration-count: 1;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
+}
+
+.cup:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -68px;
+    top: 30px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 150px;
+    }
+
+    10% {
+        background-position: 0 150px;
+    }
+
+    100% {
+        background-position: 3000px -30px;
+    }
+
+}
+
+.cup1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 180px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(img/waves.png);
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: animate1 8s linear;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
+
+}
+
+.cup1:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -68px;
+    top: 30px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+@keyframes animate1 {
+    0% {
+        background-position: 0 150px;
+    }
+
+    10% {
+        background-position: 0 150px;
+    }
+
+    100% {
+        background-position: 3000px -30px;
+    }
+
+
 }
 
 .load1 {
-    animation: fadeOut infinite;
     transition: 1s;
     width: 100vw;
     height: 100vh;
@@ -1686,6 +1765,10 @@ ul {
 }
 
 @keyframes fadeOut {
+    60% {
+        opacity: 0.9;
+    }
+
     100% {
         opacity: 0;
         visibility: hidden;

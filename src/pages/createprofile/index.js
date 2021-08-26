@@ -31,13 +31,11 @@ export default () => {
       </fieldset>
     </div>
     <div class="load1">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
-        </div>
+    <div class="cup1">
+    </div>
         </div>
         <div class="load">
-        <div class="loading">
-        <img class ="gif-load" src="./img/gif-teste.gif"/>
+        <div class="cup">
         </div>
         </div>
   </div>

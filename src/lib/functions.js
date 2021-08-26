@@ -469,7 +469,7 @@ export const publishReview = (e) => {
   const hashs = document.querySelector('[data-hashtags]').value;
   printReview.classList.add('new-review');
   const hashtags = hashs.slice(1).split(' #');
-  console.log(hashtags)
+  //console.log(hashtags)
 
   window.scrollTo(0, 0);
 
