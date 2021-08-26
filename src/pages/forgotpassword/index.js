@@ -6,8 +6,9 @@ export default () => {
   sectionElement.setAttribute('id', 'forgot-password');
 
   const pageForgotPassword = `
+  <div class="container-logo-mobile""><img class="logo-mobile" src="./img/logo-mobile.png"/></div>
+  <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
    <div class="form-container" id="form-container-forgot-password">
-   <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
       <h1 class="h1">Esqueceu sua senha?</h1>
       <fieldset class="fieldset-forgot-password fieldset">
         <form class="form-fp"  action="">
