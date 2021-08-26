@@ -521,12 +521,12 @@ export const openReviewEdit = (reviewId) => {
                 <textarea class="review-input-edit" data-type-book
                   type="text" id="book-${reviewId}" required>${post.data().drink}</textarea>
                     <ul class="warning-error" data-book-error> </ul> 
-                      <label class="review-label" for="author-${reviewId}">Sua avaliação</label>
+                      <label class="review-label" for="author-${reviewId}">Título da avaliação</label>
                         <textarea class="review-input-edit" data-type-author 
                         type="text" id="author-${reviewId}" required>${post.data().title}</textarea>
                           <ul class="warning-error" data-author-error> </ul> 
                             <textarea class="post-input-edit" id="review" 
-                            cols="30" rows="5" data-review-edit required>${post.data().review}</textarea>
+                            cols="40" rows="10" data-review-edit required>${post.data().review}</textarea>
                           </div>
                           <label class="review-rating">Avalie</label>
                             <div class="stars-edit" >

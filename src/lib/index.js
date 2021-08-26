@@ -139,8 +139,7 @@ export const sendComment = (postID, value, date, hour) =>
 
 export const deleteComment = (postID, value, userId, userImg,
   userName, date, hour) => database.collection('reviews').doc(postID).update({
-    comments: firebase.firestore.FieldValue.arrayRemove(
-      {
+    comments: firebase.firestore.FieldValue.arrayRemove({
         value,
         userId,
         userImg,
