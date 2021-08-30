@@ -290,7 +290,6 @@ export default () => {
     window.history.pushState(null, null, '/home');
   });
 
-
   loadPosts(getProfileReviews(currentUser().uid));
 
   return sectionElement;

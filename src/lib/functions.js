@@ -119,10 +119,10 @@ export const loadPosts = (functionFirebase) => {
           const reviewSaves = doc.data().saves;
           const hashtags = doc.data().hashtags;
           let tags;
-          console.log(hashtags)
-          if (hashtags === undefined || hashtags[0]==='') {
-            tags=""
-          }else{
+          console.log(hashtags);
+          if (hashtags === undefined || hashtags[0] === '') {
+            tags = '';
+          } else {
             tags = `#${hashtags.join(' #')}`;
           }
 

@@ -155,7 +155,7 @@ export default () => {
       loadPosts(searchHashtagReviews(hash));
     } else {
       const termsArray = hashtag.toLowerCase().split(' ');
-      console.log(termsArray)
+      // console.log(termsArray);
       containerSearch.innerHTML = `
       <div class="quit"><img class="quit-img" src="./img/seta.png"> </div>
       <span class="result-text"> Resultados para ${hashtag}</span>`;
@@ -368,7 +368,7 @@ export default () => {
     e.preventDefault();
     searchNavbar.style.display = 'flex';
     searchBtnNav.addEventListener('click', () => {
-      searchNavbar.style.display="none"
+      searchNavbar.style.display = 'none';
       const containerSearch = document.querySelector('.search-result');
       const hashtag = searchInput.value;
       if (hashtag.charAt(0) === '#') {
