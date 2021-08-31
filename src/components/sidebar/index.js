@@ -1,6 +1,6 @@
 import {
   currentUser,
-  getProfileReviews,
+  // getProfileReviews,
   logout,
 } from '../../lib/index.js';
 
@@ -34,7 +34,7 @@ export const sidebar = () => {
     userName2 = '';
   }
 
-    const sidebarTemplate = `
+  const sidebarTemplate = `
     <div class="sidebar-container">
     <button class="close-mobile-sidebar" id="close-mobile-sidebar">x</button>
     <section class="sidebar-tools sidebar-logout" id="sidebar-logout">
@@ -48,11 +48,7 @@ export const sidebar = () => {
 
     <section class="sidebar-profile">
       <div class="sidebar-line review-line">
-        <div class="total-publications">
-          <p class="sidebar-text display-links-sidebar">Publicações</p>
-          <div class="num">
-            <p class="num-text" id="num-reviews"></p>
-          </div>
+        
         </div>
         <section class="sidebar-tools sidebar-add-review">
           <button href="" class="sidebar-btn sidebar-btn-mobile" id="add-review-sidebar">
@@ -80,12 +76,15 @@ export const sidebar = () => {
         </section>
 
         <section class="user-data">
-          <img src="${profileImg}" class="sidebar-user-img" />
-          <div class="user-information">
-            <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
-            <p class="sidebar-user sidebar-text">${userName2}</p>
-          </div>
-          <a href="" class="sidebar-link" id="edit-profile-link">Editar</a>
+          <button href="" id="edit-profile-link" class="sidebar-link"> 
+            <div class="user-information">
+              <img src="${profileImg}" class="sidebar-user-img" />
+              <div class="names-user">
+                <h3 class="sidebar-user-name sidebar-text user-name">${userName}</h3>
+                <p class="sidebar-user sidebar-text">${userName2}</p>
+              </div>
+            </div>
+          </button>  
         </section>
         
       </div>
@@ -93,11 +92,11 @@ export const sidebar = () => {
   </div>
   `;
 
-  getProfileReviews(currentUser().uid)
-    .then((snap) => {
-      const size = snap.size;
-      asideElement.querySelector('#num-reviews').innerText = size;
-    });
+  // getProfileReviews(currentUser().uid)
+  //   .then((snap) => {
+  //     const size = snap.size;
+  //     asideElement.querySelector('#num-reviews').innerText = size;
+  //   });
   // .catch((error) => {
   //   console.log('Error getting documents: ', error);
   // });
