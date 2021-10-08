@@ -318,7 +318,7 @@ export default () => {
 
   const cancelReview = sectionElement.querySelector('[data-cancel-btn]');
   cancelReview.addEventListener('click', () => {
-    sectionElement.querySelector('.review-area').style.display = 'none';
+    // sectionElement.querySelector('.review-area').style.display = 'none';
     sectionElement.querySelector('.welcome').style.display = 'flex';
     sectionElement.querySelector('.button-make-review').style.display = 'block';
     // sectionElement.querySelector('.make-review').style.display = 'linear-gradient(600.92deg, #5E97AF 6.15%, #6D9ACE 52.44%, #5694DC 77.96%, #4C64A4 95.61%)';

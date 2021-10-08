@@ -14,8 +14,7 @@ export default () => {
   sectionElement.setAttribute('id', 'create-profile');
   sectionElement.setAttribute('class', 'form-page');
 
-  const createProfileTemplate = `
-  <div class="container-logo-mobile""><img class="logo-mobile" src="./img/logo-mobile.png"/></div>
+  const createProfileTemplate = `  
   <button class=" back-to-login" id="back-to-login-fp">← Voltar</button>
     <div  class="form-container container-center" id="form-create-profile">
       <h1 class="h1-login">Editar perfil</h1>

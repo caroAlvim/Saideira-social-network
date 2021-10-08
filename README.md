@@ -1,5 +1,8 @@
 # Saideira - A Rede Social para amantes de bons drinks
 
+“Saideira” é uma rede social que busca conectar amigos através dos Bons Drinks. Nossa rede tem como publico alvo maiores de 18 anos e amantes de cervejas, vinhos e drinks em geral. 
+
+---
 ## Índice
 
 - [1. Introdução](#1-introdução)
@@ -87,8 +90,12 @@ Outro tópico relevante necessário ao desenvolvimento do projeto foi a utiliza�
 
 ## 5. Desenvolvedoras
 
+:woman_technologist: [Bruna Calixto](https://github.com/bruna-devbio)
+
 :woman_technologist: [Carolina Alvim](https://github.com/caroAlvim)
 
 :woman_technologist: [Larissa Siqueira](https://github.com/LarissaSiq)
+
+:woman_technologist: [Leticia Aniceto](https://github.com/leticia-aniceto)
 
 :woman_technologist: [Karen Freitas](https://github.com/karen-freitas)
