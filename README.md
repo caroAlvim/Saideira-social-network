@@ -1,4 +1,4 @@
-# Saideira - A Rede Social para amantes de bons drinks
+# Saideira - A Rede Social para amantes dos bons drinks
 
 “Saideira” é uma rede social que busca conectar amigos através dos Bons Drinks. Nossa rede tem como publico alvo maiores de 18 anos e amantes de cervejas, vinhos e drinks em geral. 
 <div align='center'>
@@ -39,11 +39,11 @@ logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
 
 ## 2. Histórias de Usuário
 
-O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura e que gostariam de compartilhar experiências, opiniões e dicas sobre o tema. Para atender às necessidades desse público, foram priorizadas três histórias de usuários, expostas a seguir juntamente com seus critérios de aceitação. Além dos critérios listados, todas as histórias deveriam ser Single Page Applications (SPA) e responsivas.
+Saideira é uma rede social direcionada a pessoas maiores de 18 anos e que gostariam de compartilhar experiências, opiniões e dicas sobre vinhos, cervejas e drink. Para atender às necessidades desse público, foram priorizadas três histórias de usuários, expostas a seguir juntamente com seus critérios de aceitação. Além dos critérios listados, todas as histórias deveriam ser Single Page Applications (SPA) e responsivas.
 
 ### História de Usuário 1 
 
-:pushpin: *Como leitor, gostaria de me cadastrar em uma rede social direcionada aos amantes de literatura, para que possa ter acesso à conteúdos específicos do tema e descobrir novos livros.*
+:pushpin: *Como apreciador de bebidas variadas, gostaria de me cadastrar em uma rede social direcionada a esse tema, para que possa ter acesso à conteúdos específicos, como receitas de drinks e recomendações de novas bebidas.*
 
 **Critérios de aceitação**
 
@@ -55,7 +55,7 @@ O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura
 
 ### História de Usuário 2
 
-:pushpin: *Como usuário de uma rede social para leitores, quero avaliar os livros que li com estrelas e pequenas resenhas para compartilhar com outros usuários da rede.*
+:pushpin: *Como usuário de uma rede social para trocas de experiencias, quero avaliar as bebidas que consumi com estrelas e pequenas resenhas para compartilhar com outros usuários da rede.*
 
 **Critérios de Aceitação**
 
@@ -69,7 +69,7 @@ O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura
 
 ### História de Usuário 3
 
-:pushpin: *Como usuário de uma rede social para leitores, gostaria de interagir nas publicações e resenhas de outros usuários, para desenvolver novos entendimentos sobre os livros e expor minhas opiniões.*
+:pushpin: *Como usuário de uma rede social para bebidas, gostaria de interagir nas publicações e resenhas de outros usuários, para desenvolver novos entendimentos sobre bebidas em geral e expor minhas opiniões.*
 
 **Critérios de aceitação**
 
@@ -77,12 +77,11 @@ O Bookish é uma rede social direcionada a pessoas que têm o hábito da leitura
 - [x]  Visualizar contagem de *likes*.
 - [x]  Postar e comentários nas publicações .
 - [x]  Excluir os próprios comentários.
+- [x]  Pesquisar posts.
 
 
 
 ## 3. Interface
-
-### Protótipos
 
 ### Layout Final
 
