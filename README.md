@@ -33,8 +33,6 @@ determinadas tags ou popularidade, mais recente ou mais comentado.
 Nesse projeto, foi solicitada a criação de uma rede social que permitisse à qualquer usuário criar uma conta de acesso,
 logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
 
-### Tema
-
 
 
 ## 2. Histórias de Usuário
