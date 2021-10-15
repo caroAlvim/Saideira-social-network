@@ -1,6 +1,11 @@
 # Saideira - A Rede Social para amantes de bons drinks
 
 “Saideira” é uma rede social que busca conectar amigos através dos Bons Drinks. Nossa rede tem como publico alvo maiores de 18 anos e amantes de cervejas, vinhos e drinks em geral. 
+<div align='center'>
+  
+  <img width="500" alt="saideira-logo" src="./src/img/saideira-transparent.png"> 
+
+</div>
 
 ---
 ## Índice
