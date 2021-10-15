@@ -83,6 +83,11 @@ Saideira é uma rede social direcionada a pessoas maiores de 18 anos e que gosta
 
 ### Layout Final
 
+![login](./src/img/login.png)
+![homepage](./src/img/homepage.png)
+![profile](./src/img/profile.png)
+![save](./src/img/save-items.png)
+![posting](./src/img/posting.png)
 
 ## 4. Objetivos de Aprendizagem
 
